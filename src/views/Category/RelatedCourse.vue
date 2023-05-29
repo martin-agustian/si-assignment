@@ -1,10 +1,10 @@
 <template>
     <div class="section padding-default">
-        <div class="box-bg-bottom bg-blue-gradient"></div>
+        <div class="box-bg-bottom bg-red-gradient"></div>
         <div class="container">
             <div class="box-section-page">
                 <div class="left-section-page w-100">
-                    <h3> Rekomendasi Kursus dengan bahan baku yang terkait </h3>
+                    <h3> Rekomendasi masakan dengan bahan baku yang terkait </h3>
                 </div>
                 <!--
                 <div class="right-section-page">
@@ -14,7 +14,7 @@
                 </div>
                 -->
                 <div class="clearer"></div>
-                <div class="sub-section-page"> Ikuti kursusnya dan temukan pengetahuan unik dalam berkreasi  </div>
+                <div class="sub-section-page"> Lihat dan temukan pengetahuan unik dalam berkreasi  </div>
             </div>
             <div class="box-courses">
                 <Carousel :wrap-around="true" :breakpoints="breakpointsCourses">
@@ -27,16 +27,14 @@
                                 <div class="content-courses">
                                     <small>Pastry</small>
                                     <h5>
-                                        Mengolah Berbagai Variasi Bronis Untuk Menjadi Pembuat Kue
+                                        Membuat brownies coklat lumer homemade yang sedang viral
                                     </h5>
-                                    <div class="info-courses">
+                                    <!-- <div class="info-courses">
                                         <div class="left-info-courses">
                                             <i class="fas fa-star"></i> 4.8 | 800 Ulasan
                                         </div>
                                         <div class="right-info-courses">
                                             <span> Rp 300.000 </span>
-                                            <!-- Discount -->
-                                            <!--
                                             <div class="disc-info-courses">
                                                 <div class="disc-price-info-price">
                                                     50%
@@ -45,9 +43,8 @@
                                                     Rp 600.000
                                                 </del>
                                             </div>
-                                            -->
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </router-link>
                         </div>
@@ -57,25 +54,25 @@
                             <router-link to="#">
                                 <div class="img-courses">
                                     <img src="@/assets/images/img-course-2.jpg">
-                                    <div class="label-courses">
+                                    <!-- <div class="label-courses">
                                         <div class="list-label-course bg-red-opacity-alt">
                                             Prakerja
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="content-courses">
                                     <small>Masakan Modern</small>
                                     <h5>
-                                        Mengelola Dapur dan Membuat Hidangan ala Negara Barat 
+                                        Membuat ayam bakar madu ala KFC dirumah
                                     </h5>
-                                    <div class="info-courses">
+                                    <!-- <div class="info-courses">
                                         <div class="left-info-courses">
                                             <i class="fas fa-star"></i> 4.8 | 800 Ulasan
                                         </div>
                                         <div class="right-info-courses">
                                             <span> Rp 300.000 </span>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </router-link>
                         </div>
@@ -89,16 +86,16 @@
                                 <div class="content-courses">
                                     <small>Pastry</small>
                                     <h5>
-                                        Belajar Untuk Mengolah Adonan Kue Bagi Pembuat Kue
+                                        Membuat kue cubit, jajanan khas anak muda
                                     </h5>
-                                    <div class="info-courses">
+                                    <!-- <div class="info-courses">
                                         <div class="left-info-courses">
                                             <i class="fas fa-star"></i> 4.8 | 800 Ulasan
                                         </div>
                                         <div class="right-info-courses">
                                             <span> Rp 300.000 </span>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </router-link>
                         </div>
@@ -108,25 +105,25 @@
                             <router-link to="#">
                                 <div class="img-courses">
                                     <img src="@/assets/images/img-course-1.jpg">
-                                    <div class="label-courses">
+                                    <!-- <div class="label-courses">
                                         <div class="list-label-course bg-red-opacity-alt">
                                             Prakerja
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="content-courses">
                                     <small>Masakan Modern</small>
                                     <h5>
-                                        Mengelola Dapur dan Membuat Hidangan ala Negara Barat 
+                                        Membuat ayam bakar madu ala KFC dirumah
                                     </h5>
-                                    <div class="info-courses">
+                                    <!-- <div class="info-courses">
                                         <div class="left-info-courses">
                                             <i class="fas fa-star"></i> 4.8 | 800 Ulasan
                                         </div>
                                         <div class="right-info-courses">
                                             <span> Rp 300.000 </span>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </router-link>
                         </div>
@@ -140,16 +137,16 @@
                                 <div class="content-courses">
                                     <small>Masakan Modern</small>
                                     <h5>
-                                        Mengelola Dapur dan Membuat Hidangan ala Negara Barat 
+                                        Membuat ayam bakar madu ala KFC dirumah
                                     </h5>
-                                    <div class="info-courses">
+                                    <!-- <div class="info-courses">
                                         <div class="left-info-courses">
                                             <i class="fas fa-star"></i> 4.8 | 800 Ulasan
                                         </div>
                                         <div class="right-info-courses">
                                             <span> Rp 300.000 </span>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </router-link>
                         </div>
@@ -159,25 +156,25 @@
                             <router-link to="#">
                                 <div class="img-courses">
                                     <img src="@/assets/images/img-course-3.jpg">
-                                    <div class="label-courses">
+                                    <!-- <div class="label-courses">
                                         <div class="list-label-course bg-red-opacity-alt">
                                             Prakerja
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="content-courses">
                                     <small>Masakan Modern</small>
                                     <h5>
-                                        Mengelola Dapur dan Membuat Hidangan ala Negara Barat 
+                                        Membuat ayam bakar madu ala KFC dirumah
                                     </h5>
-                                    <div class="info-courses">
+                                    <!-- <div class="info-courses">
                                         <div class="left-info-courses">
                                             <i class="fas fa-star"></i> 4.8 | 800 Ulasan
                                         </div>
                                         <div class="right-info-courses">
                                             <span> Rp 300.000 </span>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </router-link>
                         </div>

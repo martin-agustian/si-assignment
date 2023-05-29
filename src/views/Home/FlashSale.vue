@@ -1,7 +1,7 @@
 <template>
     
     <div class="section pb-40 mb-40">
-        <div class="box-bg-bottom bg-blue-gradient"></div>
+        <div class="box-bg-bottom bg-red-gradient"></div>
         <div class="container">
             <div class="box-section-page">
                 <div class="left-section-page">

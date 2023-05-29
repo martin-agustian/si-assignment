@@ -503,28 +503,6 @@
 														<div class="clearer"></div>
 													</div>
 												</router-link>
-												<router-link to="#">
-													<div class="list-info-cart">
-														<div class="cover-info-cart">
-															<div class="img-info-cart">
-																<img src="@/assets/images/img-course-1.jpg" alt="">
-															</div>
-														</div>
-														<div class="content-info-cart">
-															<div class="left-content-info-cart">
-																<h5>
-																	Mengolah Berbagai Variasi Bronis Untuk Menjadi Pembuat Kue 
-																</h5>
-																<small>1 Kursus</small>
-															</div>
-															<div class="right-content-info-cart">
-																Rp 300.000
-															</div>
-														</div>
-														<div class="clearer"></div>
-													</div>
-												</router-link>
-												
 											</div>
 
 											<!-- Jika Keranjang kosong -->
@@ -575,33 +553,33 @@
 									</div>
 									<i class="fas fa-chevron-down"></i>
 									<div class="box-member-dropdown display-desktop">
-										<router-link to="/my-account">
+										<router-link to="#">
 											<i class="bi bi-person"></i> Profil Saya
 										</router-link>
-										<router-link to="#">
+										<!-- <router-link to="#">
 											<i class="bi bi-bounding-box-circles"></i> Komunitas Saya
-										</router-link>
-										<router-link to="/my-courses">
+										</router-link> -->
+										<!-- <router-link to="/my-courses">
 											<i class="bi bi-play-circle"></i> Kursus Saya
-										</router-link>
-										<router-link to="/orders">
+										</router-link> -->
+										<router-link to="#">
 											<i class="bi bi-clock-history"></i> History Pembelian
 										</router-link>
-										<router-link to="/my-events">
+										<!-- <router-link to="/my-events">
 											<i class="bi bi-ticket"></i> Event Saya
-										</router-link>
-										<router-link to="/promo-code">
+										</router-link> -->
+										<router-link to="#">
 											<i class="bi bi-gift"></i> Kode Promo
 										</router-link>
-										<router-link to="/wishlist">
+										<router-link to="#">
 											<i class="bi bi-heart"></i> Wishlist
 										</router-link>
-										<router-link to="/review">
+										<router-link to="#">
 											<i class="bi bi-star"></i> Ulasan
 										</router-link>
-										<router-link to="/register-b2b">
+										<!-- <router-link to="/register-b2b">
 											<i class="bi bi-door-open"></i> Mendaftar Ke B2B
-										</router-link>
+										</router-link> -->
 										<hr />
 										<router-link to="/">
 											<i class="bi bi-box-arrow-left"></i> Keluar
@@ -784,13 +762,13 @@
 			</div>
 			<div class="box-member-dropdown display-mobile">
 				<small>Manage</small>
-				<router-link to="/my-account" class="actCloseMenuMember">
+				<router-link to="#" class="actCloseMenuMember">
 					<i class="bi bi-person"></i> Profil Saya
 					<span>
 						Biodata diri, Daftar Alamat & Kata Sandi
 					</span>
 				</router-link>
-				<router-link to="#" class="actCloseMenuMember">
+				<!-- <router-link to="#" class="actCloseMenuMember">
 					<i class="bi bi-bounding-box-circles"></i> Komunitas Saya
 					<span>
 						Review & Forum Diskusi
@@ -801,43 +779,43 @@
 					<span>
 						Cek progress kursus & Sertifikat
 					</span>
-				</router-link>
-				<router-link to="/orders" class="actCloseMenuMember">
+				</router-link> -->
+				<router-link to="#" class="actCloseMenuMember">
 					<i class="bi bi-clock-history"></i> History Pembelian
 					<span>
 						Cek pembelian terakhir Kamu
 					</span>
 				</router-link>
-				<router-link to="/my-events" class="actCloseMenuMember">
+				<!-- <router-link to="/my-events" class="actCloseMenuMember">
 					<i class="bi bi-ticket"></i> Event Saya
 					<span>
 						Cek tiket event Kamu
 					</span>
-				</router-link>
-				<router-link to="/promo-code" class="actCloseMenuMember">
+				</router-link> -->
+				<router-link to="#" class="actCloseMenuMember">
 					<i class="bi bi-gift"></i> Kode Promo
 					<span>
 						Gunakan kode promo agar lebih hemat
 					</span>
 				</router-link>
-				<router-link to="/wishlist" class="actCloseMenuMember">
+				<router-link to="#" class="actCloseMenuMember">
 					<i class="bi bi-heart"></i> Wishlist
 					<span>
-						Kursus / Barang favorit 
+						Produk favorit 
 					</span>
 				</router-link>
-				<router-link to="/review" class="actCloseMenuMember">
+				<router-link to="#" class="actCloseMenuMember">
 					<i class="bi bi-star"></i> Ulasan
 					<span>
 						Buat ulasan pembelian
 					</span>
 				</router-link>
-				<router-link to="/register-b2b" class="actCloseMenuMember">
+				<!-- <router-link to="/register-b2b" class="actCloseMenuMember">
 					<i class="bi bi-door-open"></i> Mendaftar Ke B2B
 					<span>
 						Dapatkan harga lebih murah
 					</span>
-				</router-link>
+				</router-link> -->
 
 				<router-link to="/" class="actCloseMenuMember">
 					<i class="bi bi-box-arrow-left"></i> Keluar

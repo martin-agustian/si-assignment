@@ -63,7 +63,7 @@ export default defineComponent({
     data: () => ({
         breakpointsBanner: {
             0: {
-                itemsToShow: 1.2,
+                itemsToShow: 1,
                 snapAlign: 'center',
             },
             768: {

@@ -848,7 +848,7 @@
 				</small>
 			</div>
 			<div v-show="viewSubLocation">
-				<div class="text-center clr-blue">Jadetabek</div>
+				<div class="text-center clr-red">Jadetabek</div>
 				<small>
 					Silahkan pilih detail area pengiriman
 				</small>

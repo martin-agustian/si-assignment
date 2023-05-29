@@ -148,7 +148,7 @@
                             </div>
                             <div class="desc-prod">
                                 {{ formattedBody }}
-                                <div class="clr-blue cursor-pointer fs-12 mt-1" @click="showingFullText = !showingFullText">
+                                <div class="clr-red cursor-pointer fs-12 mt-1" @click="showingFullText = !showingFullText">
                                     <b>{{ showingFullText ? "Lihat lebih sedikit" : "Lihat selengkapnya" }}</b>
                                 </div>
                             </div>
@@ -301,7 +301,7 @@
                             </div>
                             <div class="list-info-review">
                                 <div class="left-info-review">
-                                    <div class="avatar-info-review bg-blue">
+                                    <div class="avatar-info-review bg-blue-dark-alt">
                                         JD
                                     </div>
                                 </div>
@@ -387,7 +387,7 @@
                             </div>
                             <div class="list-info-review">
                                 <div class="left-info-review">
-                                    <div class="avatar-info-review bg-blue">
+                                    <div class="avatar-info-review bg-blue-dark-alt">
                                         JD
                                     </div>
                                 </div>

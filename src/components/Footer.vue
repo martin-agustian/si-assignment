@@ -272,7 +272,6 @@
                 </div>
                 <div class="box-copyright">
                     © 2022 - 2023 Super Indo. All Rights Reserved <br />
-                    PT. Dunia Boga Indonesia
                 </div>
             </div>
         </div>

@@ -86,6 +86,9 @@ h1, h2, h3, h4, h5, h6 {
 .bg-blue-dark{
     background-color: #007BA1 !important;
 }
+.bg-blue-dark-alt {
+    background-color: rgb(38, 20, 109) !important;
+}
 .bg-blue-opacity{
     background-color: rgba(0, 170, 210, .16) !important;
 }
@@ -1059,7 +1062,8 @@ header{
     padding: 5px 15px;
 }
 .dropdown-mega-menu .list-dropdown-mega-menu a:hover{
-    color: #00AAD2;
+    /* color: #00AAD2; */
+    color: rgba(231, 76, 60);
 }
 .box-all-mega-menu{
     width: 510px;
@@ -1095,7 +1099,8 @@ header{
     color: #555555;
 }
 .box-column-menu .list-column-menu a:hover{
-    color: #00AAD2;
+    /* color: #00AAD2; */
+    color: rgba(231, 76, 60);
 }
 
 .box-search{
@@ -2645,7 +2650,8 @@ ul.list-menu-footer li a{
 }
 ul.list-menu-footer li a:hover{
     margin-top: 10px;
-    color: #00AAD2;
+    /* color: #00AAD2; */
+    color: rgba(231, 76, 60);
 }
 .box-sosmed{
     width: auto;
@@ -2668,7 +2674,8 @@ ul.list-menu-footer li a:hover{
     color: #fff;
 }
 .box-sosmed .list-sosmed:hover{
-    background-color: #00AAD2;
+    /* background-color: #00AAD2; */
+    background-color: rgba(231, 76, 60);
 }
 .box-app{
     width: auto;
@@ -6215,7 +6222,8 @@ ul.box-filter-menu li ul li a:hover{
     color: #000;
 }
 .active-filter-menu{
-    color: #00AAD2 !important;
+    /* color: #00AAD2 !important; */
+    color: rgba(231, 76, 60) !important;
     /*
     background-color: rgba(0,170,210,0.16);
     */
@@ -6711,7 +6719,8 @@ ul.info-head-courses li span{
     height: 100%;
     -o-object-fit: cover;
     object-fit: cover;
-    border: 3px solid rgba(0, 170, 210, .54);
+    /* border: 3px solid rgba(0, 170, 210, .54); */
+    border: 3px solid rgb(38, 20, 109);
     border-radius: 100%;
 }
 .box-info-review .list-info-review .right-info-review{
@@ -7442,7 +7451,8 @@ ul.nav-bio-page li a:hover {
 }
 .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link{
     background-color: transparent;
-    border:2px solid #00aad2;
+    /* border: 2px solid #00aad2; */
+    border: 2px solid rgb(38, 20, 109);
     border-radius: 10px;
 }
 .box-content-prod{

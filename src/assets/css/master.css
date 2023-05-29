@@ -2615,6 +2615,7 @@ ul.box-nav-right li:hover .nav-right-dropdown{
     margin-bottom: 25px;
 }
 .menu-footer img{
+    width: 110px;
     margin-bottom: 5px;
 }
 ul.list-menu-footer{
@@ -8314,7 +8315,8 @@ ul.nav-bio-page li a:hover {
 
     /* =========================== Footer =========================== */
     .menu-footer img{
-        width: 150px;
+        /* width: 150px; */
+        width: 100px;
     }
 
     /* ============================== Side Menu Mobile ----------------------------- */
@@ -9183,7 +9185,8 @@ ul.nav-bio-page li a:hover {
         margin-bottom: 15px;
     }
     .menu-footer img{
-        width: 140px;
+        /* width: 140px; */
+        width: 90px;
     }
 
     /* =========================== Blank Data =========================== */
@@ -9711,7 +9714,8 @@ ul.nav-bio-page li a:hover {
     }
 
     .menu-footer img{
-        width: 120px;
+        /* width: 120px; */
+        width: 80px;
     }
 
     /* =========================== Breadcrumb =========================== */

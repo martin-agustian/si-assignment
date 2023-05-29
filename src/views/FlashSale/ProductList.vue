@@ -54,7 +54,7 @@
                 </div>
                 <div class="content-store-alt">
                     <h5>
-                        Pewarna Kue Merah Tua 30 Koepoe Spesial
+                        Jeruk Pontianak 1 Kg Spesial
                     </h5>
                     <div class="price-store-alt">
                         <span>Rp 300.000</span>
@@ -91,7 +91,7 @@
                 </div>
                 <div class="content-store-alt">
                     <h5>
-                        Pewarna Kue Merah Tua 30 Koepoe Spesial
+                        Jeruk Pontianak 1 Kg Spesial
                     </h5>
                     <div class="price-store-alt">
                         <span>Rp 300.000</span>
@@ -128,7 +128,7 @@
                 </div>
                 <div class="content-store-alt">
                     <h5>
-                        Pewarna Kue Merah Tua 30 Koepoe Spesial
+                        Jeruk Pontianak 1 Kg Spesial
                     </h5>
                     <div class="price-store-alt">
                         <span>Rp 300.000</span>
@@ -165,7 +165,7 @@
                 </div>
                 <div class="content-store-alt">
                     <h5>
-                        Pewarna Kue Merah Tua 30 Koepoe Spesial
+                        Jeruk Pontianak 1 Kg Spesial
                     </h5>
                     <div class="price-store-alt">
                         <span>Rp 300.000</span>
@@ -202,7 +202,7 @@
                 </div>
                 <div class="content-store-alt">
                     <h5>
-                        Pewarna Kue Merah Tua 30 Koepoe Spesial
+                        Jeruk Pontianak 1 Kg Spesial
                     </h5>
                     <div class="price-store-alt">
                         <span>Rp 300.000</span>
@@ -239,7 +239,7 @@
                 </div>
                 <div class="content-store-alt">
                     <h5>
-                        Pewarna Kue Merah Tua 30 Koepoe Spesial
+                        Jeruk Pontianak 1 Kg Spesial
                     </h5>
                     <div class="price-store-alt">
                         <span>Rp 300.000</span>
@@ -276,7 +276,7 @@
                 </div>
                 <div class="content-store-alt">
                     <h5>
-                        Pewarna Kue Merah Tua 30 Koepoe Spesial
+                        Jeruk Pontianak 1 Kg Spesial
                     </h5>
                     <div class="price-store-alt">
                         <span>Rp 300.000</span>
@@ -313,7 +313,7 @@
                 </div>
                 <div class="content-store-alt">
                     <h5>
-                        Pewarna Kue Merah Tua 30 Koepoe Spesial
+                        Jeruk Pontianak 1 Kg Spesial
                     </h5>
                     <div class="price-store-alt">
                         <span>Rp 300.000</span>
@@ -350,7 +350,7 @@
                 </div>
                 <div class="content-store-alt">
                     <h5>
-                        Pewarna Kue Merah Tua 30 Koepoe Spesial
+                        Jeruk Pontianak 1 Kg Spesial
                     </h5>
                     <div class="price-store-alt">
                         <span>Rp 300.000</span>
@@ -387,7 +387,7 @@
                 </div>
                 <div class="content-store-alt">
                     <h5>
-                        Pewarna Kue Merah Tua 30 Koepoe Spesial
+                        Jeruk Pontianak 1 Kg Spesial
                     </h5>
                     <div class="price-store-alt">
                         <span>Rp 300.000</span>
@@ -424,7 +424,7 @@
                 </div>
                 <div class="content-store-alt">
                     <h5>
-                        Pewarna Kue Merah Tua 30 Koepoe Spesial
+                        Jeruk Pontianak 1 Kg Spesial
                     </h5>
                     <div class="price-store-alt">
                         <span>Rp 300.000</span>
@@ -461,7 +461,7 @@
                 </div>
                 <div class="content-store-alt">
                     <h5>
-                        Pewarna Kue Merah Tua 30 Koepoe Spesial
+                        Jeruk Pontianak 1 Kg Spesial
                     </h5>
                     <div class="price-store-alt">
                         <span>Rp 300.000</span>
@@ -498,7 +498,7 @@
                 </div>
                 <div class="content-store-alt">
                     <h5>
-                        Pewarna Kue Merah Tua 30 Koepoe Spesial
+                        Jeruk Pontianak 1 Kg Spesial
                     </h5>
                     <div class="price-store-alt">
                         <span>Rp 300.000</span>
@@ -535,7 +535,7 @@
                 </div>
                 <div class="content-store-alt">
                     <h5>
-                        Pewarna Kue Merah Tua 30 Koepoe Spesial
+                        Jeruk Pontianak 1 Kg Spesial
                     </h5>
                     <div class="price-store-alt">
                         <span>Rp 300.000</span>
@@ -572,7 +572,7 @@
                 </div>
                 <div class="content-store-alt">
                     <h5>
-                        Pewarna Kue Merah Tua 30 Koepoe Spesial
+                        Jeruk Pontianak 1 Kg Spesial
                     </h5>
                     <div class="price-store-alt">
                         <span>Rp 300.000</span>
@@ -609,7 +609,7 @@
                 </div>
                 <div class="content-store-alt">
                     <h5>
-                        Pewarna Kue Merah Tua 30 Koepoe Spesial
+                        Jeruk Pontianak 1 Kg Spesial
                     </h5>
                     <div class="price-store-alt">
                         <span>Rp 300.000</span>
@@ -646,7 +646,7 @@
                 </div>
                 <div class="content-store-alt">
                     <h5>
-                        Pewarna Kue Merah Tua 30 Koepoe Spesial
+                        Jeruk Pontianak 1 Kg Spesial
                     </h5>
                     <div class="price-store-alt">
                         <span>Rp 300.000</span>
@@ -683,7 +683,7 @@
                 </div>
                 <div class="content-store-alt">
                     <h5>
-                        Pewarna Kue Merah Tua 30 Koepoe Spesial
+                        Jeruk Pontianak 1 Kg Spesial
                     </h5>
                     <div class="price-store-alt">
                         <span>Rp 300.000</span>
@@ -720,7 +720,7 @@
                 </div>
                 <div class="content-store-alt">
                     <h5>
-                        Pewarna Kue Merah Tua 30 Koepoe Spesial
+                        Jeruk Pontianak 1 Kg Spesial
                     </h5>
                     <div class="price-store-alt">
                         <span>Rp 300.000</span>
@@ -757,7 +757,7 @@
                 </div>
                 <div class="content-store-alt">
                     <h5>
-                        Pewarna Kue Merah Tua 30 Koepoe Spesial
+                        Jeruk Pontianak 1 Kg Spesial
                     </h5>
                     <div class="price-store-alt">
                         <span>Rp 300.000</span>

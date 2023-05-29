@@ -30,7 +30,7 @@
                                 </div>
                                 <div class="content-store">
                                     <h5>
-                                        Pewarna Kue Merah Tua 30 Koepoe Spesial
+                                        Jeruk Pontianak 1 Kg Spesial
                                     </h5>
                                     <div class="price-store">
                                         <span>Rp 300.000</span>
@@ -65,7 +65,7 @@
                                     </div>
                                 </div>
                                 <div class="content-store">
-                                    <h5>Bahan Kue Koepoe 30 Gr Pengemulsi </h5>
+                                    <h5>Salmon Import Australia 100 Gr </h5>
                                     <div class="price-store">
                                         <span>Rp 300.000</span>
                                     </div>
@@ -87,7 +87,7 @@
                                 </div>
                                 <div class="content-store">
                                     <h5>
-                                        Pewarna Kue Merah Tua 30 Koepoe Spesial
+                                        Jeruk Pontianak 1 Kg Spesial
                                     </h5>
                                     <div class="price-store">
                                         <span>Rp 300.000</span>
@@ -109,7 +109,7 @@
                                     </div>
                                 </div>
                                 <div class="content-store">
-                                    <h5>Bahan Kue Koepoe 30 Gr Pengemulsi </h5>
+                                    <h5>Salmon Import Australia 100 Gr </h5>
                                     <div class="price-store">
                                         <span>Rp 300.000</span>
                                     </div>
@@ -131,7 +131,7 @@
                                 </div>
                                 <div class="content-store">
                                     <h5>
-                                        Pewarna Kue Merah Tua 30 Koepoe Spesial
+                                        Jeruk Pontianak 1 Kg Spesial
                                     </h5>
                                     <div class="price-store">
                                         <span>Rp 300.000</span>
@@ -154,7 +154,7 @@
                                 </div>
                                 <div class="content-store">
                                     <h5>
-                                        Pewarna Kue Merah Tua 30 Koepoe Spesial
+                                        Jeruk Pontianak 1 Kg Spesial
                                     </h5>
                                     <div class="price-store">
                                         <span>Rp 300.000</span>
@@ -189,7 +189,7 @@
                                     </div>
                                 </div>
                                 <div class="content-store">
-                                    <h5>Bahan Kue Koepoe 30 Gr Pengemulsi </h5>
+                                    <h5>Salmon Import Australia 100 Gr </h5>
                                     <div class="price-store">
                                         <span>Rp 300.000</span>
                                     </div>
@@ -211,7 +211,7 @@
                                 </div>
                                 <div class="content-store">
                                     <h5>
-                                        Pewarna Kue Merah Tua 30 Koepoe Spesial
+                                        Jeruk Pontianak 1 Kg Spesial
                                     </h5>
                                     <div class="price-store">
                                         <span>Rp 300.000</span>
@@ -233,7 +233,7 @@
                                     </div>
                                 </div>
                                 <div class="content-store">
-                                    <h5>Bahan Kue Koepoe 30 Gr Pengemulsi </h5>
+                                    <h5>Salmon Import Australia 100 Gr </h5>
                                     <div class="price-store">
                                         <span>Rp 300.000</span>
                                     </div>
@@ -255,7 +255,7 @@
                                 </div>
                                 <div class="content-store">
                                     <h5>
-                                        Pewarna Kue Merah Tua 30 Koepoe Spesial
+                                        Jeruk Pontianak 1 Kg Spesial
                                     </h5>
                                     <div class="price-store">
                                         <span>Rp 300.000</span>

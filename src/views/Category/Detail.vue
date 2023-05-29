@@ -13,7 +13,7 @@
                 </router-link>
             </li>
             <li class="breadcrumb-item active" aria-current="page">
-                Pewarna Kue Merah Tua 30 Koepoe Spesial 
+                Jeruk Pontianak 1 Kg Spesial 
             </li>
         </ol>
     </div>
@@ -43,14 +43,14 @@
                             <template #title>
                                 <div class="box-cover-small">
                                     <div class="position-cover-small">
-                                    <img src="@/assets/images/img-store-2.jpg" class="img-cover-small">
+                                    <img src="@/assets/images/img-store-3.jpg" class="img-cover-small">
 
                                     </div>
                                 </div>
                             </template>
                             <div class="box-cover">
                                 <div class="position-cover">
-                                <img src="@/assets/images/img-store-2.jpg" class="img-cover">
+                                <img src="@/assets/images/img-store-3.jpg" class="img-cover">
 
                                 </div>
                             </div>
@@ -87,7 +87,7 @@
                             Stok produk telah habis untuk area <b>Jabodetabek, CIbinong</b>
                         </div>
                         <h1>
-                            Pewarna Kue Merah Tua 30 Koepoe Spesial Food Coloring 
+                            Jeruk Pontianak 1 Kg Spesial 
                         </h1>
                         <div class="price-prod">
                             <span>Rp 300.000</span>
@@ -261,7 +261,7 @@
                                     <div class="row">
                                         <div class="col-8">
                                             <h5>
-                                                Jonh Doe
+                                                John Doe
                                             </h5>
                                         </div>
                                         <div class="col-4">
@@ -294,7 +294,7 @@
                                         </span>
                                     </div>
                                     <div class="desc-info-review">
-                                        Pembelajarannya sangat mudah untuk dipahami serta materi yang diberikan ketika kursus sesuai dengan dunia kerja. 
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Est ipsa earum voluptate dolore ab. Adipisci veritatis labore delectus tempora qui nostrum iste nisi ipsam, nemo quisquam sequi ipsa rem alias.
                                     </div>  
                                 </div>
                                 <div class="clearer"></div>
@@ -338,7 +338,7 @@
                                         </span>
                                     </div>
                                     <div class="desc-info-review">
-                                        Pembelajarannya sangat mudah untuk dipahami serta materi yang diberikan ketika kursus sesuai dengan dunia kerja. 
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Est ipsa earum voluptate dolore ab. Adipisci veritatis labore delectus tempora qui nostrum iste nisi ipsam, nemo quisquam sequi ipsa rem alias.
                                     </div>  
                                 </div>
                                 <div class="clearer"></div>
@@ -351,7 +351,7 @@
                                     <div class="row">
                                         <div class="col-8">
                                             <h5>
-                                                Jonh Doe
+                                                John Doe
                                             </h5>
                                         </div>
                                         <div class="col-4">
@@ -380,7 +380,7 @@
                                         </span>
                                     </div>
                                     <div class="desc-info-review">
-                                        Pembelajarannya sangat mudah untuk dipahami serta materi yang diberikan ketika kursus sesuai dengan dunia kerja. 
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Est ipsa earum voluptate dolore ab. Adipisci veritatis labore delectus tempora qui nostrum iste nisi ipsam, nemo quisquam sequi ipsa rem alias.
                                     </div>  
                                 </div>
                                 <div class="clearer"></div>
@@ -424,7 +424,7 @@
                                         </span>
                                     </div>
                                     <div class="desc-info-review">
-                                        Pembelajarannya sangat mudah untuk dipahami serta materi yang diberikan ketika kursus sesuai dengan dunia kerja. 
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Est ipsa earum voluptate dolore ab. Adipisci veritatis labore delectus tempora qui nostrum iste nisi ipsam, nemo quisquam sequi ipsa rem alias.
                                     </div>  
                                 </div>
                                 <div class="clearer"></div>
@@ -437,7 +437,7 @@
                                     <div class="row">
                                         <div class="col-8">
                                             <h5>
-                                                Jonh Doe
+                                                John Doe
                                             </h5>
                                         </div>
                                         <div class="col-4">
@@ -466,7 +466,7 @@
                                         </span>
                                     </div>
                                     <div class="desc-info-review">
-                                        Pembelajarannya sangat mudah untuk dipahami serta materi yang diberikan ketika kursus sesuai dengan dunia kerja. 
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Est ipsa earum voluptate dolore ab. Adipisci veritatis labore delectus tempora qui nostrum iste nisi ipsam, nemo quisquam sequi ipsa rem alias.
                                     </div>  
                                 </div>
                                 <div class="clearer"></div>
@@ -703,8 +703,8 @@ export default {
     },
     data() {
         return{
-            showingFullText: false,
-            bodyDesc: "Pewarna makanan Koepoe ini sudah menjadi produk yang paling lazim bagi orang Indonesia. Harganya sangat ekonomis, baik untuk ibu rumah tangga maupun pemilik usaha makanan. Berbahan dasar air, denga warna yang tergolong pekat.",
+            showingFullText: false, 
+            bodyDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam molestie sem id diam malesuada tempus. Vestibulum in varius libero. Nullam faucibus mi eget arcu suscipit, sed imperdiet ipsum malesuada. Cras mattis, orci eu fermentum ultricies, nibh urna iaculis enim, eu facilisis tortor metus vitae quam. Donec blandit semper elit, eu tempus diam ultrices vitae. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut ut nibh diam. Vestibulum congue vitae est nec auctor. Donec vulputate, purus non cursus hendrerit, dolor justo feugiat quam, id interdum ex diam nec lacus. Nunc quis dolor sodales, interdum eros vitae, blandit ante.",
             viewAddToCart: false,
             viewAddToWishlist: false,
             viewDeleteToWishlist: false,

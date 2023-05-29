@@ -48,7 +48,7 @@
                                 </div>
                                 <div class="content-store">
                                     <h5>
-                                        Pewarna Kue Merah Tua 30 Koepoe Spesial
+                                        Jeruk Pontianak 1 Kg Spesial
                                     </h5>
                                     <div class="price-store">
                                         <span>Rp 300.000</span>
@@ -87,7 +87,7 @@
                                     </div>
                                 </div>
                                 <div class="content-store">
-                                    <h5>Bahan Kue Koepoe 30 Gr Pengemulsi </h5>
+                                    <h5>Salmon Import Australia 100 Gr </h5>
                                     <div class="price-store">
                                         <span>Rp 300.000</span>
                                         <!-- Discount -->
@@ -126,7 +126,7 @@
                                 </div>
                                 <div class="content-store">
                                     <h5>
-                                        Pewarna Kue Merah Tua 30 Koepoe Spesial
+                                        Jeruk Pontianak 1 Kg Spesial
                                     </h5>
                                     <div class="price-store">
                                         <span>Rp 300.000</span>
@@ -165,7 +165,7 @@
                                     </div>
                                 </div>
                                 <div class="content-store">
-                                    <h5>Bahan Kue Koepoe 30 Gr Pengemulsi </h5>
+                                    <h5>Salmon Import Australia 100 Gr </h5>
                                     <div class="price-store">
                                         <span>Rp 300.000</span>
                                         <!-- Discount -->
@@ -204,7 +204,7 @@
                                 </div>
                                 <div class="content-store">
                                     <h5>
-                                        Pewarna Kue Merah Tua 30 Koepoe Spesial
+                                        Jeruk Pontianak 1 Kg Spesial
                                     </h5>
                                     <div class="price-store">
                                         <span>Rp 300.000</span>
@@ -244,85 +244,7 @@
                                 </div>
                                 <div class="content-store">
                                     <h5>
-                                        Pewarna Kue Merah Tua 30 Koepoe Spesial
-                                    </h5>
-                                    <div class="price-store">
-                                        <span>Rp 300.000</span>
-                                        <!-- Discount -->
-                                        <div class="disc-info-store">
-                                            <div class="disc-price-info-store">
-                                                50%
-                                            </div>
-                                            <del>
-                                                Rp 600.000
-                                            </del>
-                                        </div>
-                                    </div>
-                                    <div class="rate-store">
-                                        <i class="fas fa-star"></i>
-                                        4.8 | 800 Ulasan 
-                                    </div>
-                                    <div class="box-progress-sale">
-                                        <div class="info-progress-sale">
-                                            <div class="detail-progress-sale bg-red" style="width:80%;"></div>
-                                        </div>
-                                        <label>
-                                            Segera Habis
-                                        </label>
-                                    </div>
-                                </div>
-                            </router-link>
-                        </div>
-                    </Slide>
-                    <Slide :key="slide">
-                        <div class="list-store">
-                            <router-link to="/category/detail">
-                                <div class="img-store">
-                                    <div class="img-position-store">
-                                        <img src="@/assets/images/img-store-2.jpg">
-                                    </div>
-                                </div>
-                                <div class="content-store">
-                                    <h5>Bahan Kue Koepoe 30 Gr Pengemulsi </h5>
-                                    <div class="price-store">
-                                        <span>Rp 300.000</span>
-                                        <!-- Discount -->
-                                        <div class="disc-info-store">
-                                            <div class="disc-price-info-store">
-                                                50%
-                                            </div>
-                                            <del>
-                                                Rp 600.000
-                                            </del>
-                                        </div>
-                                    </div>
-                                    <div class="rate-store">
-                                        <i class="fas fa-star"></i>
-                                        4.8 | 800 Ulasan 
-                                    </div>
-                                    <div class="box-progress-sale">
-                                        <div class="info-progress-sale">
-                                            <div class="detail-progress-sale bg-red" style="width:80%;"></div>
-                                        </div>
-                                        <label>
-                                            Segera Habis
-                                        </label>
-                                    </div>
-                                </div>
-                            </router-link>
-                        </div>
-                    </Slide>
-                    <Slide :key="slide">
-                        <div class="list-store">
-                            <router-link to="/category/detail">
-                                <div class="img-store">
-                                    <div class="img-position-store">
-                                        <img src="@/assets/images/img-store-1.jpg">
-                                    </div>
-                                </div>
-                                <div class="content-store">
-                                    <h5>
-                                        Pewarna Kue Merah Tua 30 Koepoe Spesial
+                                        Jeruk Pontianak 1 Kg Spesial
                                     </h5>
                                     <div class="price-store">
                                         <span>Rp 300.000</span>
@@ -361,7 +283,7 @@
                                     </div>
                                 </div>
                                 <div class="content-store">
-                                    <h5>Bahan Kue Koepoe 30 Gr Pengemulsi </h5>
+                                    <h5>Salmon Import Australia 100 Gr </h5>
                                     <div class="price-store">
                                         <span>Rp 300.000</span>
                                         <!-- Discount -->
@@ -400,7 +322,85 @@
                                 </div>
                                 <div class="content-store">
                                     <h5>
-                                        Pewarna Kue Merah Tua 30 Koepoe Spesial
+                                        Jeruk Pontianak 1 Kg Spesial
+                                    </h5>
+                                    <div class="price-store">
+                                        <span>Rp 300.000</span>
+                                        <!-- Discount -->
+                                        <div class="disc-info-store">
+                                            <div class="disc-price-info-store">
+                                                50%
+                                            </div>
+                                            <del>
+                                                Rp 600.000
+                                            </del>
+                                        </div>
+                                    </div>
+                                    <div class="rate-store">
+                                        <i class="fas fa-star"></i>
+                                        4.8 | 800 Ulasan 
+                                    </div>
+                                    <div class="box-progress-sale">
+                                        <div class="info-progress-sale">
+                                            <div class="detail-progress-sale bg-red" style="width:80%;"></div>
+                                        </div>
+                                        <label>
+                                            Segera Habis
+                                        </label>
+                                    </div>
+                                </div>
+                            </router-link>
+                        </div>
+                    </Slide>
+                    <Slide :key="slide">
+                        <div class="list-store">
+                            <router-link to="/category/detail">
+                                <div class="img-store">
+                                    <div class="img-position-store">
+                                        <img src="@/assets/images/img-store-2.jpg">
+                                    </div>
+                                </div>
+                                <div class="content-store">
+                                    <h5>Salmon Import Australia 100 Gr </h5>
+                                    <div class="price-store">
+                                        <span>Rp 300.000</span>
+                                        <!-- Discount -->
+                                        <div class="disc-info-store">
+                                            <div class="disc-price-info-store">
+                                                50%
+                                            </div>
+                                            <del>
+                                                Rp 600.000
+                                            </del>
+                                        </div>
+                                    </div>
+                                    <div class="rate-store">
+                                        <i class="fas fa-star"></i>
+                                        4.8 | 800 Ulasan 
+                                    </div>
+                                    <div class="box-progress-sale">
+                                        <div class="info-progress-sale">
+                                            <div class="detail-progress-sale bg-red" style="width:80%;"></div>
+                                        </div>
+                                        <label>
+                                            Segera Habis
+                                        </label>
+                                    </div>
+                                </div>
+                            </router-link>
+                        </div>
+                    </Slide>
+                    <Slide :key="slide">
+                        <div class="list-store">
+                            <router-link to="/category/detail">
+                                <div class="img-store">
+                                    <div class="img-position-store">
+                                        <img src="@/assets/images/img-store-1.jpg">
+                                    </div>
+                                </div>
+                                <div class="content-store">
+                                    <h5>
+                                        Jeruk Pontianak 1 Kg Spesial
                                     </h5>
                                     <div class="price-store">
                                         <span>Rp 300.000</span>

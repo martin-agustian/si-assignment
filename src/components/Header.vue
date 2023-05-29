@@ -64,7 +64,7 @@
 					</div>	
 					<div class="box-logo">
 						<router-link to="/">
-							<img alt="" src="@/assets/images/logo-2.png">
+							<img alt="" src="@/assets/images/logo-old.png">
 						</router-link>
 					</div>
 				</div>

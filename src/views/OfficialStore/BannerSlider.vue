@@ -23,7 +23,7 @@
                         <div class="list-os-banner">
                             <router-link to="#">
                                 <img src="@/assets/images/banner-alt-2.jpg" alt="" class="display-desktop">
-                                <img src="@/assets/images/banner-2.jpg" alt="" class="display-mobile">
+                                <img src="@/assets/images/banner-alt-2.jpg" alt="" class="display-mobile">
                             </router-link>
                         </div>
                     </Slide>
@@ -31,7 +31,7 @@
                         <div class="list-os-banner">
                              <router-link to="#">
                                 <img src="@/assets/images/banner-alt-2.jpg" alt="" class="display-desktop">
-                                <img src="@/assets/images/banner-2.jpg" alt="" class="display-mobile">
+                                <img src="@/assets/images/banner-alt-2.jpg" alt="" class="display-mobile">
                             </router-link>
                         </div>
                     </Slide>

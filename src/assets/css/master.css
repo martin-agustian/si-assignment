@@ -86,6 +86,9 @@ h1, h2, h3, h4, h5, h6 {
 .bg-blue-opacity{
     background-color: rgba(0, 170, 210, .16) !important;
 }
+.bg-red-opacity{
+    background-color: rgba(215, 19, 10, 0.16) !important;
+}
 .bg-blue-opacity-alt{
     background-color: rgba(0, 170, 210, .87) !important;
 }

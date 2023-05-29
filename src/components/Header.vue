@@ -18,10 +18,10 @@
 						</div>
 						<!--
 						<div class="box-download-app">
-							<i class="bi bi-phone"></i> Download Bakingworld App
+							<i class="bi bi-phone"></i> Download Super Indo App
 							<div class="dropdown-app">
 								<div class="title-download-app">
-									Download <br /> aplikasi Bakingworld di 
+									Download <br /> aplikasi Super Indo di 
 								</div>
 								<div class="list-download-app">
 									<router-link to="#">
@@ -37,7 +37,7 @@
 						-->
 					</div>
 					<div class="right-list-chanel">
-						<a href="http://design.bakingworld.id/portal/">
+						<!-- <a href="http://design.bakingworld.id/portal/">
 							Home
 						</a>
 						<a href="http://design.bakingworld.id/lms/">
@@ -51,7 +51,7 @@
 						</a>
 						<a href="http://design.bakingworld.id/community/">
 							Community
-						</a>
+						</a> -->
 					</div>
 				</div>
 			</div>

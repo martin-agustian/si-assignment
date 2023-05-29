@@ -2,7 +2,7 @@
     <div class="box-notif-download">
         <div class="container">
             <div class="content-notif-download">
-                Hai <b>Baking Friends</b>, kini Bakingworld sudah tersedia di Play Store.
+                Hai <b>Baking Friends</b>, kini Super Indo sudah tersedia di Play Store.
                 <span>
                     <router-link to="#">
                         Download Sekarang

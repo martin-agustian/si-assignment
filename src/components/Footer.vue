@@ -238,7 +238,7 @@
                                 </li>
                                 <li>
                                     <router-link to="#">
-                                        <i class="far fa-envelope"></i> support@bakingworld.id
+                                        <i class="far fa-envelope"></i> support@superindo.co.id
                                     </router-link>
                                 </li>
                             </ul>
@@ -258,7 +258,7 @@
                 </div>
                 <div class="box-app">
                     <div class="list-app">
-                        Download aplikasi Bakingworld di
+                        Download aplikasi Super Indo di
                     </div>
                     <div class="list-app">
                         <router-link to="#" target="_blank">
@@ -271,7 +271,7 @@
                     </div>
                 </div>
                 <div class="box-copyright">
-                    © 2022 - 2023 Bakingworld. All Rights Reserved <br />
+                    © 2022 - 2023 Super Indo. All Rights Reserved <br />
                     PT. Dunia Boga Indonesia
                 </div>
             </div>

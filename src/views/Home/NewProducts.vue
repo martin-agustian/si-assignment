@@ -12,7 +12,7 @@
                     </router-link>
                 </div>
                 <div class="clearer"></div>
-                <div class="sub-section-page"> Telusuri sekarang produk terbaru di Bakingworld   </div>
+                <div class="sub-section-page"> Telusuri sekarang produk terbaru di Super Indo </div>
             </div>
             <div class="box-store">
                 <Carousel :wrap-around="true" :breakpoints="breakpointsNewProducts">

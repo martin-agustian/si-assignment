@@ -1,0 +1,299 @@
+<template>
+    
+    <div class="box-store-alt">
+        <div class="list-store-alt">
+            <router-link to="/category/detail" class="disabled-link">
+                <div class="img-store-alt">
+                    <div class="img-position-store-alt">
+                        <img src="@/assets/images/img-store-1.jpg">
+                    </div>
+                </div>
+                <div class="content-store-alt">
+                    <h5>
+                        Pewarna Kue Merah Tua 30 Koepoe Spesial
+                    </h5>
+                    <div class="price-store-alt">
+                        <span>Rp 300.000</span>
+                        <div class="disc-info-store-alt">
+                            <div class="disc-price-info-store-alt">
+                                50%
+                            </div>
+                            <del>
+                                Rp 600.000
+                            </del>
+                        </div>
+                    </div>
+                    <div class="rate-store-alt">
+                        <i class="fas fa-star"></i>
+                        4.8 | 800 Ulasan 
+                    </div>
+                </div>
+            </router-link>
+        </div>
+        <div class="list-store-alt">
+            <router-link to="/category/detail" class="disabled-link">
+                <div class="img-store-alt">
+                    <div class="img-position-store-alt">
+                        <img src="@/assets/images/img-store-2.jpg">
+                    </div>
+                </div>
+                <div class="content-store-alt">
+                    <h5>
+                        Pewarna Kue Merah Tua 30 Koepoe Spesial
+                    </h5>
+                    <div class="price-store-alt">
+                        <span>Rp 300.000</span>
+                        <div class="disc-info-store-alt">
+                            <div class="disc-price-info-store-alt">
+                                50%
+                            </div>
+                            <del>
+                                Rp 600.000
+                            </del>
+                        </div>
+                    </div>
+                    <div class="rate-store-alt">
+                        <i class="fas fa-star"></i>
+                        4.8 | 800 Ulasan 
+                    </div>
+                </div>
+            </router-link>
+        </div>
+        <div class="list-store-alt">
+            <router-link to="/category/detail" class="disabled-link">
+                <div class="img-store-alt">
+                    <div class="img-position-store-alt">
+                        <img src="@/assets/images/img-store-1.jpg">
+                    </div>
+                </div>
+                <div class="content-store-alt">
+                    <h5>
+                        Pewarna Kue Merah Tua 30 Koepoe Spesial
+                    </h5>
+                    <div class="price-store-alt">
+                        <span>Rp 300.000</span>
+                        <div class="disc-info-store-alt">
+                            <div class="disc-price-info-store-alt">
+                                50%
+                            </div>
+                            <del>
+                                Rp 600.000
+                            </del>
+                        </div>
+                    </div>
+                    <div class="rate-store-alt">
+                        <i class="fas fa-star"></i>
+                        4.8 | 800 Ulasan 
+                    </div>
+                </div>
+            </router-link>
+        </div>
+        <div class="list-store-alt">
+            <router-link to="/category/detail" class="disabled-link">
+                <div class="img-store-alt">
+                    <div class="img-position-store-alt">
+                        <img src="@/assets/images/img-store-2.jpg">
+                    </div>
+                </div>
+                <div class="content-store-alt">
+                    <h5>
+                        Pewarna Kue Merah Tua 30 Koepoe Spesial
+                    </h5>
+                    <div class="price-store-alt">
+                        <span>Rp 300.000</span>
+                        <div class="disc-info-store-alt">
+                            <div class="disc-price-info-store-alt">
+                                50%
+                            </div>
+                            <del>
+                                Rp 600.000
+                            </del>
+                        </div>
+                    </div>
+                    <div class="rate-store-alt">
+                        <i class="fas fa-star"></i>
+                        4.8 | 800 Ulasan 
+                    </div>
+                </div>
+            </router-link>
+        </div>
+        <div class="list-store-alt">
+            <router-link to="/category/detail" class="disabled-link">
+                <div class="img-store-alt">
+                    <div class="img-position-store-alt">
+                        <img src="@/assets/images/img-store-1.jpg">
+                    </div>
+                </div>
+                <div class="content-store-alt">
+                    <h5>
+                        Pewarna Kue Merah Tua 30 Koepoe Spesial
+                    </h5>
+                    <div class="price-store-alt">
+                        <span>Rp 300.000</span>
+                        <div class="disc-info-store-alt">
+                            <div class="disc-price-info-store-alt">
+                                50%
+                            </div>
+                            <del>
+                                Rp 600.000
+                            </del>
+                        </div>
+                    </div>
+                    <div class="rate-store-alt">
+                        <i class="fas fa-star"></i>
+                        4.8 | 800 Ulasan 
+                    </div>
+                </div>
+            </router-link>
+        </div>
+        <div class="list-store-alt">
+            <router-link to="/category/detail" class="disabled-link">
+                <div class="img-store-alt">
+                    <div class="img-position-store-alt">
+                        <img src="@/assets/images/img-store-2.jpg">
+                    </div>
+                </div>
+                <div class="content-store-alt">
+                    <h5>
+                        Pewarna Kue Merah Tua 30 Koepoe Spesial
+                    </h5>
+                    <div class="price-store-alt">
+                        <span>Rp 300.000</span>
+                        <div class="disc-info-store-alt">
+                            <div class="disc-price-info-store-alt">
+                                50%
+                            </div>
+                            <del>
+                                Rp 600.000
+                            </del>
+                        </div>
+                    </div>
+                    <div class="rate-store-alt">
+                        <i class="fas fa-star"></i>
+                        4.8 | 800 Ulasan 
+                    </div>
+                </div>
+            </router-link>
+        </div>
+        <div class="list-store-alt">
+            <router-link to="/category/detail" class="disabled-link">
+                <div class="img-store-alt">
+                    <div class="img-position-store-alt">
+                        <img src="@/assets/images/img-store-1.jpg">
+                    </div>
+                </div>
+                <div class="content-store-alt">
+                    <h5>
+                        Pewarna Kue Merah Tua 30 Koepoe Spesial
+                    </h5>
+                    <div class="price-store-alt">
+                        <span>Rp 300.000</span>
+                        <div class="disc-info-store-alt">
+                            <div class="disc-price-info-store-alt">
+                                50%
+                            </div>
+                            <del>
+                                Rp 600.000
+                            </del>
+                        </div>
+                    </div>
+                    <div class="rate-store-alt">
+                        <i class="fas fa-star"></i>
+                        4.8 | 800 Ulasan 
+                    </div>
+                </div>
+            </router-link>
+        </div>
+        <div class="list-store-alt">
+            <router-link to="/category/detail" class="disabled-link">
+                <div class="img-store-alt">
+                    <div class="img-position-store-alt">
+                        <img src="@/assets/images/img-store-2.jpg">
+                    </div>
+                </div>
+                <div class="content-store-alt">
+                    <h5>
+                        Pewarna Kue Merah Tua 30 Koepoe Spesial
+                    </h5>
+                    <div class="price-store-alt">
+                        <span>Rp 300.000</span>
+                        <div class="disc-info-store-alt">
+                            <div class="disc-price-info-store-alt">
+                                50%
+                            </div>
+                            <del>
+                                Rp 600.000
+                            </del>
+                        </div>
+                    </div>
+                    <div class="rate-store-alt">
+                        <i class="fas fa-star"></i>
+                        4.8 | 800 Ulasan 
+                    </div>
+                </div>
+            </router-link>
+        </div>
+        <div class="list-store-alt">
+            <router-link to="/category/detail" class="disabled-link">
+                <div class="img-store-alt">
+                    <div class="img-position-store-alt">
+                        <img src="@/assets/images/img-store-1.jpg">
+                    </div>
+                </div>
+                <div class="content-store-alt">
+                    <h5>
+                        Pewarna Kue Merah Tua 30 Koepoe Spesial
+                    </h5>
+                    <div class="price-store-alt">
+                        <span>Rp 300.000</span>
+                        <div class="disc-info-store-alt">
+                            <div class="disc-price-info-store-alt">
+                                50%
+                            </div>
+                            <del>
+                                Rp 600.000
+                            </del>
+                        </div>
+                    </div>
+                    <div class="rate-store-alt">
+                        <i class="fas fa-star"></i>
+                        4.8 | 800 Ulasan 
+                    </div>
+                </div>
+            </router-link>
+        </div>
+        <div class="list-store-alt">
+            <router-link to="/category/detail" class="disabled-link">
+                <div class="img-store-alt">
+                    <div class="img-position-store-alt">
+                        <img src="@/assets/images/img-store-2.jpg">
+                    </div>
+                </div>
+                <div class="content-store-alt">
+                    <h5>
+                        Pewarna Kue Merah Tua 30 Koepoe Spesial
+                    </h5>
+                    <div class="price-store-alt">
+                        <span>Rp 300.000</span>
+                        <div class="disc-info-store-alt">
+                            <div class="disc-price-info-store-alt">
+                                50%
+                            </div>
+                            <del>
+                                Rp 600.000
+                            </del>
+                        </div>
+                    </div>
+                    <div class="rate-store-alt">
+                        <i class="fas fa-star"></i>
+                        4.8 | 800 Ulasan 
+                    </div>
+                </div>
+            </router-link>
+        </div>
+        
+        <div class="clearer"></div>
+    </div>
+        
+    
+</template>

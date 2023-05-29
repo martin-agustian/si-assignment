@@ -1,0 +1,106 @@
+{
+  "hash": "7f693295",
+  "browserHash": "69ae2375",
+  "optimized": {
+    "vue": {
+      "file": "C:/Users/admin/Documents/BW/bw-store-new/cache/vue.js",
+      "src": "C:/Users/admin/Documents/BW/bw-store-new/node_modules/vue/dist/vue.runtime.esm-bundler.js",
+      "needsInterop": false
+    },
+    "pinia": {
+      "file": "C:/Users/admin/Documents/BW/bw-store-new/cache/pinia.js",
+      "src": "C:/Users/admin/Documents/BW/bw-store-new/node_modules/pinia/dist/pinia.esm-bundler.js",
+      "needsInterop": false
+    },
+    "@vueuse/head": {
+      "file": "C:/Users/admin/Documents/BW/bw-store-new/cache/@vueuse_head.js",
+      "src": "C:/Users/admin/Documents/BW/bw-store-new/node_modules/@vueuse/head/dist/index.mjs",
+      "needsInterop": false
+    },
+    "bootstrap-vue-3": {
+      "file": "C:/Users/admin/Documents/BW/bw-store-new/cache/bootstrap-vue-3.js",
+      "src": "C:/Users/admin/Documents/BW/bw-store-new/node_modules/bootstrap-vue-3/dist/bootstrap-vue-3.es.js",
+      "needsInterop": false
+    },
+    "@vuelidate/core": {
+      "file": "C:/Users/admin/Documents/BW/bw-store-new/cache/@vuelidate_core.js",
+      "src": "C:/Users/admin/Documents/BW/bw-store-new/node_modules/@vuelidate/core/dist/index.esm.js",
+      "needsInterop": false
+    },
+    "vue-final-modal": {
+      "file": "C:/Users/admin/Documents/BW/bw-store-new/cache/vue-final-modal.js",
+      "src": "C:/Users/admin/Documents/BW/bw-store-new/node_modules/vue-final-modal/dist/VueFinalModal.esm.js",
+      "needsInterop": false
+    },
+    "@chenfengyuan/vue-countdown": {
+      "file": "C:/Users/admin/Documents/BW/bw-store-new/cache/@chenfengyuan_vue-countdown.js",
+      "src": "C:/Users/admin/Documents/BW/bw-store-new/node_modules/@chenfengyuan/vue-countdown/dist/vue-countdown.esm.js",
+      "needsInterop": false
+    },
+    "vue-sweetalert2": {
+      "file": "C:/Users/admin/Documents/BW/bw-store-new/cache/vue-sweetalert2.js",
+      "src": "C:/Users/admin/Documents/BW/bw-store-new/node_modules/vue-sweetalert2/dist/vue-sweetalert.es.js",
+      "needsInterop": false
+    },
+    "vue-gtag": {
+      "file": "C:/Users/admin/Documents/BW/bw-store-new/cache/vue-gtag.js",
+      "src": "C:/Users/admin/Documents/BW/bw-store-new/node_modules/vue-gtag/dist/vue-gtag.esm.js",
+      "needsInterop": false
+    },
+    "vue-router": {
+      "file": "C:/Users/admin/Documents/BW/bw-store-new/cache/vue-router.js",
+      "src": "C:/Users/admin/Documents/BW/bw-store-new/node_modules/vue-router/dist/vue-router.esm-bundler.js",
+      "needsInterop": false
+    },
+    "vue-route-middleware": {
+      "file": "C:/Users/admin/Documents/BW/bw-store-new/cache/vue-route-middleware.js",
+      "src": "C:/Users/admin/Documents/BW/bw-store-new/node_modules/vue-route-middleware/dist/index.js",
+      "needsInterop": true
+    },
+    "vue-class-component": {
+      "file": "C:/Users/admin/Documents/BW/bw-store-new/cache/vue-class-component.js",
+      "src": "C:/Users/admin/Documents/BW/bw-store-new/node_modules/vue-class-component/dist/vue-class-component.esm-bundler.js",
+      "needsInterop": false
+    },
+    "jquery": {
+      "file": "C:/Users/admin/Documents/BW/bw-store-new/cache/jquery.js",
+      "src": "C:/Users/admin/Documents/BW/bw-store-new/node_modules/jquery/dist/jquery.js",
+      "needsInterop": true
+    },
+    "crypto-js": {
+      "file": "C:/Users/admin/Documents/BW/bw-store-new/cache/crypto-js.js",
+      "src": "C:/Users/admin/Documents/BW/bw-store-new/node_modules/crypto-js/index.js",
+      "needsInterop": true
+    },
+    "vue3-cookies": {
+      "file": "C:/Users/admin/Documents/BW/bw-store-new/cache/vue3-cookies.js",
+      "src": "C:/Users/admin/Documents/BW/bw-store-new/node_modules/vue3-cookies/dist/index.js",
+      "needsInterop": false
+    },
+    "bowser": {
+      "file": "C:/Users/admin/Documents/BW/bw-store-new/cache/bowser.js",
+      "src": "C:/Users/admin/Documents/BW/bw-store-new/node_modules/bowser/src/bowser.js",
+      "needsInterop": false
+    },
+    "moment": {
+      "file": "C:/Users/admin/Documents/BW/bw-store-new/cache/moment.js",
+      "src": "C:/Users/admin/Documents/BW/bw-store-new/node_modules/moment/dist/moment.js",
+      "needsInterop": true
+    },
+    "moment/dist/locale/id": {
+      "file": "C:/Users/admin/Documents/BW/bw-store-new/cache/moment_dist_locale_id.js",
+      "src": "C:/Users/admin/Documents/BW/bw-store-new/node_modules/moment/dist/locale/id.js",
+      "needsInterop": false
+    },
+    "axios": {
+      "file": "C:/Users/admin/Documents/BW/bw-store-new/cache/axios.js",
+      "src": "C:/Users/admin/Documents/BW/bw-store-new/node_modules/axios/index.js",
+      "needsInterop": true
+    },
+    "vue3-carousel": {
+      "file": "C:/Users/admin/Documents/BW/bw-store-new/cache/vue3-carousel.js",
+      "src": "C:/Users/admin/Documents/BW/bw-store-new/node_modules/vue3-carousel/dist/carousel.es.js",
+      "needsInterop": false
+    }
+  }
+}

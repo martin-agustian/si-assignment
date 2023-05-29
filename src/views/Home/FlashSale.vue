@@ -1,0 +1,480 @@
+<template>
+    
+    <div class="section pb-40 mb-40">
+        <div class="box-bg-bottom bg-blue-gradient"></div>
+        <div class="container">
+            <div class="box-section-page">
+                <div class="left-section-page">
+                    <h3>Flash Sale</h3>
+                </div>
+                <div class="right-section-page">
+                    <router-link to="/flash-sale">
+                        Lihat Semua <i class="fas fa-chevron-right"></i>
+                    </router-link>
+                </div>
+                <div class="clearer"></div>
+                <div class="sub-section-page"> 
+                    Sisa waktu tersedia
+                    <vue-countdown :time="1 * 4 * 60 * 60 * 1000" v-slot="{ hours, minutes, seconds }">
+                        <div class="box-countdown">
+                            <div class="list-countdown">
+                                {{ hours }}
+                            </div>
+                            <div class="list-countdown-alt">
+                                :
+                            </div>
+                            <div class="list-countdown">
+                                {{ minutes }}
+                            </div>
+                            <div class="list-countdown-alt">
+                                :
+                            </div>
+                            <div class="list-countdown">
+                                {{ seconds }}
+                            </div>
+                        </div>
+                    </vue-countdown>
+                </div>
+            </div>
+            <div class="box-store">
+                <Carousel :wrap-around="true" :breakpoints="breakpointsNewProducts">
+                    <Slide :key="slide">
+                        <div class="list-store">
+                            <router-link to="/category/detail">
+                                <div class="img-store">
+                                    <div class="img-position-store">
+                                        <img src="@/assets/images/img-store-1.jpg">
+                                    </div>
+                                </div>
+                                <div class="content-store">
+                                    <h5>
+                                        Pewarna Kue Merah Tua 30 Koepoe Spesial
+                                    </h5>
+                                    <div class="price-store">
+                                        <span>Rp 300.000</span>
+                                        <!-- Discount -->
+                                        <div class="disc-info-store">
+                                            <div class="disc-price-info-store">
+                                                50%
+                                            </div>
+                                            <del>
+                                                Rp 600.000
+                                            </del>
+                                        </div>
+                                    </div>
+                                    <div class="rate-store">
+                                        <i class="fas fa-star"></i>
+                                        4.8 | 800 Ulasan 
+                                    </div>
+                                    <div class="box-progress-sale">
+                                        <div class="info-progress-sale">
+                                            <div class="detail-progress-sale bg-green" style="width:100%;"></div>
+                                        </div>
+                                        <label>
+                                            Tersedia
+                                        </label>
+                                    </div>
+                                </div>
+                            </router-link>
+                        </div>
+                    </Slide>
+                    <Slide :key="slide">
+                        <div class="list-store">
+                            <router-link to="/category/detail">
+                                <div class="img-store">
+                                    <div class="img-position-store">
+                                        <img src="@/assets/images/img-store-2.jpg">
+                                    </div>
+                                </div>
+                                <div class="content-store">
+                                    <h5>Bahan Kue Koepoe 30 Gr Pengemulsi </h5>
+                                    <div class="price-store">
+                                        <span>Rp 300.000</span>
+                                        <!-- Discount -->
+                                        <div class="disc-info-store">
+                                            <div class="disc-price-info-store">
+                                                50%
+                                            </div>
+                                            <del>
+                                                Rp 600.000
+                                            </del>
+                                        </div>
+                                    </div>
+                                    <div class="rate-store">
+                                        <i class="fas fa-star"></i>
+                                        4.8 | 800 Ulasan 
+                                    </div>
+                                    <div class="box-progress-sale">
+                                        <div class="info-progress-sale">
+                                            <div class="detail-progress-sale" style="width:0%;"></div>
+                                        </div>
+                                        <label>
+                                            Habis
+                                        </label>
+                                    </div>
+                                </div>
+                            </router-link>
+                        </div>
+                    </Slide>
+                    <Slide :key="slide">
+                        <div class="list-store">
+                            <router-link to="/category/detail">
+                                <div class="img-store">
+                                    <div class="img-position-store">
+                                        <img src="@/assets/images/img-store-1.jpg">
+                                    </div>
+                                </div>
+                                <div class="content-store">
+                                    <h5>
+                                        Pewarna Kue Merah Tua 30 Koepoe Spesial
+                                    </h5>
+                                    <div class="price-store">
+                                        <span>Rp 300.000</span>
+                                        <!-- Discount -->
+                                        <div class="disc-info-store">
+                                            <div class="disc-price-info-store">
+                                                50%
+                                            </div>
+                                            <del>
+                                                Rp 600.000
+                                            </del>
+                                        </div>
+                                    </div>
+                                    <div class="rate-store">
+                                        <i class="fas fa-star"></i>
+                                        4.8 | 800 Ulasan 
+                                    </div>
+                                    <div class="box-progress-sale">
+                                        <div class="info-progress-sale">
+                                            <div class="detail-progress-sale bg-red" style="width:80%;"></div>
+                                        </div>
+                                        <label>
+                                            Segera Habis
+                                        </label>
+                                    </div>
+                                </div>
+                            </router-link>
+                        </div>
+                    </Slide>
+                    <Slide :key="slide">
+                        <div class="list-store">
+                            <router-link to="/category/detail">
+                                <div class="img-store">
+                                    <div class="img-position-store">
+                                        <img src="@/assets/images/img-store-2.jpg">
+                                    </div>
+                                </div>
+                                <div class="content-store">
+                                    <h5>Bahan Kue Koepoe 30 Gr Pengemulsi </h5>
+                                    <div class="price-store">
+                                        <span>Rp 300.000</span>
+                                        <!-- Discount -->
+                                        <div class="disc-info-store">
+                                            <div class="disc-price-info-store">
+                                                50%
+                                            </div>
+                                            <del>
+                                                Rp 600.000
+                                            </del>
+                                        </div>
+                                    </div>
+                                    <div class="rate-store">
+                                        <i class="fas fa-star"></i>
+                                        4.8 | 800 Ulasan 
+                                    </div>
+                                    <div class="box-progress-sale">
+                                        <div class="info-progress-sale">
+                                            <div class="detail-progress-sale bg-red" style="width:80%;"></div>
+                                        </div>
+                                        <label>
+                                            Segera Habis
+                                        </label>
+                                    </div>
+                                </div>
+                            </router-link>
+                        </div>
+                    </Slide>
+                    <Slide :key="slide">
+                        <div class="list-store">
+                            <router-link to="/category/detail">
+                                <div class="img-store">
+                                    <div class="img-position-store">
+                                        <img src="@/assets/images/img-store-1.jpg">
+                                    </div>
+                                </div>
+                                <div class="content-store">
+                                    <h5>
+                                        Pewarna Kue Merah Tua 30 Koepoe Spesial
+                                    </h5>
+                                    <div class="price-store">
+                                        <span>Rp 300.000</span>
+                                        <!-- Discount -->
+                                        <div class="disc-info-store">
+                                            <div class="disc-price-info-store">
+                                                50%
+                                            </div>
+                                            <del>
+                                                Rp 600.000
+                                            </del>
+                                        </div>
+                                    </div>
+                                    <div class="rate-store">
+                                        <i class="fas fa-star"></i>
+                                        4.8 | 800 Ulasan 
+                                    </div>
+                                    <div class="box-progress-sale">
+                                        <div class="info-progress-sale">
+                                            <div class="detail-progress-sale bg-red" style="width:80%;"></div>
+                                        </div>
+                                        <label>
+                                            Segera Habis
+                                        </label>
+                                    </div>
+                                </div>
+                            </router-link>
+                        </div>
+                    </Slide>
+                    <Slide :key="slide">
+                        <div class="list-store">
+                            <router-link to="/category/detail">
+                                <div class="img-store">
+                                    <div class="img-position-store">
+                                        <img src="@/assets/images/img-store-1.jpg">
+                                    </div>
+                                </div>
+                                <div class="content-store">
+                                    <h5>
+                                        Pewarna Kue Merah Tua 30 Koepoe Spesial
+                                    </h5>
+                                    <div class="price-store">
+                                        <span>Rp 300.000</span>
+                                        <!-- Discount -->
+                                        <div class="disc-info-store">
+                                            <div class="disc-price-info-store">
+                                                50%
+                                            </div>
+                                            <del>
+                                                Rp 600.000
+                                            </del>
+                                        </div>
+                                    </div>
+                                    <div class="rate-store">
+                                        <i class="fas fa-star"></i>
+                                        4.8 | 800 Ulasan 
+                                    </div>
+                                    <div class="box-progress-sale">
+                                        <div class="info-progress-sale">
+                                            <div class="detail-progress-sale bg-red" style="width:80%;"></div>
+                                        </div>
+                                        <label>
+                                            Segera Habis
+                                        </label>
+                                    </div>
+                                </div>
+                            </router-link>
+                        </div>
+                    </Slide>
+                    <Slide :key="slide">
+                        <div class="list-store">
+                            <router-link to="/category/detail">
+                                <div class="img-store">
+                                    <div class="img-position-store">
+                                        <img src="@/assets/images/img-store-2.jpg">
+                                    </div>
+                                </div>
+                                <div class="content-store">
+                                    <h5>Bahan Kue Koepoe 30 Gr Pengemulsi </h5>
+                                    <div class="price-store">
+                                        <span>Rp 300.000</span>
+                                        <!-- Discount -->
+                                        <div class="disc-info-store">
+                                            <div class="disc-price-info-store">
+                                                50%
+                                            </div>
+                                            <del>
+                                                Rp 600.000
+                                            </del>
+                                        </div>
+                                    </div>
+                                    <div class="rate-store">
+                                        <i class="fas fa-star"></i>
+                                        4.8 | 800 Ulasan 
+                                    </div>
+                                    <div class="box-progress-sale">
+                                        <div class="info-progress-sale">
+                                            <div class="detail-progress-sale bg-red" style="width:80%;"></div>
+                                        </div>
+                                        <label>
+                                            Segera Habis
+                                        </label>
+                                    </div>
+                                </div>
+                            </router-link>
+                        </div>
+                    </Slide>
+                    <Slide :key="slide">
+                        <div class="list-store">
+                            <router-link to="/category/detail">
+                                <div class="img-store">
+                                    <div class="img-position-store">
+                                        <img src="@/assets/images/img-store-1.jpg">
+                                    </div>
+                                </div>
+                                <div class="content-store">
+                                    <h5>
+                                        Pewarna Kue Merah Tua 30 Koepoe Spesial
+                                    </h5>
+                                    <div class="price-store">
+                                        <span>Rp 300.000</span>
+                                        <!-- Discount -->
+                                        <div class="disc-info-store">
+                                            <div class="disc-price-info-store">
+                                                50%
+                                            </div>
+                                            <del>
+                                                Rp 600.000
+                                            </del>
+                                        </div>
+                                    </div>
+                                    <div class="rate-store">
+                                        <i class="fas fa-star"></i>
+                                        4.8 | 800 Ulasan 
+                                    </div>
+                                    <div class="box-progress-sale">
+                                        <div class="info-progress-sale">
+                                            <div class="detail-progress-sale bg-red" style="width:80%;"></div>
+                                        </div>
+                                        <label>
+                                            Segera Habis
+                                        </label>
+                                    </div>
+                                </div>
+                            </router-link>
+                        </div>
+                    </Slide>
+                    <Slide :key="slide">
+                        <div class="list-store">
+                            <router-link to="/category/detail">
+                                <div class="img-store">
+                                    <div class="img-position-store">
+                                        <img src="@/assets/images/img-store-2.jpg">
+                                    </div>
+                                </div>
+                                <div class="content-store">
+                                    <h5>Bahan Kue Koepoe 30 Gr Pengemulsi </h5>
+                                    <div class="price-store">
+                                        <span>Rp 300.000</span>
+                                        <!-- Discount -->
+                                        <div class="disc-info-store">
+                                            <div class="disc-price-info-store">
+                                                50%
+                                            </div>
+                                            <del>
+                                                Rp 600.000
+                                            </del>
+                                        </div>
+                                    </div>
+                                    <div class="rate-store">
+                                        <i class="fas fa-star"></i>
+                                        4.8 | 800 Ulasan 
+                                    </div>
+                                    <div class="box-progress-sale">
+                                        <div class="info-progress-sale">
+                                            <div class="detail-progress-sale bg-red" style="width:80%;"></div>
+                                        </div>
+                                        <label>
+                                            Segera Habis
+                                        </label>
+                                    </div>
+                                </div>
+                            </router-link>
+                        </div>
+                    </Slide>
+                    <Slide :key="slide">
+                        <div class="list-store">
+                            <router-link to="/category/detail">
+                                <div class="img-store">
+                                    <div class="img-position-store">
+                                        <img src="@/assets/images/img-store-1.jpg">
+                                    </div>
+                                </div>
+                                <div class="content-store">
+                                    <h5>
+                                        Pewarna Kue Merah Tua 30 Koepoe Spesial
+                                    </h5>
+                                    <div class="price-store">
+                                        <span>Rp 300.000</span>
+                                        <!-- Discount -->
+                                        <div class="disc-info-store">
+                                            <div class="disc-price-info-store">
+                                                50%
+                                            </div>
+                                            <del>
+                                                Rp 600.000
+                                            </del>
+                                        </div>
+                                    </div>
+                                    <div class="rate-store">
+                                        <i class="fas fa-star"></i>
+                                        4.8 | 800 Ulasan 
+                                    </div>
+                                    <div class="box-progress-sale">
+                                        <div class="info-progress-sale">
+                                            <div class="detail-progress-sale bg-red" style="width:80%;"></div>
+                                        </div>
+                                        <label>
+                                            Segera Habis
+                                        </label>
+                                    </div>
+                                </div>
+                            </router-link>
+                        </div>
+                    </Slide>
+                    <template #addons>
+                        <Navigation  class="display-mobile-hidden"/>
+                    </template>
+                </Carousel>
+            </div>
+        </div>
+    </div>
+    
+</template>
+
+
+<script>
+
+import { defineComponent } from 'vue'
+import { Carousel, Navigation, Slide } from 'vue3-carousel';
+
+export default defineComponent({
+    name: 'App',
+    components: {
+        Carousel,
+        Slide,
+        Navigation,
+    },
+    data: () => ({
+        breakpointsNewProducts: {
+            0: {
+                itemsToShow: 2.5,
+                snapAlign: 'start',
+            },
+            768: {
+                itemsToShow: 3,
+                snapAlign: 'start',
+            },
+            991: {
+                itemsToShow: 4,
+                snapAlign: 'start',
+            },
+            1199: {
+                itemsToShow: 5,
+                snapAlign: 'start',
+            },
+        },
+    }),
+    mounted (){
+
+    }
+});
+</script>

@@ -36,7 +36,7 @@ a {
 }
 a:hover{
     /* color: #007BA1; */
-    color: rgb(38, 20, 109);
+    color: rgb(48, 106, 166);
 }
 
 .font-default{
@@ -87,7 +87,7 @@ h1, h2, h3, h4, h5, h6 {
     background-color: #007BA1 !important;
 }
 .bg-blue-dark-alt {
-    background-color: rgb(38, 20, 109) !important;
+    background-color: rgb(48, 106, 166) !important;
 }
 .bg-blue-opacity{
     background-color: rgba(0, 170, 210, .16) !important;
@@ -989,21 +989,22 @@ header{
     height: auto;
 }
 .box-header .left-header{
-    width: 20%;
+    /* width: 20%; */
+    width: 10%;
     height: 80px;
     float: left;
     line-height: 80px;
     position: relative;
 }
 .box-header .center-header{
-    width: 50%;
+    width: 55%;
     height: 80px;
     float: left;
     line-height: 80px;
     position: relative;
 }
 .box-header .right-header{
-    width: 30%;
+    width: 35%;
     height: 80px;
     float: right;
     text-align: right;
@@ -1015,7 +1016,8 @@ header{
     position: relative;
 }
 .box-logo img{
-    width: 200px;
+    /* width: 200px; */
+    width: 55px;
 }
 .box-mega-menu{
     width: 18%;
@@ -1142,7 +1144,8 @@ header{
     line-height: normal !important;
 }
 .text-search:focus {
-    border:2px solid #00AAD2;
+    /* border:2px solid #00AAD2; */
+    border:2px solid #2F69A6;
     outline: 0;
     box-shadow:unset;
 }
@@ -6720,7 +6723,7 @@ ul.info-head-courses li span{
     -o-object-fit: cover;
     object-fit: cover;
     /* border: 3px solid rgba(0, 170, 210, .54); */
-    border: 3px solid rgb(38, 20, 109);
+    border: 3px solid rgb(48, 106, 166);
     border-radius: 100%;
 }
 .box-info-review .list-info-review .right-info-review{
@@ -7452,7 +7455,7 @@ ul.nav-bio-page li a:hover {
 .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link{
     background-color: transparent;
     /* border: 2px solid #00aad2; */
-    border: 2px solid rgb(38, 20, 109);
+    border: 2px solid rgb(48, 106, 166);
     border-radius: 10px;
 }
 .box-content-prod{
@@ -7977,13 +7980,13 @@ ul.nav-bio-page li a:hover {
     
     /* =========================== Header =========================== */
     .box-header .left-header{
-        width: 17%;
+        width: 10%;
     }
     .box-header .center-header{
-        width: 45%;
+        width: 50%;
     }
     .box-header .right-header{
-        width: 38%;
+        width: 40%;
     }
     .box-mega-menu{
         width: 22%;
@@ -8001,7 +8004,8 @@ ul.nav-bio-page li a:hover {
         right: 10px;
     }
     .box-logo img{
-        width: 140px;
+        /* width: 140px; */
+        width: 55px;
     }
 
     /* =========================== Instruktur =========================== */
@@ -8187,7 +8191,8 @@ ul.nav-bio-page li a:hover {
         cursor: pointer;
     }
     .box-logo{
-        width: 150px;
+        /* width: 150px; */
+        width: 50px;
         display: inline-block;
         vertical-align: middle;
     }
@@ -9035,7 +9040,8 @@ ul.nav-bio-page li a:hover {
         width: 40%;
     }
     .box-logo{
-        width: 140px;
+        /* width: 140px; */
+        width: 50px;
     }
     .box-header .right-header{
         width: 60%;
@@ -9671,7 +9677,8 @@ ul.nav-bio-page li a:hover {
         margin-right: 10px;
     }
     .box-logo{
-        width: 105px;
+        /* width: 105px; */
+        width: 50px;
     }
     ul.box-nav-right{
         margin-right: 10px;
@@ -9944,7 +9951,8 @@ ul.nav-bio-page li a:hover {
 
     /* =========================== Header =========================== */
     .box-logo{
-        width: 95px;
+        /* width: 95px; */
+        width: 50px;
     }
     .menu-footer img{
         width: 95px;

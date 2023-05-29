@@ -64,7 +64,7 @@
 					</div>	
 					<div class="box-logo">
 						<router-link to="/">
-							<img alt="" src="@/assets/images/logo-old.png">
+							<img alt="" src="@/assets/images/logo.png">
 						</router-link>
 					</div>
 				</div>
@@ -533,7 +533,7 @@
 								
 								<!-- After Login -->
 								<div class="box-avatar actBoxMenuMember">
-									<div class="init-avatar bg-blue">
+									<div class="init-avatar bg-blue-dark-alt">
 										A
 									</div>
 
@@ -662,7 +662,7 @@
 				</div>
 			</div>
 
-			<div class="box-member-dropdown display-mobile clearer-padding">
+			<!-- <div class="box-member-dropdown display-mobile clearer-padding">
 				<small>Chanel</small>
 				<a href="http://design.bakingworld.id/portal" class="actCloseMenu">
 					Home
@@ -679,7 +679,7 @@
 				<a href="http://design.bakingworld.id/media" class="actCloseMenu">
 					Media
 				</a>
-			</div>
+			</div> -->
 
 			<hr />
 

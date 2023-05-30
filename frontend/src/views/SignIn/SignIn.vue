@@ -38,35 +38,60 @@
 							<div class="box-action">
 								<h3>Masuk</h3>
 								
-								<div class="box-alert alert alert-warning">
-									<i class="fas fa-exclamation-circle"></i> Email / Kata sandi salah
+								<div v-if="alertData.text" class="box-alert alert alert-warning">
+									<i class="fas fa-exclamation-circle" /> {{ alertData.text }}
 								</div>
 								
-								<form @submit.prevent="enabledSubmit">
-									<div class="box-access">
-										<i class="fas fa-envelope icon-access"></i>
-										<input type="text" name="" class="text-access" placeholder="Email" v-model="a$.validate2.email.$model">
-										<div class="input-errors" v-for="(error, index) of a$.validate2.email.$errors" :key="index">
-											<div class="error-msg">{{ error.$message }}</div>
+								<div class="box-access">
+									<i class="fas fa-envelope icon-access" />
+									<input 
+										@keydown.enter="login"
+										v-model="getVuelidate().email.$model" 
+										class="text-access" 
+										placeholder="Email" 
+									>
+									<div 
+										v-if="getVuelidate().email.$errors.length > 0" 
+										class="input-errors"
+									>
+										<div class="error-msg">
+											{{ getVuelidate().email.$errors[0].$message }}
 										</div>
 									</div>
+								</div>
 									
-									<div class="box-access">
-										<i class="fas fa-lock icon-access"></i>
-										<input type="password" name="" class="text-access" placeholder="Kata Sandi" v-model="a$.validate2.password.$model">
-										<i class="far fa-eye-slash icon-eye"></i>
-										<div class="input-errors" v-for="(error, index) of a$.validate2.password.$errors" :key="index">
-											<div class="error-msg">{{ error.$message }}</div>
+								<div class="box-access">
+									<i class="fas fa-lock icon-access" />
+									<input 
+										@keydown.enter="login"
+										v-model="getVuelidate().password.$model" 
+										type="password" 
+										class="text-access" 
+										placeholder="Kata Sandi" 
+									>
+									<i class="far fa-eye-slash icon-eye" />
+									
+									<div 
+										v-if="getVuelidate().password.$errors.length > 0" 
+										class="input-errors"
+									>
+										<div class="error-msg">
+											{{ getVuelidate().password.$errors[0].$message }}
 										</div>
 									</div>
-									<button type="submit" class="button-blue-alt">
-										<!-- <img src="@/assets/images/loading.gif" class="img-spinner" alt=""> -->
-										Masuk
-									</button>
-									<!--
-									<input type="submit" name="" value="Masuk" class="button-blue-alt">
-									-->
-								</form>
+								</div>
+								<button 
+									@click="login" 
+									type="submit" 
+									class="button-blue-alt"
+									:disabled="loginData.loadingDisabled"
+								>
+									<!-- <img src="@/assets/images/loading.gif" class="img-spinner" alt=""> -->
+									{{ loginData.loadingSubmit ? 'Loading..' : 'Masuk' }}
+								</button>
+								<!--
+								<input type="submit" name="" value="Masuk" class="button-blue-alt">
+								-->
 
 								<!-- <div class="box-separator">
 									<div class="line-separator"></div>
@@ -94,38 +119,111 @@
 </template>
 
 <script>
-import useVuelidate from '@vuelidate/core'
-import { required, email, minLength } from '@vuelidate/validators'
+import useVuelidate from '@vuelidate/core';
+import { required, email, minLength, helpers as vuelidateHelper } from "@vuelidate/validators";
+// ** Api
+import { AuthApi } from "@/apis/auth.api";
+// ** Helper
+import * as Helper from "@/shared/utils/helper";
 
 export default {
-  name: 'App',
-  setup () {
-    return { 
-		a$: useVuelidate()
+	data() {
+		return {
+			vuelidate: useVuelidate(),
+			authApi: new AuthApi(),
+			alertData: {
+				text: '',
+			},
+			loginData: {
+				data: {
+					email: 'martin@mailinator.com',
+					password: '12345678',
+				},
+				loadingSubmit: false,
+				loadingDisabled: false,
+			},
+			isShowPass: false,
+		}
+	},
+   
+	validations() {
+		let rules = {
+			loginData: {
+				data: {
+					email: {},
+					password: {},
+				},
+			},
+		};
+
+		let loginRuleData = rules.loginData.data;
+		
+		loginRuleData.email = {
+			required: vuelidateHelper.withMessage('Email harus diisi', required),
+			email: vuelidateHelper.withMessage('Email format salah', email),
+		};		
+
+		loginRuleData.password = {
+			required: vuelidateHelper.withMessage('Kata sandi harus diisi', required),			
+			min: vuelidateHelper.withMessage('Kata sandi minimal 8 karakter', minLength(8)),
+		};
+
+		return rules;
+	},
+
+	methods: {
+		getVuelidate() {
+			return this.vuelidate.loginData.data;
+		},
+		login() {
+			let alertData = this.alertData;
+			let loginData = this.loginData.data;
+			
+			alertData.text = '';
+
+			this.vuelidate.$touch();
+
+			if (!this.vuelidate.$invalid) {
+				loginData.loadingDisabled = true;
+				loginData.loadingSubmit = true;
+
+				this.authApi
+					.login({
+						email: loginData.email,
+						password: loginData.password,
+					})
+					.then(response => {
+						response = response.data;
+
+						console.log(response);
+
+						this.$router.replace({
+							name: 'Home',
+						});
+						
+						loginData.loadingDisabled = false;
+						loginData.loadingSubmit = false;			
+					})
+					.catch(error => {
+						error = Helper.getCatchError(error);
+						
+						if (error.code == 401) {
+							alertData.text = 'Email atau password salah';
+						}
+						else if (error.code == 404) {
+							alertData.text = 'Email tidak ditemukan';
+						}
+						else {
+							alertData.text = Helper.setCapitalizeFirstLetter(
+								Helper.getArrayFirstIndex(error.message)
+							);
+						}
+
+						loginData.loadingDisabled = false;
+						loginData.loadingSubmit = false;
+					});
+			}
+		}
 	}
-  },
-  data() {
-    return {
-		validate2: {
-			email: '',
-			password: '',
-		},
-		submitted: false
-    }
-  },
-    
-  validations() {
-    return {
-		validate2: {
-			email: { required, email },
-			password: { required, min: minLength(6) },
-		},
-    }
-  },
-  methods: {
-    enabledSubmit() {
-		this.a$.$touch();
-    }
-  }
 }
 </script>

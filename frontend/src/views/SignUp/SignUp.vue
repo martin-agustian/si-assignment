@@ -71,13 +71,13 @@
 										v-model="getVuelidate().name.$model" 
 										class="text-field" 
 									/>
-								</div>
-								<div 
-									v-if="getVuelidate().name.$errors.length > 0" 
-									class="input-errors"
-								>
-									<div class="error-msg">
-										{{ getVuelidate().name.$errors[0].$message }}
+									<div 
+										v-if="getVuelidate().name.$errors.length > 0" 
+										class="input-errors"
+									>
+										<div class="error-msg">
+											{{ getVuelidate().name.$errors[0].$message }}
+										</div>
 									</div>
 								</div>
 								<div class="box-field-auth">
@@ -109,13 +109,13 @@
 										:class="isShowPass ? 'fa-eye' : 'fa-eye-slash'" 
 										class="far icon-eye" 
 									/>
-								</div>
-								<div 
-									v-if="getVuelidate().password.$errors.length > 0" 
-									class="input-errors"
-								>
-									<div class="error-msg">
-										{{ getVuelidate().password.$errors[0].$message }}
+									<div 
+										v-if="getVuelidate().password.$errors.length > 0" 
+										class="input-errors"
+									>
+										<div class="error-msg">
+											{{ getVuelidate().password.$errors[0].$message }}
+										</div>
 									</div>
 								</div>
 								
@@ -126,8 +126,13 @@
 								</div> -->
 						
 								<div class="text-center">
-									<button @click="register" type="submit" class="button-blue-alt-md">
-										Mendaftar
+									<button 
+										@click="register" 
+										type="submit" 
+										class="button-blue-alt-md"
+										:disabled="registerData.loadingDisabled"
+									>
+										{{ registerData.loadingSubmit ? 'Loading..' : 'Mendaftar' }}
 									</button>
 								</div>
 								
@@ -168,6 +173,7 @@ export default {
 	data() {
 		return {
 			vuelidate: useVuelidate(),
+			authApi: new AuthApi(),
 			alertData: {
 				text: '',
 			},
@@ -178,8 +184,8 @@ export default {
 					password: '12345678',
 				},
 				loadingSubmit: false, 
+				loadingDisabled: false,
 			},
-			authApi: new AuthApi(),
 			isShowPass: false,
 		}
 	},
@@ -238,24 +244,14 @@ export default {
 					.then(response => {
 						response = response.data;
 
-						if (response.status) {
-							this.$router.replace({
-								name: 'Login',
-								params: {
-									alertSuccess: 'Berhasil membuat account',
-								},
-							});
-						}
-						else {
-							if (response.code == 423) {
-								alertData.text = 'Email sudah pernah diregistrasi';
-							}
-							else {
-								alertData.text = Helper.setCapitalizeFirstLetter(
-									Helper.getArrayFirstIndex(response.message)
-								);
-							}
-						}
+						this.$swal({
+							icon: 'success',
+							title: 'Berhasil membuat akun baru',
+							confirmButtonText: 'Tutup',
+						}).then((result) => {
+							console.log(result, response);
+							this.$router.replace({ name: 'SignIn' });
+						});
 						
 						registerData.loadingDisabled = false;
 						registerData.loadingSubmit = false;				

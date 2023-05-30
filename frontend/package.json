@@ -28,6 +28,7 @@
     "vue-sticky": "^3.3.4",
     "vue-sticky-directive": "0.0.10",
     "vue-sticky-sidebar": "^1.0.5",
+    "vue-sweetalert2": "^5.0.5",
     "vue3-carousel": "^0.1.35",
     "vue3-circle-progress": "^1.0.7",
     "vue3-star-ratings": "^1.1.0",

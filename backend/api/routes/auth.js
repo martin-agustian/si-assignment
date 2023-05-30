@@ -21,8 +21,14 @@ router.post('/register', (req, res, next) => {
          });
       })
       .catch(error => {
+         if (error.code == 11000) {
+            error.code = 423;
+            error.message = 'email already exists';
+         }
+
          res.status(500).json({
-            message: error
+            code: error.code,
+            message: error.message
          });
       });
 });

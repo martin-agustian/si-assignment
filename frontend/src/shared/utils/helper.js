@@ -49,6 +49,10 @@ export function setCapitalize(value) {
 	return splitStr.join(' ');
 }
 
+export function setCapitalizeFirstLetter(value) {
+	return value[0].toUpperCase() + value.slice(1);
+}
+
 export function setGender(value) {
 	if (value.toLowerCase() == 'laki laki') {
 		value = 'male';

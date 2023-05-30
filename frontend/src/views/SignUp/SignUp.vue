@@ -60,8 +60,8 @@
 								</div>
 								<br /> -->
 
-								<div class="box-alert alert alert-warning">
-									<i class="fas fa-exclamation-circle"></i> Email sudah terdaftar
+								<div v-if="alertData.text" class="box-alert alert alert-warning">
+									<i class="fas fa-exclamation-circle" /> {{ alertData.text }}
 								</div>
 
 								<div class="box-field-auth">
@@ -250,11 +250,10 @@ export default {
 							if (response.code == 423) {
 								alertData.text = 'Email sudah pernah diregistrasi';
 							}
-							else if (response.code == 424) {
-								alertData.text = 'No. Telepon sudah pernah diregistrasi';
-							}
 							else {
-								alertData.text = Helper.getArrayFirstIndex(response.message);
+								alertData.text = Helper.setCapitalizeFirstLetter(
+									Helper.getArrayFirstIndex(response.message)
+								);
 							}
 						}
 						
@@ -267,11 +266,10 @@ export default {
 						if (error.code == 423) {
 							alertData.text = 'Email sudah pernah diregistrasi';
 						}
-						else if (error.code == 424) {
-							alertData.text = 'No. Telepon sudah pernah diregistrasi';
-						}
 						else {
-							alertData.text = Helper.getArrayFirstIndex(error.message);
+							alertData.text = Helper.setCapitalizeFirstLetter(
+								Helper.getArrayFirstIndex(error.message)
+							);
 						}
 
 						registerData.loadingDisabled = false;

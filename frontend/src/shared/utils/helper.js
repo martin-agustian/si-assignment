@@ -1,4 +1,4 @@
-export function getArrayFirstIndex(value: any) {
+export function getArrayFirstIndex(value) {
 	if (Array.isArray(value)) {
 		value = value[0];
 	}
@@ -6,7 +6,7 @@ export function getArrayFirstIndex(value: any) {
 	return value;
 }
 
-export function getCatchError(error: any): any {
+export function getCatchError(error) {
 	if (error.response && error.response.data) {
 		error = error.response.data;
 	}
@@ -18,7 +18,7 @@ export function getCatchError(error: any): any {
 	return error; 
 }
 
-export function getResponseError(error: any): any {
+export function getResponseError(error) {
 	if (error.message == 'Network Error') {
 		error.message = 'Bad Gateway. Check koneksi internet';
 	}
@@ -26,11 +26,11 @@ export function getResponseError(error: any): any {
 	return error; 
 }
 
-export function isEven(value: number): boolean {
+export function isEven(value) {
 	return value % 2 === 0;
 }
 
-export function isValidHttpUrl(value: any): boolean {
+export function isValidHttpUrl(value) {
 	try {
 		new URL(value);
 	}
@@ -41,7 +41,7 @@ export function isValidHttpUrl(value: any): boolean {
 	return true;
 }
 
-export function setCapitalize(value: string): string {
+export function setCapitalize(value) {
 	var splitStr = value.toLowerCase().split(' ');
 	for (var i = 0; i < splitStr.length; i++) {
 		splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
@@ -49,7 +49,7 @@ export function setCapitalize(value: string): string {
 	return splitStr.join(' ');
 }
 
-export function setGender(value: string): string {
+export function setGender(value) {
 	if (value.toLowerCase() == 'laki laki') {
 		value = 'male';
 	}
@@ -63,7 +63,7 @@ export function setGender(value: string): string {
 	return value;
 }
 
-export function setJenisKelamin(value: string): string {
+export function setJenisKelamin(value) {
 	if (value.toLowerCase() == 'male') {
 		value = 'Laki Laki';
 	}

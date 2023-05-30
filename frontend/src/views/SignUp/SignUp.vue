@@ -159,19 +159,28 @@
 <script>
 import useVuelidate from '@vuelidate/core';
 import { required, email, minLength, helpers as vuelidateHelper } from "@vuelidate/validators";
+// ** Api
+import { AuthApi } from "@/apis/auth.api";
+// ** Helper
+import * as Helper from "@/shared/utils/helper";
 
 export default {
 	data() {
 		return {
+			vuelidate: useVuelidate(),
+			alertData: {
+				text: '',
+			},
 			registerData: {
 				data: {
-					name: '',
-					email: '',
-					password: '',
+					name: 'martin',
+					email: 'martin@mailinator.com',
+					password: '12345678',
 				},
+				loadingSubmit: false, 
 			},
+			authApi: new AuthApi(),
 			isShowPass: false,
-			vuelidate: useVuelidate(),
 		}
 	},
 	validations() {
@@ -209,106 +218,65 @@ export default {
 			return this.vuelidate.registerData.data;
 		},
 		register() {
-			// let alertData = this.loginStore.alertData;
-			// let registerData = this.registerData.data;
+			let alertData = this.alertData;
+			let registerData = this.registerData.data;
 			
-			// alertData.text = '';
+			alertData.text = '';
 
 			this.vuelidate.$touch();
 
 			if (!this.vuelidate.$invalid) {
-				console.log(this.registerData);
-				// this.loginStore.loadingDisabled = true;
-				// this.loginStore.loadingSubmit = true;
+				registerData.loadingDisabled = true;
+				registerData.loadingSubmit = true;
 
-				// this.authApi
-				// 	.register({
-				// 		firstname: registerData.firstName,
-				// 		lastname: registerData.lastName,
-				// 		phone: registerData.phone,
-				// 		email: registerData.email.toLowerCase(),
-				// 		password: registerData.password,
-				// 	})
-				// 	.then(response => {
-				// 		response = response.data;
+				this.authApi
+					.register({
+						name: registerData.name,
+						email: registerData.email,
+						password: registerData.password,
+					})
+					.then(response => {
+						response = response.data;
 
-				// 		if (response.status) {
-				// 			this.authApi
-				// 				.otpChannel({
-				// 					params: {
-				// 						email: registerData.email,
-				// 					},
-				// 				})
-				// 				.then(response => {
-				// 					response = response.data;
-
-				// 					if (response.status) {
-				// 						let result: any = response.result;
-										
-				// 						if (!result.email) {
-				// 							alertData.text = Helper.getArrayFirstIndex('otp channel email tidak ditemukan');
-				// 						}
-				// 						else {
-				// 							this.$router.replace({
-				// 								name: 'OTPChannel',
-				// 								params: {												
-				// 									fromRouteName: 'Login',
-				// 									email: result.email ? result.email : null,
-				// 									sms: result.sms ? result.sms : null,
-				// 									whatsapp: result.whatsapp ? result.whatsapp : null,
-				// 								},
-				// 							});
-				// 						}
-
-				// 						this.loginStore.loadingDisabled = false;
-				// 						this.loginStore.loadingSubmit = false;
-				// 					}
-				// 					else {
-				// 						alertData.text = Helper.getArrayFirstIndex(response.message);
-
-				// 						this.loginStore.loadingDisabled = false;
-				// 						this.loginStore.loadingSubmit = false;
-				// 					}
-				// 				})
-				// 				.catch(error => {
-				// 					error = Helper.getCatchError(error);
-				// 					alertData.text = Helper.getArrayFirstIndex(error.message);
-									
-				// 					this.loginStore.loadingDisabled = false;
-				// 					this.loginStore.loadingSubmit = false;
-				// 				});
-				// 		}
-				// 		else {
-				// 			if (response.code == 423) {
-				// 				alertData.text = 'Email sudah pernah diregistrasi';
-				// 			}
-				// 			else if (response.code == 424) {
-				// 				alertData.text = 'No. Telepon sudah pernah diregistrasi';
-				// 			}
-				// 			else {
-				// 				alertData.text = Helper.getArrayFirstIndex(response.message);
-				// 			}
-							
-				// 			this.loginStore.loadingDisabled = false;
-				// 			this.loginStore.loadingSubmit = false;
-				// 		}					
-				// 	})
-				// 	.catch(error => {
-				// 		error = Helper.getCatchError(error);
+						if (response.status) {
+							this.$router.replace({
+								name: 'Login',
+								params: {
+									alertSuccess: 'Berhasil membuat account',
+								},
+							});
+						}
+						else {
+							if (response.code == 423) {
+								alertData.text = 'Email sudah pernah diregistrasi';
+							}
+							else if (response.code == 424) {
+								alertData.text = 'No. Telepon sudah pernah diregistrasi';
+							}
+							else {
+								alertData.text = Helper.getArrayFirstIndex(response.message);
+							}
+						}
 						
-				// 		if (error.code == 423) {
-				// 			alertData.text = 'Email sudah pernah diregistrasi';
-				// 		}
-				// 		else if (error.code == 424) {
-				// 			alertData.text = 'No. Telepon sudah pernah diregistrasi';
-				// 		}
-				// 		else {
-				// 			alertData.text = Helper.getArrayFirstIndex(error.message);
-				// 		}
-							
-				// 		this.loginStore.loadingDisabled = false;
-				// 		this.loginStore.loadingSubmit = false;
-				// 	});
+						registerData.loadingDisabled = false;
+						registerData.loadingSubmit = false;				
+					})
+					.catch(error => {
+						error = Helper.getCatchError(error);
+						
+						if (error.code == 423) {
+							alertData.text = 'Email sudah pernah diregistrasi';
+						}
+						else if (error.code == 424) {
+							alertData.text = 'No. Telepon sudah pernah diregistrasi';
+						}
+						else {
+							alertData.text = Helper.getArrayFirstIndex(error.message);
+						}
+
+						registerData.loadingDisabled = false;
+						registerData.loadingSubmit = false;
+					});
 			}
 		}
 	}

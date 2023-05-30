@@ -291,8 +291,11 @@ button:disabled{
 }
 
 /* =============================== Wrapper =============================== */
-.box-wrapper{
+.box-wrapper-auth{
 	padding: 20px; position: relative; color: #f5f6f8;
+}
+.box-wrapper-auth h3 {
+	color: #f5f6f8;
 }
 .box-action{
 	width: 320px; margin-left: auto; margin-right: auto;
@@ -380,10 +383,10 @@ button:disabled{
 	right: 15px;
 	cursor: pointer;
 }
-.box-field{
+.box-field-auth{
 	width: auto; margin-top: 15px; position: relative;
 }
-.box-field .title-field{
+.box-field-auth .title-field{
 	width: auto;
 	margin-bottom: 10px;
 }
@@ -408,7 +411,7 @@ button:disabled{
  	border:2px solid #60DCFF;
  	outline: 0;
 }
-.box-field .icon-eye{
+.box-field-auth .icon-eye{
 	width: 20px;
 	text-align: center;
 	color: #555;
@@ -606,7 +609,7 @@ button:disabled{
 		color: #555;
 		opacity: 0.38;
 	}
-	.box-field .title-field{
+	.box-field-auth .title-field{
 		color: #555;
 	}
 	.text-field{
@@ -626,10 +629,10 @@ button:disabled{
 	 	border:1px solid #00aad2;
 	 	outline: 0;
 	}
-	.box-field .icon-field{
+	.box-field-auth .icon-field{
 		color: #555;
 	}
-	.box-field .icon-eye{
+	.box-field-auth .icon-eye{
 		color: #555;
 		opacity: 0.38;
 	}
@@ -642,7 +645,7 @@ button:disabled{
 	.box-link a:hover{
 		color: #00aad2;
 	}
-	.box-field .title-field span{
+	.box-field-auth .title-field span{
 		color: #EB1D25;
 	}
 	.box-link .content-link{
@@ -651,7 +654,7 @@ button:disabled{
 	
 
 	/* =============================== Wrapper =============================== */
-	.box-wrapper{
+	.box-wrapper-auth{
 		margin-top: 56px;
 	}
 

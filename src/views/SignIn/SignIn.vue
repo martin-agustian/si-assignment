@@ -31,12 +31,12 @@
 			<div class="box-table">
 				<div class="display-table">
 					<div class="display-table-cell">
-						<div class="box-wrapper">
+						<div class="box-wrapper-auth">
 							<div class="display-mobile box-ilustration-mobile">
 								<img alt="" src="@/assets/images/bg-login-daftar.png">
 							</div>
 							<div class="box-action">
-								<h3 class="clr-white">Masuk</h3>
+								<h3>Masuk</h3>
 								
 								<div class="box-alert alert alert-warning">
 									<i class="fas fa-exclamation-circle"></i> Email / Kata sandi salah

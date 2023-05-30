@@ -856,7 +856,7 @@
 		</span>
 		<div class="modal__content mt-3">
 			<div v-show="viewMasterLocation">
-				<div class="box-field">
+				<div class="box-field-auth">
 					<div class="icon-field">
 						<i class="fas fa-search oc-38"></i>
 						<input type="text" class="form-control pl-left-40" placeholder="Cari area pengiriman">
@@ -962,7 +962,7 @@
 				</div>
 			</div>
 			<div v-show="viewSubLocation">
-				<div class="box-field">
+				<div class="box-field-auth">
 					<div class="icon-field">
 						<i class="fas fa-search oc-38"></i>
 						<input type="text" class="form-control pl-left-40" placeholder="Cari detail area pengiriman">

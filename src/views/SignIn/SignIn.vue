@@ -2,7 +2,7 @@
 	<div class="box-page">
 		<div class="left-page">
 			<div class="box-logo-auth">
-				<div class="box-arrow-back display-mobile">
+				<div class="box-arrow-back display-mobile-auth">
 					<router-link to="#">
 						<i class="fas fa-arrow-left"></i>
 					</router-link>
@@ -32,7 +32,7 @@
 				<div class="display-table">
 					<div class="display-table-cell">
 						<div class="box-wrapper-auth">
-							<div class="display-mobile box-ilustration-mobile">
+							<div class="display-mobile-auth box-ilustration-mobile">
 								<img alt="" src="@/assets/images/bg-login-daftar.png">
 							</div>
 							<div class="box-action">

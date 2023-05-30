@@ -24,7 +24,6 @@ body{
 	font-family: "Poppins-Regular";
 	font-size: 14px;
 	color: #555555;
-	background-color: #007ba1;
 }
 
 
@@ -44,10 +43,10 @@ body{
 
 
 /* =============================== Display =============================== */
-.display-desktop{
+.display-desktop-auth{
 	display: block;
 }
-.display-mobile{
+.display-mobile-auth{
 	display: none;
 }
 
@@ -503,10 +502,10 @@ button:disabled{
 	}
 
 	/* =============================== Display =============================== */
-	.display-desktop{
+	.display-desktop-auth{
 		display: none;
 	}
-	.display-mobile{
+	.display-mobile-auth{
 		display: block;
 	}
 

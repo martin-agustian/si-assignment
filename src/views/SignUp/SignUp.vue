@@ -2,7 +2,7 @@
 	<div class="box-page">
 		<div class="left-page">
 			<div class="box-logo-auth">
-				<div class="box-arrow-back display-mobile">
+				<div class="box-arrow-back display-mobile-auth">
 					<router-link to="#">
 						<i class="fas fa-arrow-left"></i>
 					</router-link>
@@ -27,7 +27,7 @@
 		<div class="right-page">
 
 			<!--
-			<div class="box-navback display-mobile bg-blue-dark">
+			<div class="box-navback display-mobile-auth bg-blue-dark">
 				<div class="content-navback">
 					<router-link to="/">
 						<i class="fas fa-arrow-left"></i> Daftar

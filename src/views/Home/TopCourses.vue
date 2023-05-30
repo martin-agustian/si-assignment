@@ -206,7 +206,7 @@ export default defineComponent({
     data: () => ({
         breakpointsCourses: {
             0: {
-                itemsToShow: 1.15,
+                itemsToShow: 1.5,
                 snapAlign: 'left',
             },
             768: {

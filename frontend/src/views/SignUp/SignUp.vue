@@ -232,8 +232,8 @@ export default {
 			this.vuelidate.$touch();
 
 			if (!this.vuelidate.$invalid) {
-				registerData.loadingDisabled = true;
-				registerData.loadingSubmit = true;
+				this.registerData.loadingDisabled = true;
+				this.registerData.loadingSubmit = true;
 
 				this.authApi
 					.register({
@@ -253,8 +253,8 @@ export default {
 							this.$router.replace({ name: 'SignIn' });
 						});
 						
-						registerData.loadingDisabled = false;
-						registerData.loadingSubmit = false;				
+						this.registerData.loadingDisabled = false;
+						this.registerData.loadingSubmit = false;				
 					})
 					.catch(error => {
 						error = Helper.getCatchError(error);
@@ -268,8 +268,8 @@ export default {
 							);
 						}
 
-						registerData.loadingDisabled = false;
-						registerData.loadingSubmit = false;
+						this.registerData.loadingDisabled = false;
+						this.registerData.loadingSubmit = false;
 					});
 			}
 		}

@@ -184,8 +184,8 @@ export default {
 			this.vuelidate.$touch();
 
 			if (!this.vuelidate.$invalid) {
-				loginData.loadingDisabled = true;
-				loginData.loadingSubmit = true;
+				this.loginData.loadingDisabled = true;
+				this.loginData.loadingSubmit = true;
 
 				this.authApi
 					.login({
@@ -201,8 +201,8 @@ export default {
 							name: 'Home',
 						});
 						
-						loginData.loadingDisabled = false;
-						loginData.loadingSubmit = false;			
+						this.loginData.loadingDisabled = false;
+						this.loginData.loadingSubmit = false;			
 					})
 					.catch(error => {
 						error = Helper.getCatchError(error);
@@ -211,7 +211,7 @@ export default {
 							alertData.text = 'Email atau password salah';
 						}
 						else if (error.code == 404) {
-							alertData.text = 'Email tidak ditemukan';
+							alertData.text = 'Email belum terdaftar';
 						}
 						else {
 							alertData.text = Helper.setCapitalizeFirstLetter(
@@ -219,8 +219,8 @@ export default {
 							);
 						}
 
-						loginData.loadingDisabled = false;
-						loginData.loadingSubmit = false;
+						this.loginData.loadingDisabled = false;
+						this.loginData.loadingSubmit = false;
 					});
 			}
 		}

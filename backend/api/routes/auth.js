@@ -60,9 +60,15 @@ router.post('/login', async (req, res, next) => {
          });
    }
    else {
+      let errors = [];
+
+      Object.values(validation.errors.errors).forEach((error) => {
+         console.log(errors.push(error[0]));   
+      });
+
       res.status(500).json({
          code: 500,
-         message: validation.errors,
+         message: errors,
       });
    }
 });

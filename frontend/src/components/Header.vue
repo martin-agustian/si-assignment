@@ -522,19 +522,25 @@
 									</li>
 								</ul>
 
-								<!-- Before Login -->
-								<!--
-								<button class="button button-outline-blue display-desktop">Daftar</button>
-								&nbsp;
-								<button class="button button-blue">Masuk</button>
-								-->
-								<!-- End -->
+								<span v-if="!userData.data">
+									<router-link to="/register">
+										<button class="button button-outline-blue display-desktop">
+											Daftar
+										</button>
+									</router-link>
+									&nbsp;
+									<router-link to="/login">
+										<button class="button button-blue">
+											Masuk
+										</button>
+									</router-link>
+								</span>
 								
 								
 								<!-- After Login -->
-								<div class="box-avatar actBoxMenuMember">
+								<div v-else class="box-avatar actBoxMenuMember">
 									<div class="init-avatar bg-blue-dark-alt">
-										A
+										{{ userData.data.name[0] }}
 									</div>
 
 									<!-- Jika ada Foto -->
@@ -548,7 +554,7 @@
 									<div class="bio-avatar display-desktop">
 										<small>Hai,</small>
 										<div class="title-avatar">
-											John Doe
+											{{ userData.data.name }}
 										</div>
 									</div>
 									<i class="fas fa-chevron-down"></i>
@@ -581,8 +587,8 @@
 											<i class="bi bi-door-open"></i> Mendaftar Ke B2B
 										</router-link> -->
 										<hr />
-										<router-link to="/">
-											<i class="bi bi-box-arrow-left"></i> Keluar
+										<router-link to="#" @click.prevent="logout">
+											<i class="bi bi-box-arrow-left" /> Keluar
 										</router-link>
 									</div>
 								</div>
@@ -618,32 +624,29 @@
 				<i class="fas fa-times"></i>
 			</div>
 
-			<!-- Before Login -->
-			<!--
-			<div class="box-mobile-access">
+			<div v-if="!userData.data" class="box-mobile-access">
 				<div class="row">
 					<div class="col-md-12">
-						<button class="button button-outline-blue s-100">
-							Daftar
-						</button>
+						<router-link to="/register">
+							<button class="button button-outline-blue s-100">
+								Daftar
+							</button>
+						</router-link>
 					</div>
 					<div class="col-md-12">
-						<button class="button button-blue s-100">
-							Masuk
-						</button>
+						<router-link to="/login">
+							<button class="button button-blue s-100">
+								Masuk
+							</button>
+						</router-link>
 					</div>
 				</div>
 			</div>
-			-->
-			<!-- End -->
 
-			<!-- After Login -->
-
-			<div class="m-box-bio">
-
+			<div v-else class="m-box-bio">
 				<!-- Jika image tidak tersedia -->
 				<div class="m-init-bio">
-					A
+					{{ userData.data.name[0] }}
 				</div>
 				<!-- End -->
 
@@ -655,7 +658,7 @@
 				-->
 
 				<div class="m-history-bio">
-					<h5>Andriana</h5>
+					<h5>{{ userData.data.name }}</h5>
 					<small>
 						<i class="fas fa-medal clr-silver"></i> Classic Member
 					</small>
@@ -748,8 +751,6 @@
 					</ul>
 				</div>
 			</div>
-			
-
 		</div>
 	</div>
 
@@ -817,28 +818,28 @@
 					</span>
 				</router-link> -->
 
-				<router-link to="/" class="actCloseMenuMember">
-					<i class="bi bi-box-arrow-left"></i> Keluar
+				<router-link 
+					to="#"
+					@click.prevent="logout" 
+					class="actCloseMenuMember"
+				>
+					<i class="bi bi-box-arrow-left" /> Keluar
 				</router-link>
 			</div>
 		</div>
 	</div>
 
 	<!-- Download App -->
-	
 	<NotificationDownload />
 
-
-
-    <!-- Modal Edit - Loc -->
-    <vue-final-modal v-model="showModalEditLoc" classes="modal-container" :click-to-close="false" content-class="modal-content">
-		
-        <button class="modal__close" @click="actCloseModalEditLoc" v-show="viewMasterLocation">
-            <i class="bi bi-x-lg"></i>
-        </button>
+	<!-- Modal Edit - Loc -->
+	<vue-final-modal v-model="showModalEditLoc" classes="modal-container" :click-to-close="false" content-class="modal-content">
+		<button class="modal__close" @click="actCloseModalEditLoc" v-show="viewMasterLocation">
+			<i class="bi bi-x-lg"></i>
+		</button>
 		<button class="modal__close modal__close__alt" @click="actCloseSublocation" v-show="viewSubLocation">
-            <i class="bi bi-arrow-left-circle-fill"></i> Back
-        </button>
+			<i class="bi bi-arrow-left-circle-fill"></i> Back
+		</button>
 
 		<span class="modal__title mb-3">
 			<div v-show="viewMasterLocation">
@@ -1012,136 +1013,143 @@
 				</div>
 			</div>
 		</div> 
-    </vue-final-modal>
-    <!-- End -->
-	
+	</vue-final-modal>
+	<!-- End -->
 </template>
 
-<script>
-import NotificationDownload from '../components/NotificationDownload.vue'
+<script setup>
+import { ref, reactive, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
+import $ from 'jquery';
+// ** Components
+import NotificationDownload from '../components/NotificationDownload.vue';
+// ** Store
+import { UserStore } from '@/stores/user.store';
 
-import jQuery from "jquery";
-const $ = jQuery;
-window.$ = $;
+const router = useRouter();
+const userStore = UserStore();
 
-export default {
-	name: 'App',
-	components: {
-		NotificationDownload
-	},
-	data () {
-        return{
-            showModalEditLoc: false,
-			viewMasterLocation: true,
-			viewSubLocation: false,
-        } 
-    },
-	methods: {
-		actSearch() {
-			this.$router.push('/search');
-		},
-		actShowModalEditLoc() {
-            this.showModalEditLoc = true;
-        },
-        actCloseModalEditLoc() {
-            this.showModalEditLoc = false;
-        },
-		actCloseSublocation(){
-			this.viewMasterLocation = true;
-			this.viewSubLocation = false;
-		},
-		actSubLocation() {
-            this.viewMasterLocation = false;
-			this.viewSubLocation = true;
-        },
-	},	
-	mounted (){
+const showModalEditLoc = ref(false), 
+	viewMasterLocation = ref(true),
+	viewSubLocation = ref(false);
 
-		// Left Menu Mobile
-		$('.actBoxMenu').off().on('click', function () {
-			$(".box-menu").css({"left" : "0px"});
-			$(".box-menu-overlay").css({
-				"backgroundColor": "rgba(0, 123, 161, 0.54)",
-				"position" : "fixed",
-				"width" : "100%",
-				"height" : "100%",
-				"top" : "0",
-				"left" : "0",
-				"z-index" : "99999"
-			}); 
-			$(".modal-overlay-menu").css({"display" : "block"});
-		});
-		$('.actCloseMenu').off().on('click', function () {
-			$(".box-menu").css({"left": "-290px"});
-			$(".box-menu-overlay").css({
-				"width" : "0"
-			});
-			$(".modal-overlay-menu").css({"display" : "none"});
-		});
+const userData = reactive({
+	data: userStore.getStoreUser,
+});
 
-		// Right Menu Mobile
-		$('.actBoxMenuMember').off().on('click', function () {
-			$(".box-menu-member").css({"right" : "0px"});
-			$(".box-menuMember-overlay").css({
-				"backgroundColor": "rgba(0, 123, 161, 0.54)",
-				"position" : "fixed",
-				"width" : "100%",
-				"height" : "100%",
-				"top" : "0",
-				"right" : "0",
-				"z-index" : "99999"
-			}); 
-			$(".modal-overlay-menuMember").css({"display" : "block"});
+onMounted(() => {
+	// Left Menu Mobile
+	$('.actBoxMenu').off().on('click', function () {
+		$(".box-menu").css({"left" : "0px"});
+		$(".box-menu-overlay").css({
+			"backgroundColor": "rgba(0, 123, 161, 0.54)",
+			"position" : "fixed",
+			"width" : "100%",
+			"height" : "100%",
+			"top" : "0",
+			"left" : "0",
+			"z-index" : "99999"
+		}); 
+		$(".modal-overlay-menu").css({"display" : "block"});
+	});
+	$('.actCloseMenu').off().on('click', function () {
+		$(".box-menu").css({"left": "-290px"});
+		$(".box-menu-overlay").css({
+			"width" : "0"
 		});
-		$('.actCloseMenuMember').off().on('click', function () {
-			$(".box-menu-member").css({"right": "-290px"});
-			$(".box-menuMember-overlay").css({
-				"width" : "0"
-			});
-			$(".modal-overlay-menuMember").css({"display" : "none"});
-		});
+		$(".modal-overlay-menu").css({"display" : "none"});
+	});
 
-		$('#navigation-menu-mobile li.active').addClass('open').children('ul').show();
-        $('#navigation-menu-mobile li.has-sub-menu>a').on('click', function(){
-			$(this).removeAttr('href');
-			var element = $(this).parent('li');
-			if (element.hasClass('open')) {
-				element.removeClass('open');
-				element.find('li').removeClass('open');
-				element.find('ul').slideUp(200);
-			}
-			else {
-				element.addClass('open');
-				element.children('ul').slideDown(200);
-				element.siblings('li').children('ul').slideUp(200);
-				element.siblings('li').removeClass('open');
-				element.siblings('li').find('li').removeClass('open');
-				element.siblings('li').find('ul').slideUp(200);
-			}
+	// Right Menu Mobile
+	$('.actBoxMenuMember').off().on('click', function () {
+		$(".box-menu-member").css({"right" : "0px"});
+		$(".box-menuMember-overlay").css({
+			"backgroundColor": "rgba(0, 123, 161, 0.54)",
+			"position" : "fixed",
+			"width" : "100%",
+			"height" : "100%",
+			"top" : "0",
+			"right" : "0",
+			"z-index" : "99999"
+		}); 
+		$(".modal-overlay-menuMember").css({"display" : "block"});
+	});
+	$('.actCloseMenuMember').off().on('click', function () {
+		$(".box-menu-member").css({"right": "-290px"});
+		$(".box-menuMember-overlay").css({
+			"width" : "0"
 		});
-	}
-}
+		$(".modal-overlay-menuMember").css({"display" : "none"});
+	});
+
+	$('#navigation-menu-mobile li.active').addClass('open').children('ul').show();
+		$('#navigation-menu-mobile li.has-sub-menu>a').on('click', function(){
+		$(this).removeAttr('href');
+		var element = $(this).parent('li');
+		if (element.hasClass('open')) {
+			element.removeClass('open');
+			element.find('li').removeClass('open');
+			element.find('ul').slideUp(200);
+		}
+		else {
+			element.addClass('open');
+			element.children('ul').slideDown(200);
+			element.siblings('li').children('ul').slideUp(200);
+			element.siblings('li').removeClass('open');
+			element.siblings('li').find('li').removeClass('open');
+			element.siblings('li').find('ul').slideUp(200);
+		}
+	});
+});
+
+const actSearch = () => {
+	router.push('/search');
+};
+
+const actShowModalEditLoc = () => {
+	showModalEditLoc.value = true;
+};
+
+const actCloseModalEditLoc = () => {
+	showModalEditLoc.value = false;
+};
+
+const actCloseSublocation = () => {
+	viewMasterLocation.value = true;
+	viewSubLocation.value = false;
+};
+
+const actSubLocation = () => {
+	viewMasterLocation.value = false;
+	viewSubLocation.value = true;
+};
+
+const logout = () => {
+	userStore.deleteStoreUser();
+	window.location.href = '/';
+};
+
 </script>
 
 <style scoped>
 
 ::v-deep(.modal-container){
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 ::v-deep(.modal-content){
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    max-height: 90%;
-    margin: 0 10px;
-    padding: 20px 0px;
-    border: 1px solid #e2e8f0;
-    border-radius: 15px;
-    background-color: #fff;
-    width: 540px;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	max-height: 90%;
+	margin: 0 10px;
+	padding: 20px 0px;
+	border: 1px solid #e2e8f0;
+	border-radius: 15px;
+	background-color: #fff;
+	width: 540px;
 }
 
 </style>

@@ -90,7 +90,7 @@
 									{{ loginData.loadingSubmit ? 'Loading..' : 'Masuk' }}
 								</button>
 								<!--
-								<input type="submit" name="" value="Masuk" class="button-blue-alt">
+								<input type="submit" value="Masuk" class="button-blue-alt">
 								-->
 
 								<!-- <div class="box-separator">
@@ -125,6 +125,8 @@ import { required, email, minLength, helpers as vuelidateHelper } from "@vuelida
 import { AuthApi } from "@/apis/auth.api";
 // ** Helper
 import * as Helper from "@/shared/utils/helper";
+// ** Store
+import { UserStore } from "@/stores/user.store";
 
 export default {
 	data() {
@@ -195,11 +197,24 @@ export default {
 					.then(response => {
 						response = response.data;
 
-						console.log(response);
+						let user = response.result;
 
-						this.$router.replace({
-							name: 'Home',
-						});
+						let userStore = UserStore();
+
+						if(
+							userStore.setStoreUser({
+								id: user.id,
+								name: user.name,
+								email: user.email,
+							})
+						) {
+							this.$router.replace({
+								name: 'Home',
+							});
+						}
+						else {
+							alertData.text = 'Gagal memnyimpan data user';
+						}
 						
 						this.loginData.loadingDisabled = false;
 						this.loginData.loadingSubmit = false;			

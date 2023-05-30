@@ -128,7 +128,7 @@
 								</div> -->
 
 								<div class="box-link">
-									Sudah punya akun? <router-link to="/">Login disini</router-link>
+									Sudah punya akun? <router-link to="/login">Login disini</router-link>
 								</div>
 							</div>
 						</div>

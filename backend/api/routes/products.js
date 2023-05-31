@@ -43,13 +43,42 @@ router.get('/', (req, res, next) => {
       });
 });
 
+router.get('/:slug', (req, res, next) => {
+   Product
+      .findOne({ 'slug' : req.params.slug })
+      .exec()
+      .then(result => {
+         if (result) {
+            res.status(200).json({
+               code: 200,
+               message: 'success get data',
+               result: result,
+            });
+         }
+         else {
+            res.status(404).json({
+               code: 404,
+               message: 'data not found',
+            });
+         }
+      })
+      .catch(error => {
+         res.status(500).json({
+            code: error.code,
+            message: error.message,
+         });
+      });
+});
+
 router.post('/', (req, res, next) => {
    const product = new Product({
       _id: new mongoose.Types.ObjectId(),
+      slug: req.body.slug,
       title: req.body.title,
       image: req.body.image,
       description: req.body.description,
       price: req.body.price,
+      stock: req.body.stock,
    });
 
    product

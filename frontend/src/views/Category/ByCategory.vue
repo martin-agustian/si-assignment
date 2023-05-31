@@ -41,8 +41,8 @@
                                         v-model="productData.filter.sort"
                                         class="form-select"
                                     >
-                                        <option value="name_asc">Nama A ke Z</option>
-                                        <option value="name_desc">Nama Z ke A</option>                                        
+                                        <option value="title_asc">Nama A ke Z</option>
+                                        <option value="title_desc">Nama Z ke A</option>                                        
                                         <option value="price_asc">Harga Termurah</option>
                                         <option value="price_desc">Harga Tertinggi</option>                                       
                                     </select>
@@ -51,12 +51,15 @@
                         </div>
                     </div>
 
-                    <div class="box-product">
+                    <div v-if="productData.loading" class="box-product">
+                        Loading..
+                    </div>
+                    <div v-else class="box-product">
                         <div 
                             v-for="(product, i) in productData.data" :key="i"
                             class="list-product"
                         >
-                            <router-link to="/category/detail">
+                            <router-link :to="'/category/'+product.slug">
                                 <div class="img-product">
                                     <div class="img-position-product">
                                         <img src="@/assets/images/img-store-1.jpg">
@@ -341,7 +344,7 @@ const productApi = new ProductApi();
 const productData = reactive({
     data: {},
     filter: {
-        sort: 'name_asc',
+        sort: 'title_asc',
     },
     loading: false,
 });
@@ -349,10 +352,12 @@ const productData = reactive({
 const showModalFIlter = ref(false);
 const showModalSort = ref(false);
 
-const getProduct = () => {
+const getProducts = () => {
     let params = {};
 
     params.sort = productData.filter.sort;
+
+    productData.loading = true;
 
     productApi
         .list({ params: params })
@@ -360,14 +365,18 @@ const getProduct = () => {
             response = response.data;
             productData.data = setProductList(response.result);
             console.log(productData);
+
+            productData.loading = false;
         })
         .catch(error => {
             console.log(error);
+
+            productData.loading = false;
         });
-}
+}; getProducts();
 
 const setOrder = () => {
-    getProduct();
+    getProducts();
 };
 
 const actModalFilter = () => {
@@ -386,7 +395,6 @@ const actApplySort = () => {
     showModalSort.value = false;
 };
 
-getProduct();
 </script>
 
 <style scoped>

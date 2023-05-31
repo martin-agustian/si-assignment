@@ -60,7 +60,7 @@ const routes = [
 		component: ByCategory,
 	},
 	{
-		path: "/category/detail",
+		path: "/category/:slug",
 		name: "DetailProduct",
 		component: DetailProduct,
 	},

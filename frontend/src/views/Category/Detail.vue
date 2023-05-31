@@ -688,35 +688,79 @@
     
 </template>
 
+<script setup>
+import { ref } from 'vue';
+// ** components
+import RelatedCourse from './RelatedCourse.vue';
+import RelatedProduct from './RelatedProduct.vue';
 
-<script>
+const showingFullText = ref(false);
+// const bodyDesc = ref('Lorem ipsum dolor sit amet');
+const viewAddToCart = ref(false);
+const viewAddToWishlist = ref(false);
+const viewDeleteToWishlist = ref(false);
+const isActiveWishlist = ref(false);
+const viewShare = ref(false);
+const quantity = ref(1);
 
-import RelatedCourse from './RelatedCourse.vue'
-import RelatedProduct from './RelatedProduct.vue'
+const viewModalReportReview = ref(false);
+const viewOtherReportReview = ref(false);
+const viewNotifReportReview = ref(false);
+
+const actToCart = () => {
+	viewAddToCart.value = true;
+   setTimeout(() => viewAddToCart.value = false, 3000);
+};
+
+const actToWishlist = () => {
+	if (!isActiveWishlist.value) {
+		isActiveWishlist.value = true;
+		viewAddToWishlist.value = true;
+		setTimeout(() => viewAddToWishlist.value = false, 2000);
+	} else {
+		isActiveWishlist.value = false;
+		viewDeleteToWishlist.value = true;
+		setTimeout(() => viewDeleteToWishlist.value = false, 2000);
+	}
+};
+
+const increment = () => {
+	quantity.value++;
+};
+
+const decrement = () => {
+	if(quantity.value > 1) {
+		quantity.value--;
+	}
+};
+
+const actModalReportReview = () => {
+	viewModalReportReview.value = true;
+};
+
+const actOtherReportReview = () => {
+	viewOtherReportReview.value = true;
+};
+
+const actHideOtherReportReview = () => {
+	viewOtherReportReview.value = false;
+};
+
+const actReportReview = () => {
+	viewModalReportReview.value = false;
+	viewNotifReportReview.value = true;
+	setTimeout(() => viewNotifReportReview.value = false, 3000)
+};
+
+const actHideNotifReportReview = () => {
+	viewNotifReportReview.value = false;
+};
+
+</script>
+
+<!-- <script>
 
 export default {
-    name: 'App',
-    components: {
-       RelatedCourse,
-       RelatedProduct ,
-       
-    },
-    data() {
-        return{
-            showingFullText: false, 
-            bodyDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam molestie sem id diam malesuada tempus. Vestibulum in varius libero. Nullam faucibus mi eget arcu suscipit, sed imperdiet ipsum malesuada. Cras mattis, orci eu fermentum ultricies, nibh urna iaculis enim, eu facilisis tortor metus vitae quam. Donec blandit semper elit, eu tempus diam ultrices vitae. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut ut nibh diam. Vestibulum congue vitae est nec auctor. Donec vulputate, purus non cursus hendrerit, dolor justo feugiat quam, id interdum ex diam nec lacus. Nunc quis dolor sodales, interdum eros vitae, blandit ante.",
-            viewAddToCart: false,
-            viewAddToWishlist: false,
-            viewDeleteToWishlist: false,
-            isActiveWishlist: false,
-            viewShare: false,
-            quantity: 1,
-
-            viewModalReportReview: false,
-            viewOtherReportReview : false,
-            viewNotifReportReview : false
-        }
-    },
     computed: {
         formattedBody() {
             if (this.showingFullText) {
@@ -725,62 +769,8 @@ export default {
             return `${this.bodyDesc.slice(0, 120).trim()}...`;
         }
     },
-    methods: {
-        actToCart(){
-            this.viewAddToCart = true;
-            setTimeout(() => this.viewAddToCart = false, 3000)
-        },
-        actToWishlist(){
-            
-            if (!this.isActiveWishlist) {
-                this.isActiveWishlist = true;
-                this.viewAddToWishlist = true;
-                setTimeout(() => this.viewAddToWishlist = false, 2000);
-            } else {
-                this.isActiveWishlist = false;
-                this.viewDeleteToWishlist = true;
-                setTimeout(() => this.viewDeleteToWishlist = false, 2000);
-            }
-        },
-        actVideoPreview(){
-            this.viewVideoPreview = true;
-            this.$refs.videoPreview.play();
-        },
-        actCloseVideoPreview(){
-            this.viewVideoPreview = false;
-            const { videoPreview } = this.$refs;
-            videoPreview.pause();
-            videoPreview.currentTime = 0;
-        },
-        increment () {
-            this.quantity++
-        },
-        decrement () {
-            if(this.quantity > 1) {
-                this.quantity--
-            }
-        },
-
-        actModalReportReview() {
-            this.viewModalReportReview = true;
-        },
-        actOtherReportReview(){
-            this.viewOtherReportReview = true;
-        },
-        actHideOtherReportReview(){
-            this.viewOtherReportReview = false;
-        },
-        actReportReview() {
-            this.viewModalReportReview = false;
-            this.viewNotifReportReview = true;
-            setTimeout(() => this.viewNotifReportReview = false, 3000)
-        },
-        actHideNotifReportReview(){
-            this.viewNotifReportReview = false;
-        }
-    },  
 };
-</script>
+</script> -->
 
 <style scoped>
 

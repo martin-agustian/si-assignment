@@ -25,6 +25,7 @@
     "vue": "^3.2.32",
     "vue-final-modal": "^3.4.3",
     "vue-position-sticky": "^0.2.1",
+    "vue-route-middleware": "^1.0.7",
     "vue-router": "^4.0.12",
     "vue-star-rating": "^2.1.0",
     "vue-sticky": "^3.3.4",

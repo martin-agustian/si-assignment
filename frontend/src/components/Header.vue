@@ -326,20 +326,12 @@
 									</li>
 									<!-- End -->
 
-									<li>
-										<router-link to="#">
+									<li v-if="cartData.loading">
+										<router-link :to="{ name: 'Cart' }">
 											<i class="bi bi-cart" />
-											<span class="bg-red">
-												{{ 
-													cartData.data.count ? 
-													cartData.data.count : 0 
-												}}
-											</span>
+											<span class="bg-red"> 0 </span>
 										</router-link>
-										<div 
-											v-if="cartData.loading" 
-											class="nav-right-dropdown display-desktop"
-										>
+										<div class="nav-right-dropdown display-desktop">
 											<div class="title-info-cart">
 												<div class="left-info-cart">
 													Keranjang
@@ -356,8 +348,19 @@
 												Loading..
 											</div>
 										</div>
+									</li>
+									<li v-else>
+										<router-link :to="{ name: 'Cart' }">
+											<i class="bi bi-cart" />
+											<span class="bg-red">
+												{{ 
+													cartData.data.count ? 
+													cartData.data.count : 0 
+												}}
+											</span>
+										</router-link>
 										<div 
-											v-else
+											v-if="cartData.data.count > 0" 
 											class="nav-right-dropdown display-desktop"
 										>
 											<div class="title-info-cart">
@@ -372,7 +375,7 @@
 												<div class="clearer" />
 											</div>
 
-											<div v-if="cartData.data.count > 0" class="box-info-cart">
+											<div class="box-info-cart">
 												<router-link 
 													v-for="(cart, i) in cartData.data.data" :key="i"
 													:to="{
@@ -411,8 +414,10 @@
 													</div>
 												</router-link>
 											</div>
+										</div>
 
-											<div v-else class="box-blank-info">
+										<div class="nav-right-dropdown display-desktop">
+											<div class="box-blank-info">
 												<img src="@/assets/images/img-keranjang-kosong.png" alt="">
 												<h5>
 													Keranjang belanja Kamu kosong !

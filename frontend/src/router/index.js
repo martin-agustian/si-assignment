@@ -1,4 +1,7 @@
 import { createWebHistory, createRouter } from "vue-router";
+import VueRouteMiddleware from "vue-route-middleware";
+
+// ** Routes
 import Home from "@/views/Home/Home";
 import SignIn from "@/views/SignIn/SignIn";
 import SignUp from "@/views/SignUp/SignUp";
@@ -19,6 +22,10 @@ import ErorrPage502 from "@/views/ErrorPage/Page502";
 import ErorrPage503 from "@/views/ErrorPage/Page503";
 import ErorrPage504 from "@/views/ErrorPage/Page504";
 
+// ** Middlewares
+import AuthMiddleware from "@/middleware/auth.middleware";
+import DashboardMiddleware from "@/middleware/dashboard.middleware";
+
 const routes = [
 	{
 		path: "/",
@@ -28,16 +35,31 @@ const routes = [
 	{
 		path: "/cart",
 		name: "Cart",
+		meta: {
+			middleware: [
+				DashboardMiddleware,
+			],
+		},
 		component: Cart,
 	},
 	{
 		path: "/login",
 		name: "SignIn",
+		meta: {
+			middleware: [
+				AuthMiddleware,
+			],
+		},
 		component: SignIn,
 	},
 	{
 		path: "/register",
 		name: "SignUp",
+		meta: {
+			middleware: [
+				AuthMiddleware,
+			],
+		},
 		component: SignUp,
 	},
 	{
@@ -125,5 +147,6 @@ const router = createRouter({
 	}
 });
 
+router.beforeEach(VueRouteMiddleware());
 
 export default router;

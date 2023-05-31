@@ -1,314 +1,317 @@
 <template>
-	<div class="container">
-		<ol class="breadcrumb">
-			<li class="breadcrumb-item">
-				<router-link to="/">
-					Beranda
-				</router-link>
-			</li>
-			<li class="breadcrumb-item">
-				<router-link :to="{ name: 'Product' }">
-					Produk List
-				</router-link>
-			</li>
-			<li class="breadcrumb-item active" aria-current="page">
-				{{ 
-					productData.data.title ? 
-					productData.data.title : '-' 
-				}}
-			</li>
-		</ol>
-	</div>
-
-	<div class="section pb-40">
+	<div v-if="!productData.loading">
 		<div class="container">
-			<div class="box-prod">
-				<div class="left-prod sticky-position">
-					<b-tabs end align="center">
-						<b-tab active class="clearer-padding">
-							<template #title>
-								<div class="box-cover-small">
-									<div class="position-cover-small">
-										<img src="@/assets/images/img-store-1.jpg" class="img-cover-small">
-									</div>
-								</div>
-							</template>
-							<div class="box-cover">
-								<div class="position-cover">
-									<img src="@/assets/images/img-store-1.jpg" class="img-cover">
-								</div>
-							</div>
-						</b-tab>
-						<b-tab class="clearer-padding">
-							<template #title>
-								<div class="box-cover-small">
-									<div class="position-cover-small">
-										<img src="@/assets/images/img-store-3.jpg" class="img-cover-small">
-									</div>
-								</div>
-							</template>
-							<div class="box-cover">
-								<div class="position-cover">
-									<img src="@/assets/images/img-store-3.jpg" class="img-cover">
-								</div>
-							</div>
-						</b-tab>
-					</b-tabs>
-				</div>
-				<div class="center-prod">					
-					<div class="box-content-prod">
-						<div 
-							v-if="productData.data.stock < 1" 
-							class="alert bg-red-opacity"
-						>
-							<i class="fas fa-info-circle" />
-							Stok produk telah habis
-						</div>
-						<h1>
-							{{ 
-								productData.data.title ? 
-								productData.data.title : '-' 
-							}}
-						</h1>
-						<div class="price-prod">
-							<span>
-								{{ 
-									productData.data.price ?  
-									productData.data.price : 'Rp 0'
-								}}
-							</span>
-						</div>
-						<div class="state-prod">
-							<div class="list-state-prod">
-								<i class="fas fa-star"></i> 4.8 
-							</div>
-							<div class="list-state-prod">
-								Terjual <b>49 Kali</b>
-							</div>
-							<div class="list-state-prod">
-								Dilihat <b>200 Kali</b>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-12 col-lg-8">
-								<div class="info-prod">
-									<div class="title-prod">
-										Informasi
-									</div>
-									<div class="desc-prod">
-										No. SKU:  BW-02040204
-									</div>
-								</div>
-							</div>
-							<div class="col-6 col-md-6 col-lg-2">
-								<div class="fs-13">
-									Berat
-									<div class="mt-1">
-										<b class="clr-black-dark">2Kg</b>
-									</div>
-								</div>
-							</div>
-							<div class="col-6 col-md-6 col-lg-2">
-								<div class="fs-13">
-									Stok
-									<div class="mt-1">
-										<b class="clr-black-dark">
-											{{ 
-												productData.data.stock ?
-												productData.data.stock : 0
-											}}
-										</b>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="info-prod">
-								<div class="title-prod">
-									Deskripsi
-								</div>
-								<div class="desc-prod">
-									{{ productData.desc.text }}
-									<div 
-										@click="productData.desc.isFulltext = !productData.desc.isFulltext"
-										class="clr-red cursor-pointer fs-12 mt-1" 
-									>
-										<b>
-											{{ 
-												productData.desc.isFulltext ? 
-												'Lihat lebih sedikit' : 'Lihat selengkapnya'
-											}}
-										</b>
-									</div>
-								</div>
-						</div>
-						<div class="mt-2">
-							<b class="clr-black-dark">Ulasan</b>
-						</div>
-						<div class="box-review">
-							<div class="left-review">
-								<h1>5.0</h1>
-							</div>
-							<div class="right-review">
-								<div class="box-review-bar">
-									<div class="list-review-bar">
-										<div class="left-review-bar">
-											<span>
-												5
-											</span>
-											<i class="fas fa-star" />
-										</div>
-										<div class="center-review-bar">
-											<b-progress :value="100" :max="100" />
-										</div>
-										<div class="right-review-bar">
-											100%
-										</div>
-										<div class="clearer" />
-									</div>
-									<div class="list-review-bar">
-										<div class="left-review-bar">
-											<span>
-												4
-											</span>
-											<i class="fas fa-star" />
-										</div>
-										<div class="center-review-bar">
-											<b-progress :value="0" :max="0" />
-										</div>
-										<div class="right-review-bar">
-											0%
-										</div>
-										<div class="clearer" />
-									</div>
-									<div class="list-review-bar">
-										<div class="left-review-bar">
-											<span>
-												3
-											</span>
-											<i class="fas fa-star" />
-										</div>
-										<div class="center-review-bar">
-											<b-progress :value="0" :max="0" />
-										</div>
-										<div class="right-review-bar">
-											0%
-										</div>
-										<div class="clearer" />
-									</div>
-									<div class="list-review-bar">
-										<div class="left-review-bar">
-											<span>
-												2
-											</span>
-											<i class="fas fa-star"></i>
-										</div>
-										<div class="center-review-bar">
-											<b-progress :value="0" :max="0" />
-										</div>
-										<div class="right-review-bar">
-											0%
-										</div>
-										<div class="clearer" />
-									</div>
-									<div class="list-review-bar">
-										<div class="left-review-bar">
-											<span>
-												1
-											</span>
-											<i class="fas fa-star" />
-										</div>
-										<div class="center-review-bar">
-											<b-progress :value="0" :max="0" />
-										</div>
-										<div class="right-review-bar">
-											0%
-										</div>
-										<div class="clearer" />
-									</div>
-								</div>
-							</div>
-							<div class="clearer" />
-						</div>
-					</div>
-				</div>
-				<div class="right-prod sticky-position">
-					<div class="box-summary">
-						<h3>Ringkasan Belanja</h3>
-						
-						<div class="list-summary">
-							<div class="left-summary-alt">
-								Jumlah
-							</div>
-							<div class="right-summary-alt">
-								<div class="box-qty">
-									<span>
-										<button 
-											@click="setQtyReduce()"
-											class="button-qty"
-										>
-											<i class="fas fa-minus" />
-										</button>
-									</span>
-									<input
-										v-model="productData.quantity.total"
-										class="text-qty"
-										:disabled="true"
-									>
-									<span>
-										<button 
-											@click="setQtyAdd()"
-											class="button-qty" 
-										>
-											<i class="fas fa-plus" />
-										</button>
-									</span>
-								</div>
-							</div>
-							<div class="clearer" />
-						</div>
-						<div class="list-summary mt-3">
-							<div class="left-summary-alt">
-								<b class="clr-black-dark">Sub Total</b>
-							</div>
-							<div class="right-summary-alt">
-								<b class="clr-red">
-									{{ productData.price }}
-								</b>
-							</div>
-							<div class="clearer" />
-						</div>
-						<div class="box-menu-cart">
-							<router-link :to="{ name: 'Cart' }">
-								<button class="button button-green">
-									<b>Beli Sekarang</b>
-								</button>
-							</router-link>
-							<button 
-								@click="setToCart"
-								class="button button-outline-green" 
-							>
-								<i class="fas fa-plus" /> &nbsp; <b>
-									{{ cartData.loadingAdd ? 'Loading..' : 'Keranjang' }}
-								</b>
-							</button>
-						</div>
-					</div>
-				</div>
-				<div class="clearer" />
-			</div>
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item">
+					<router-link to="/">
+						Beranda
+					</router-link>
+				</li>
+				<li class="breadcrumb-item active" aria-current="page">
+					{{ 
+						productData.data.title ? 
+						productData.data.title : '-' 
+					}}
+				</li>
+			</ol>
 		</div>
 
-		<div v-show="cartData.notif.show" class="box-success-confirm">
-			<div class="row">
-				<div class="col-9">
-					{{ cartData.notif.text }}
-				</div>
-				<div class="col-3 text-right">
-					<router-link :to="{ name: 'Cart' }">
-						<b>Lihat</b>
-					</router-link>
+		<div class="section pb-40">
+			<div class="container">
+				<div class="box-prod">
+					<div class="left-prod sticky-position">
+						<b-tabs end align="center">
+							<b-tab active class="clearer-padding">
+								<template #title>
+									<div class="box-cover-small">
+										<div class="position-cover-small">
+											<img src="@/assets/images/img-store-1.jpg" class="img-cover-small">
+										</div>
+									</div>
+								</template>
+								<div class="box-cover">
+									<div class="position-cover">
+										<img src="@/assets/images/img-store-1.jpg" class="img-cover">
+									</div>
+								</div>
+							</b-tab>
+							<b-tab class="clearer-padding">
+								<template #title>
+									<div class="box-cover-small">
+										<div class="position-cover-small">
+											<img src="@/assets/images/img-store-3.jpg" class="img-cover-small">
+										</div>
+									</div>
+								</template>
+								<div class="box-cover">
+									<div class="position-cover">
+										<img src="@/assets/images/img-store-3.jpg" class="img-cover">
+									</div>
+								</div>
+							</b-tab>
+						</b-tabs>
+					</div>
+					<div class="center-prod">					
+						<div class="box-content-prod">
+							<div 
+								v-if="productData.data.stock < 1" 
+								class="alert bg-red-opacity"
+							>
+								<i class="fas fa-info-circle" />
+								Stok produk telah habis
+							</div>
+							<h1>
+								{{ 
+									productData.data.title ? 
+									productData.data.title : '-' 
+								}}
+							</h1>
+							<div class="price-prod">
+								<span>
+									{{ 
+										productData.data.price ?  
+										productData.data.price : 'Rp 0'
+									}}
+								</span>
+							</div>
+							<div class="state-prod">
+								<div class="list-state-prod">
+									<i class="fas fa-star"></i> 4.8 
+								</div>
+								<div class="list-state-prod">
+									Terjual <b>49 Kali</b>
+								</div>
+								<div class="list-state-prod">
+									Dilihat <b>200 Kali</b>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12 col-lg-8">
+									<div class="info-prod">
+										<div class="title-prod">
+											Informasi
+										</div>
+										<div class="desc-prod">
+											No. SKU:  BW-02040204
+										</div>
+									</div>
+								</div>
+								<div class="col-6 col-md-6 col-lg-2">
+									<div class="fs-13">
+										Berat
+										<div class="mt-1">
+											<b class="clr-black-dark">2Kg</b>
+										</div>
+									</div>
+								</div>
+								<div class="col-6 col-md-6 col-lg-2">
+									<div class="fs-13">
+										Stok
+										<div class="mt-1">
+											<b class="clr-black-dark">
+												{{ 
+													productData.data.stock ?
+													productData.data.stock : 0
+												}}
+											</b>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="info-prod">
+									<div class="title-prod">
+										Deskripsi
+									</div>
+									<div class="desc-prod">
+										{{ productData.desc.text }}
+										<div 
+											@click="productData.desc.isFulltext = !productData.desc.isFulltext"
+											class="clr-red cursor-pointer fs-12 mt-1" 
+										>
+											<b>
+												{{ 
+													productData.desc.isFulltext ? 
+													'Lihat lebih sedikit' : 'Lihat selengkapnya'
+												}}
+											</b>
+										</div>
+									</div>
+							</div>
+							<div class="mt-2">
+								<b class="clr-black-dark">Ulasan</b>
+							</div>
+							<div class="box-review">
+								<div class="left-review">
+									<h1>5.0</h1>
+								</div>
+								<div class="right-review">
+									<div class="box-review-bar">
+										<div class="list-review-bar">
+											<div class="left-review-bar">
+												<span>
+													5
+												</span>
+												<i class="fas fa-star" />
+											</div>
+											<div class="center-review-bar">
+												<b-progress :value="100" :max="100" />
+											</div>
+											<div class="right-review-bar">
+												100%
+											</div>
+											<div class="clearer" />
+										</div>
+										<div class="list-review-bar">
+											<div class="left-review-bar">
+												<span>
+													4
+												</span>
+												<i class="fas fa-star" />
+											</div>
+											<div class="center-review-bar">
+												<b-progress :value="0" :max="0" />
+											</div>
+											<div class="right-review-bar">
+												0%
+											</div>
+											<div class="clearer" />
+										</div>
+										<div class="list-review-bar">
+											<div class="left-review-bar">
+												<span>
+													3
+												</span>
+												<i class="fas fa-star" />
+											</div>
+											<div class="center-review-bar">
+												<b-progress :value="0" :max="0" />
+											</div>
+											<div class="right-review-bar">
+												0%
+											</div>
+											<div class="clearer" />
+										</div>
+										<div class="list-review-bar">
+											<div class="left-review-bar">
+												<span>
+													2
+												</span>
+												<i class="fas fa-star"></i>
+											</div>
+											<div class="center-review-bar">
+												<b-progress :value="0" :max="0" />
+											</div>
+											<div class="right-review-bar">
+												0%
+											</div>
+											<div class="clearer" />
+										</div>
+										<div class="list-review-bar">
+											<div class="left-review-bar">
+												<span>
+													1
+												</span>
+												<i class="fas fa-star" />
+											</div>
+											<div class="center-review-bar">
+												<b-progress :value="0" :max="0" />
+											</div>
+											<div class="right-review-bar">
+												0%
+											</div>
+											<div class="clearer" />
+										</div>
+									</div>
+								</div>
+								<div class="clearer" />
+							</div>
+						</div>
+					</div>
+					<div class="right-prod sticky-position">
+						<div class="box-summary">
+							<h3>Ringkasan Belanja</h3>
+							
+							<div class="list-summary">
+								<div class="left-summary-alt">
+									Jumlah
+								</div>
+								<div class="right-summary-alt">
+									<div class="box-qty">
+										<span>
+											<button 
+												@click="setQtyReduce()"
+												class="button-qty"
+											>
+												<i class="fas fa-minus" />
+											</button>
+										</span>
+										<input
+											v-model="productData.quantity.total"
+											class="text-qty"
+											:disabled="true"
+										>
+										<span>
+											<button 
+												@click="setQtyAdd()"
+												class="button-qty" 
+											>
+												<i class="fas fa-plus" />
+											</button>
+										</span>
+									</div>
+								</div>
+								<div class="clearer" />
+							</div>
+							<div class="list-summary mt-3">
+								<div class="left-summary-alt">
+									<b class="clr-black-dark">Sub Total</b>
+								</div>
+								<div class="right-summary-alt">
+									<b class="clr-red">
+										{{ productData.price }}
+									</b>
+								</div>
+								<div class="clearer" />
+							</div>
+							<div class="box-menu-cart">
+								<router-link :to="{ name: 'Cart' }">
+									<button class="button button-green">
+										<b>Beli Sekarang</b>
+									</button>
+								</router-link>
+								<button 
+									@click="setToCart"
+									class="button button-outline-green" 
+								>
+									<i class="fas fa-plus" /> &nbsp; <b>
+										{{ cartData.loadingAdd ? 'Loading..' : 'Keranjang' }}
+									</b>
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="clearer" />
 				</div>
 			</div>
+
+			<div v-show="cartData.notif.show" class="box-success-confirm">
+				<div class="row">
+					<div class="col-9">
+						{{ cartData.notif.text }}
+					</div>
+					<div class="col-3 text-right">
+						<router-link :to="{ name: 'Cart' }">
+							<b>Lihat</b>
+						</router-link>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div v-else class="container text-center mt-5 mb-5">
+		Loading..<br><br>
+		<div class="spinner-border text-danger" role="status">
+				<span class="sr-only">Loading...</span>
 		</div>
 	</div>
 </template>

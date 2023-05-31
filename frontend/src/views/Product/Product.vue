@@ -25,7 +25,12 @@
                 </div>
 
                 <div v-if="productData.loading" class="box-product">
-                    Loading..
+                    <div class="container text-center">
+                        Loading..<br><br>
+                        <div class="spinner-border text-danger" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
                 </div>
                 <div v-else class="box-product">
                     <div 

@@ -1000,33 +1000,26 @@
 </template>
 
 <script setup>
-import { ref, reactive, onMounted } from 'vue';
+import { ref, reactive, onMounted, computed } from 'vue';
 import { useRouter } from 'vue-router';
 import $ from 'jquery';
-// ** Api
-import { CartApi } from '@/apis/cart.api';
 // ** Components
 import NotificationDownload from '../components/NotificationDownload.vue';
-// ** Models
-import { setCarts } from '@/models/cart.model';
 // ** Stores
-import { UserStore } from '@/stores/user.store';
 import { CartStore } from '@/stores/cart.store';
+import { UserStore } from '@/stores/user.store';
 
 const router = useRouter();
 
-const cartApi = new CartApi();
-
-const userStore = UserStore();
 const cartStore = CartStore();
+const userStore = UserStore();
+
+const cartData = computed(() => {
+	return cartStore.getStoreCarts;
+});
 
 const userData = reactive({
 	data: userStore.getStoreUser,
-});
-
-const cartData = reactive({
-	data: cartStore.getStoreCart,
-	loading: false,
 });
 
 const showModalEditLoc = ref(false), 
@@ -1034,27 +1027,7 @@ const showModalEditLoc = ref(false),
 	viewSubLocation = ref(false);
 
 const getCarts = () => {
-	let params = {};
-
-	params.user = userData.data.id;
-
-	cartApi
-		.list({ params: params })
-		.then(response => {
-			response = response.data;
-
-			cartStore.setStoreCart(
-				setCarts(response.result)
-			);
-			cartData.data = cartStore.getStoreCart;
-
-			cartData.loading = false;
-		})
-		.catch(error => {
-			console.log(error);
-
-			cartData.loading = false;
-		});	
+	cartStore.fetchCarts({ user_id: userData.data.id });
 }; getCarts();
 
 

@@ -14,7 +14,7 @@ function modelCart(data = {}) {
 
 export function setCarts(data) {
    data.data.forEach((value, i) => {
-      data[i] = modelCart(value);
+      data.data[i] = modelCart(value);
    });
 
    // data = {

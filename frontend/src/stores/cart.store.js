@@ -1,28 +1,52 @@
 import { defineStore } from "pinia";
+// ** Api
+import { CartApi } from '@/apis/cart.api';
+// ** Models
+import { setCarts } from '@/models/cart.model';
+
+const cartApi = new CartApi();
 
 export const CartStore = defineStore('cart', {
 	state: () => ({
-		carts: [],
+		carts: {
+         data: {
+            count: 0,
+            data: [],
+         },
+         loading: false,
+      },
 	}),
 
 	getters: {
-		getStoreCart(state) {
-			if (state.carts) {
-            return state.carts
-         }
-         return [];
-		},
+		getStoreCarts(state) {
+         return state.carts;
+      }
 	},
 
 	actions: {
-		setStoreCart(cart) {
+      async fetchCarts(params) {
+         try {
+            this.carts.loading = true;
+            const carts = await cartApi.list({ 
+               params: params 
+            });
+            this.carts.loading = false;
+
+            this.carts.data = setCarts(carts.data.result);
+         }
+         catch(error) {
+            console.log(error);
+            this.carts.loading = false;
+         }
+      },
+		setStoreCarts(cart) {
 			// set user to state
 			this.carts = cart; 
 
 			// return state
 			return this.carts;
 		},
-		deleteStoreCart() {
+		deleteStoreCarts() {
 			// set token to state
 			this.cart = []; 
 			

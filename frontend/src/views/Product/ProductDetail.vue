@@ -317,7 +317,7 @@
 </template>
 
 <script setup>
-import { reactive, computed, onMounted } from 'vue';
+import { inject, reactive, computed, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 // ** Apis
 import { ProductApi } from '@/apis/product.api';
@@ -329,6 +329,8 @@ import { setProduct } from '@/models/product.model';
 // ** Store
 import { UserStore } from '@/stores/user.store';
 import { CartStore } from '@/stores/cart.store';
+
+const Swal = inject('$swal');
 
 const route = useRoute();
 const router = useRouter();
@@ -500,6 +502,15 @@ const setQtyAdd = () => {
 
 	if (productQty.total < productStock) {
 		productQty.total += 1;         
+	}
+	else {
+		Swal({
+			icon: 'error',
+			title: 'Quantitas tidak bisa melebihi stok produk',
+			confirmButtonText: 'Tutup',
+		}).then((result) => {
+			console.log(result);
+		});
 	}
 }
 

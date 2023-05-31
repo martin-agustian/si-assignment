@@ -269,6 +269,15 @@ const setQtyAdd = (cart) => {
 	if (cart.quantity < cart.product.stock) {
 		cart.quantity += 1;         
 	}
+	else {
+		Swal({
+			icon: 'error',
+			title: 'Quantitas tidak bisa melebihi stok produk',
+			confirmButtonText: 'Tutup',
+		}).then((result) => {
+			console.log(result);
+		});
+	}
 
 	cartStore.setStoreDataCarts(cartData.data);
 }

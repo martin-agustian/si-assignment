@@ -5,22 +5,20 @@ const mongoose = require('mongoose');
 const Product = require('../models/product.js');
 
 router.get('/', (req, res, next) => {
-   const params = {
-      sort: req.query.sort,
-   };
+   const query = req.query;
 
    let sort = {};
 
-   if (params.sort == 'price_asc') {
+   if (query.sort == 'price_asc') {
       sort = { 'price': 1 };
    }
-   else if (params.sort == 'price_desc') {
+   else if (query.sort == 'price_desc') {
       sort = { 'price': -1 };
    }
-   else if (params.sort == 'title_asc') {
+   else if (query.sort == 'title_asc') {
       sort = { 'title': 1 };
    }
-   else if (params.sort == 'title_desc') {
+   else if (query.sort == 'title_desc') {
       sort = { 'title': -1 };
    }
 

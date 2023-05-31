@@ -1,10 +1,43 @@
 const express = require('express');
 const router = express.Router();
 
-const mongoose = require('mongoose');
 const Cart = require('../models/cart.js');
 const Product = require('../models/product.js');
 const User = require('../models/user.js');
+
+router.get('/', async (req, res, next) => {
+   const query = req.query;
+
+   const params = {};
+
+   if (query.user) {
+      params.user = query.user;
+   }
+
+   if (query.product) {
+      params.product = query.product;
+   }
+
+   Cart
+      .find(params)
+      .select('product user quantity _id')
+      .populate('product user')
+      .exec()
+      .then(result => {
+         console.log(result[0].product);
+         res.status(200).json({
+            code: 200,
+            message: 'success get data',
+            result: result,
+         });
+      })
+      .catch(error => {
+         res.status(500).json({
+            code: error.code,
+            message: error.message,
+         });
+      });
+});
 
 router.post('/', async (req, res, next) => {
    try {

@@ -416,7 +416,7 @@
 											</div>
 										</div>
 
-										<div class="nav-right-dropdown display-desktop">
+										<div v-else class="nav-right-dropdown display-desktop">
 											<div class="box-blank-info">
 												<img src="@/assets/images/img-keranjang-kosong.png" alt="">
 												<h5>
@@ -790,7 +790,7 @@ const getCarts = () => {
 };
 
 const setSearch = () => {
-	router.push('/search');
+	router.push({ name: 'Product' });
 };
 
 const logout = () => {

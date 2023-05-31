@@ -161,118 +161,118 @@
 	</div>
 </template>
 
-<script>
+<script setup>
+import { inject, ref, reactive } from 'vue';
 import useVuelidate from '@vuelidate/core';
 import { required, email, minLength, helpers as vuelidateHelper } from "@vuelidate/validators";
+import { useRouter } from 'vue-router';
 // ** Api
 import { AuthApi } from "@/apis/auth.api";
 // ** Helper
 import * as Helper from "@/utils/helper";
 
-export default {
-	data() {
-		return {
-			vuelidate: useVuelidate(),
-			authApi: new AuthApi(),
-			alertData: {
-				text: '',
-			},
-			registerData: {
-				data: {
-					name: 'martin',
-					email: 'martin@mailinator.com',
-					password: '12345678',
-				},
-				loadingSubmit: false, 
-				loadingDisabled: false,
-			},
-			isShowPass: false,
-		}
+const Swal = inject('$swal');
+
+const router = useRouter();
+
+const authApi = new AuthApi();
+
+const alertData = reactive({
+	text: '',
+});
+
+const registerData = reactive({
+	data: {
+		name: 'martin',
+		email: 'martin@mailinator.com',
+		password: '12345678',
 	},
-	validations() {
-		let rules = {
-			registerData: {
-				data: {
-					name: {},
-					email: {},
-					password: {},
-				},
-			},
-		};
+	loadingSubmit: false, 
+	loadingDisabled: false,
+});
 
-		let registerRuleData = rules.registerData.data;
+const isShowPass = ref(false);
 
-		registerRuleData.name = {
-			required: vuelidateHelper.withMessage('Nama depan harus diisi', required),
-		};
-		
-		registerRuleData.email = {
-			required: vuelidateHelper.withMessage('Email harus diisi', required),
-			email: vuelidateHelper.withMessage('Email format salah', email),
-		};		
-
-		registerRuleData.password = {
-			required: vuelidateHelper.withMessage('Kata sandi harus diisi', required),			
-			min: vuelidateHelper.withMessage('Kata sandi minimal 8 karakter', minLength(8)),
-		};
-
-		return rules;
-	},
-
-	methods: {
-		getVuelidate() {
-			return this.vuelidate.registerData.data;
+const validations = () => {
+	let rules = {
+		data: {
+			name: {},
+			email: {},
+			password: {},
 		},
-		register() {
-			let alertData = this.alertData;
-			let registerData = this.registerData.data;
-			
-			alertData.text = '';
+	};
 
-			this.vuelidate.$touch();
+	let registerRuleData = rules.data;
 
-			if (!this.vuelidate.$invalid) {
-				this.registerData.loadingDisabled = true;
-				this.registerData.loadingSubmit = true;
+	registerRuleData.name = {
+		required: vuelidateHelper.withMessage('Nama depan harus diisi', required),
+	};
+	
+	registerRuleData.email = {
+		required: vuelidateHelper.withMessage('Email harus diisi', required),
+		email: vuelidateHelper.withMessage('Email format salah', email),
+	};		
 
-				this.authApi
-					.register({
-						name: registerData.name,
-						email: registerData.email,
-						password: registerData.password,
-					})
-					.then(response => {
-						response = response.data;
+	registerRuleData.password = {
+		required: vuelidateHelper.withMessage('Kata sandi harus diisi', required),			
+		min: vuelidateHelper.withMessage('Kata sandi minimal 8 karakter', minLength(8)),
+	};
 
-						this.$swal({
-							icon: 'success',
-							title: 'Berhasil membuat akun baru',
-							confirmButtonText: 'Tutup',
-						}).then((result) => {
-							console.log(result, response);
-							this.$router.replace({ name: 'SignIn' });
-						});
-						
-						this.registerData.loadingDisabled = false;
-						this.registerData.loadingSubmit = false;				
-					})
-					.catch(error => {
-						error = Helper.getCatchError(error);
-						
-						if (error.code == 423) {
-							alertData.text = 'Email sudah pernah diregistrasi';
-						}
-						else {
-							alertData.text = Helper.setCapitalizeFirstLetter(
-								Helper.getArrayFirstIndex(error.message)
-							);
-						}
+	return rules;
+};
 
-						this.registerData.loadingDisabled = false;
-						this.registerData.loadingSubmit = false;
-					});
-			}
-		}
+const vuelidate = useVuelidate(validations(), registerData);
+
+const getVuelidate = () => {
+	return vuelidate.value.data;
+}
+
+const register = () => {
+	alertData.text = '';
+
+	vuelidate.value.$touch();
+
+	if (!vuelidate.value.$invalid) {
+		registerData.loadingDisabled = true;
+		registerData.loadingSubmit = true;
+
+		authApi
+			.register({
+				name: registerData.data.name,
+				email: registerData.data.email,
+				password: registerData.data.password,
+			})
+			.then(response => {
+				response = response.data;
+
+				Swal({
+					icon: 'success',
+					title: 'Berhasil membuat akun baru',
+					confirmButtonText: 'Tutup',
+				}).then((result) => {
+					console.log(result, response);
+					router.replace({ name: 'SignIn' });
+				});
+				
+				registerData.loadingDisabled = false;
+				registerData.loadingSubmit = false;				
+			})
+			.catch(error => {
+				error = Helper.getCatchError(error);
+				
+				if (error.code == 423) {
+					alertData.text = 'Email sudah pernah diregistrasi';
+				}
+				else {
+					alertData.text = Helper.setCapitalizeFirstLetter(
+						Helper.getArrayFirstIndex(error.message)
+					);
+				}
+
+				registerData.loadingDisabled = false;
+				registerData.loadingSubmit = false;
+			});
 	}
 }
+
 </script>

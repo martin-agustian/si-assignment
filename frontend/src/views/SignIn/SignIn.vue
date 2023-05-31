@@ -64,12 +64,16 @@
 									<i class="fas fa-lock icon-access" />
 									<input 
 										@keydown.enter="login"
-										v-model="getVuelidate().password.$model" 
-										type="password" 
+										v-model="getVuelidate().password.$model" 										
+										:type="isShowPass ? 'text' : 'password'"  
 										class="text-access" 
 										placeholder="Kata Sandi" 
 									>
-									<i class="far fa-eye-slash icon-eye" />
+									<i 
+										@click="isShowPass = !isShowPass" 
+										:class="isShowPass ? 'fa-eye' : 'fa-eye-slash'"										
+										class="far icon-eye"   
+									/>
 									
 									<div 
 										v-if="getVuelidate().password.$errors.length > 0" 
@@ -86,12 +90,8 @@
 									class="button-blue-alt"
 									:disabled="loginData.loadingDisabled"
 								>
-									<!-- <img src="@/assets/images/loading.gif" class="img-spinner" alt=""> -->
 									{{ loginData.loadingSubmit ? 'Loading..' : 'Masuk' }}
 								</button>
-								<!--
-								<input type="submit" value="Masuk" class="button-blue-alt">
-								-->
 
 								<!-- <div class="box-separator">
 									<div class="line-separator"></div>
@@ -118,127 +118,124 @@
 	</div>
 </template>
 
-<script>
+<script setup>
+import { ref, reactive } from 'vue';
 import useVuelidate from '@vuelidate/core';
 import { required, email, minLength, helpers as vuelidateHelper } from "@vuelidate/validators";
-// ** Api
+import { useRouter } from 'vue-router';
+// ** Apis
 import { AuthApi } from "@/apis/auth.api";
 // ** Helper
 import * as Helper from "@/utils/helper";
-// ** Store
+// ** Stores
 import { UserStore } from "@/stores/user.store";
 
-export default {
-	data() {
-		return {
-			vuelidate: useVuelidate(),
-			authApi: new AuthApi(),
-			alertData: {
-				text: '',
-			},
-			loginData: {
-				data: {
-					email: 'martin@mailinator.com',
-					password: '12345678',
-				},
-				loadingSubmit: false,
-				loadingDisabled: false,
-			},
-			isShowPass: false,
-		}
+const router = useRouter();
+
+const authApi = new AuthApi();
+
+const userStore = UserStore();
+
+const alertData = reactive({
+	text: '',
+});
+
+const loginData = reactive({
+	data: {
+		email: 'martin@mailinator.com',
+		password: '12345678',
 	},
-   
-	validations() {
-		let rules = {
-			loginData: {
-				data: {
-					email: {},
-					password: {},
-				},
-			},
-		};
+	loadingSubmit: false,
+	loadingDisabled: false,
+});
 
-		let loginRuleData = rules.loginData.data;
-		
-		loginRuleData.email = {
-			required: vuelidateHelper.withMessage('Email harus diisi', required),
-			email: vuelidateHelper.withMessage('Email format salah', email),
-		};		
+const isShowPass = ref(false);
 
-		loginRuleData.password = {
-			required: vuelidateHelper.withMessage('Kata sandi harus diisi', required),			
-			min: vuelidateHelper.withMessage('Kata sandi minimal 8 karakter', minLength(8)),
-		};
-
-		return rules;
-	},
-
-	methods: {
-		getVuelidate() {
-			return this.vuelidate.loginData.data;
+const validations = () => {
+	let rules = {
+		data: {
+			email: {},
+			password: {},
 		},
-		login() {
-			let alertData = this.alertData;
-			let loginData = this.loginData.data;
-			
-			alertData.text = '';
+	};
 
-			this.vuelidate.$touch();
+	let loginRuleData = rules.data;
+	
+	loginRuleData.email = {
+		required: vuelidateHelper.withMessage('Email harus diisi', required),
+		email: vuelidateHelper.withMessage('Email format salah', email),
+	};		
 
-			if (!this.vuelidate.$invalid) {
-				this.loginData.loadingDisabled = true;
-				this.loginData.loadingSubmit = true;
+	loginRuleData.password = {
+		required: vuelidateHelper.withMessage('Kata sandi harus diisi', required),			
+		min: vuelidateHelper.withMessage('Kata sandi minimal 8 karakter', minLength(8)),
+	};
 
-				this.authApi
-					.login({
-						email: loginData.email,
-						password: loginData.password,
+	return rules;
+};
+
+const vuelidate = useVuelidate(validations(), loginData);
+
+const getVuelidate = () => {
+	return vuelidate.value.data;
+}
+
+const login = () => {
+	alertData.text = '';
+
+	vuelidate.value.$touch();
+
+	if (!vuelidate.value.$invalid) {
+		loginData.loadingDisabled = true;
+		loginData.loadingSubmit = true;
+
+		authApi
+			.login({
+				email: loginData.data.email,
+				password: loginData.data.password,
+			})
+			.then(response => {
+				response = response.data;
+
+				let user = response.result;
+
+				if(
+					userStore.setStoreUser({
+						id: user._id,
+						name: user.name,
+						email: user.email,
 					})
-					.then(response => {
-						response = response.data;
-
-						let user = response.result;
-
-						let userStore = UserStore();
-
-						if(
-							userStore.setStoreUser({
-								id: user._id,
-								name: user.name,
-								email: user.email,
-							})
-						) {
-							this.$router.replace({
-								name: 'Home',
-							});
-						}
-						else {
-							alertData.text = 'Gagal memnyimpan data user';
-						}
-						
-						this.loginData.loadingDisabled = false;
-						this.loginData.loadingSubmit = false;			
-					})
-					.catch(error => {
-						error = Helper.getCatchError(error);
-						
-						if (error.code == 401) {
-							alertData.text = 'Email atau password salah';
-						}
-						else if (error.code == 404) {
-							alertData.text = 'Email belum terdaftar';
-						}
-						else {
-							alertData.text = Helper.setCapitalizeFirstLetter(
-								Helper.getArrayFirstIndex(error.message)
-							);
-						}
-
-						this.loginData.loadingDisabled = false;
-						this.loginData.loadingSubmit = false;
+				) {
+					router.replace({
+						name: 'Home',
 					});
-			}
-		}
+				}
+				else {
+					alertData.text = 'Gagal memnyimpan data user';
+				}
+				
+				loginData.loadingDisabled = false;
+				loginData.loadingSubmit = false;			
+			})
+			.catch(error => {
+				error = Helper.getCatchError(error);
+				
+				if (error.code == 401) {
+					alertData.text = 'Email atau password salah';
+				}
+				else if (error.code == 404) {
+					alertData.text = 'Email belum terdaftar';
+				}
+				else {
+					alertData.text = Helper.setCapitalizeFirstLetter(
+						Helper.getArrayFirstIndex(error.message)
+					);
+				}
+
+				loginData.loadingDisabled = false;
+				loginData.loadingSubmit = false;
+			});
 	}
 }
+
 </script>

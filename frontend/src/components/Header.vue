@@ -1,61 +1,6 @@
 <template>
-
 	<!-- Header -->
 	<header>
-		<div class="box-chanel">
-			<div class="container">
-				<div class="box-list-chanel">
-					<div class="left-list-chanel">
-						<div class="box-location-app">
-							<div class="my-location-app">
-								<div class="title-location-app">
-									<i class="bi bi-geo-alt"></i> Jadetabek, Cibinong
-								</div>
-							</div>
-							<div class="act-location-app">
-								<div @click="actShowModalEditLoc">Ubah Lokasi</div>
-							</div>
-						</div>
-						<!--
-						<div class="box-download-app">
-							<i class="bi bi-phone"></i> Download Super Indo App
-							<div class="dropdown-app">
-								<div class="title-download-app">
-									Download <br /> aplikasi Super Indo di 
-								</div>
-								<div class="list-download-app">
-									<router-link to="#">
-										<img alt="" src="@/assets/images/google_play_store_logo_png.png">
-									</router-link>
-								</div>
-								<div class="list-download-app">
-									<img alt="" src="@/assets/images/google_app_store_logo.png" class="disabled-download-app">
-									<small>Coming Soon</small>
-								</div>
-							</div>
-						</div>
-						-->
-					</div>
-					<div class="right-list-chanel">
-						<!-- <a href="http://design.bakingworld.id/portal/">
-							Home
-						</a>
-						<a href="http://design.bakingworld.id/lms/">
-							Kursus
-						</a>
-						<a href="http://design.bakingworld.id/store/" class="active-list-chanel">
-							Belanja
-						</a>
-						<a href="http://design.bakingworld.id/media/">
-							Media
-						</a>
-						<a href="http://design.bakingworld.id/community/">
-							Community
-						</a> -->
-					</div>
-				</div>
-			</div>
-		</div>
 		<div class="container">	
 			<div class="box-header">
 				<div class="left-header">
@@ -357,7 +302,6 @@
 										</router-link>
 										
 										<div class="nav-right-dropdown display-desktop">
-
 											<div class="title-info-cart">
 												<div class="left-info-cart">
 													Notifikasi
@@ -369,63 +313,7 @@
 												</div>
 												<div class="clearer"></div>
 											</div>
-
-											<div class="box-info-notif">
-												
-												<div class="list-info-notif unread">
-													<router-link to="#">
-														<div class="label-info-notif">
-															<small>
-																Promo
-															</small>
-															<div class="date-info-notif">2 Des</div>
-														</div>
-														<h5>
-															Voucher Harga Murah
-														</h5>
-														<div class="desc-info-notif">
-															Pembelian Maksimal Rp 1.000.000
-															<img src="@/assets/images/banner-alt-1.jpg" alt="">
-														</div>
-													</router-link>
-												</div>
-												<div class="list-info-notif unread">
-													<router-link to="#">
-														<div class="label-info-notif">
-															<small>
-																Belanja
-															</small>
-															<div class="date-info-notif">2 Des</div>
-														</div>
-														<h5>
-															Menunggu Pembayaran
-														</h5>
-														<div class="desc-info-notif">
-															Kamu belum melakukan pembayaran dengan nomor invoice order 123.
-														</div>
-													</router-link>
-												</div>
-												<div class="list-info-notif">
-													<router-link to="#">
-														<div class="label-info-notif">
-															<small>
-																Kursus
-															</small>
-															<div class="date-info-notif">2 Des</div>
-														</div>
-														<h5>
-															Sudah dibayar
-														</h5>
-														<div class="desc-info-notif">
-															Kamu sudah melakukan pembayaran kursus
-														</div>
-													</router-link>
-												</div>
-												
-											</div>
-
-											<!-- Jika Keranjang kosong -->
-											<!--
+											
 											<div class="box-blank-info">
 												<img src="@/assets/images/img-keranjang-kosong.png" alt="">
 												<h5>
@@ -434,9 +322,7 @@
 												<small>
 													Tidak ada notifikasi saat ini untuk Kamu. Notifikasi akan muncul disini
 												</small>
-											</div>
-											-->
-											
+											</div>																						
 										</div>
 									</li>
 									<!-- End -->
@@ -453,7 +339,7 @@
 													Keranjang (3)
 												</div>
 												<div class="right-info-cart">
-													<router-link to="#">
+													<router-link :to="{ name: 'Cart' }">
 														Lihat Sekarang
 													</router-link>
 												</div>
@@ -544,18 +430,9 @@
 										<router-link to="#">
 											<i class="bi bi-person"></i> Profil Saya
 										</router-link>
-										<!-- <router-link to="#">
-											<i class="bi bi-bounding-box-circles"></i> Komunitas Saya
-										</router-link> -->
-										<!-- <router-link to="/my-courses">
-											<i class="bi bi-play-circle"></i> Kursus Saya
-										</router-link> -->
 										<router-link to="#">
 											<i class="bi bi-clock-history"></i> History Pembelian
 										</router-link>
-										<!-- <router-link to="/my-events">
-											<i class="bi bi-ticket"></i> Event Saya
-										</router-link> -->
 										<router-link to="#">
 											<i class="bi bi-gift"></i> Kode Promo
 										</router-link>
@@ -565,9 +442,6 @@
 										<router-link to="#">
 											<i class="bi bi-star"></i> Ulasan
 										</router-link>
-										<!-- <router-link to="/register-b2b">
-											<i class="bi bi-door-open"></i> Mendaftar Ke B2B
-										</router-link> -->
 										<hr />
 										<router-link to="#" @click.prevent="logout">
 											<i class="bi bi-box-arrow-left" /> Keluar
@@ -646,25 +520,6 @@
 					</small>
 				</div>
 			</div>
-
-			<!-- <div class="box-member-dropdown display-mobile clearer-padding">
-				<small>Chanel</small>
-				<a href="http://design.bakingworld.id/portal" class="actCloseMenu">
-					Home
-				</a>
-				<a href="http://design.bakingworld.id/lms" class="actCloseMenu">
-					Kursus
-				</a>
-				<a href="http://design.bakingworld.id/store" class="actCloseMenu">
-					Belanja
-				</a>
-				<a href="http://design.bakingworld.id/community" class="actCloseMenu">
-					Community
-				</a>
-				<a href="http://design.bakingworld.id/media" class="actCloseMenu">
-					Media
-				</a>
-			</div> -->
 
 			<hr />
 
@@ -813,194 +668,10 @@
 
 	<!-- Download App -->
 	<NotificationDownload />
-
-	<!-- Modal Edit - Loc -->
-	<vue-final-modal v-model="showModalEditLoc" classes="modal-container" :click-to-close="false" content-class="modal-content">
-		<button class="modal__close" @click="actCloseModalEditLoc" v-show="viewMasterLocation">
-			<i class="bi bi-x-lg"></i>
-		</button>
-		<button class="modal__close modal__close__alt" @click="actCloseSublocation" v-show="viewSubLocation">
-			<i class="bi bi-arrow-left-circle-fill"></i> Back
-		</button>
-
-		<span class="modal__title mb-3">
-			<div v-show="viewMasterLocation">
-				<div class="text-center">Pilih Lokasi</div>
-				<small>
-					Silahkan pilih area pengiriman
-				</small>
-			</div>
-			<div v-show="viewSubLocation">
-				<div class="text-center clr-red">Jadetabek</div>
-				<small>
-					Silahkan pilih detail area pengiriman
-				</small>
-			</div>
-		</span>
-		<div class="modal__content mt-3">
-			<div v-show="viewMasterLocation">
-				<div class="box-field-auth">
-					<div class="icon-field">
-						<i class="fas fa-search oc-38"></i>
-						<input type="text" class="form-control pl-left-40" placeholder="Cari area pengiriman">
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-sm-12 col-md-6 col-lg-6">
-						<div class="form-check form-check-loc">
-							<input class="form-check-input" type="radio" name="radioEditLoc" id="radioEditLoc1" @click="actSubLocation">
-							<label class="form-check-label" for="radioEditLoc1">
-								Jadetabek
-							</label>
-						</div>
-					</div>
-					<div class="col-sm-12 col-md-6 col-lg-6">
-						<div class="form-check form-check-loc">
-							<input class="form-check-input" type="radio" name="radioEditLoc" id="radioEditLoc2" @click="actSubLocation">
-							<label class="form-check-label" for="radioEditLoc2">
-								Bandung
-							</label>
-						</div>
-					</div>
-					<div class="col-sm-12 col-md-6 col-lg-6">
-						<div class="form-check form-check-loc">
-							<input class="form-check-input" type="radio" name="radioEditLoc" id="radioEditLoc3" @click="actSubLocation">
-							<label class="form-check-label" for="radioEditLoc3">
-								Cirebon
-							</label>
-						</div>
-					</div>
-					<div class="col-sm-12 col-md-6 col-lg-6">
-						<div class="form-check form-check-loc">
-							<input class="form-check-input" type="radio" name="radioEditLoc" id="radioEditLoc4" @click="actSubLocation">
-							<label class="form-check-label" for="radioEditLoc4">
-								Tegal
-							</label>
-						</div>
-					</div>
-					<div class="col-sm-12 col-md-6 col-lg-6">
-						<div class="form-check form-check-loc">
-							<input class="form-check-input" type="radio" name="radioEditLoc" id="radioEditLoc5" @click="actSubLocation">
-							<label class="form-check-label" for="radioEditLoc5">
-								Yogyakarta
-							</label>
-						</div>
-					</div>
-					<div class="col-sm-12 col-md-6 col-lg-6">
-						<div class="form-check form-check-loc">
-							<input class="form-check-input" type="radio" name="radioEditLoc" id="radioEditLoc6" @click="actSubLocation">
-							<label class="form-check-label" for="radioEditLoc6">
-								Purwokerto
-							</label>
-						</div>
-					</div>
-					<div class="col-sm-12 col-md-6 col-lg-6">
-						<div class="form-check form-check-loc">
-							<input class="form-check-input" type="radio" name="radioEditLoc" id="radioEditLoc7" @click="actSubLocation">
-							<label class="form-check-label" for="radioEditLoc7">
-								Sukabumi
-							</label>
-						</div>
-					</div>
-					<div class="col-sm-12 col-md-6 col-lg-6">
-						<div class="form-check form-check-loc">
-							<input class="form-check-input" type="radio" name="radioEditLoc" id="radioEditLoc8" @click="actSubLocation">
-							<label class="form-check-label" for="radioEditLoc8">
-								Tasikmalaya
-							</label>
-						</div>
-					</div>
-					<div class="col-sm-12 col-md-6 col-lg-6">
-						<div class="form-check form-check-loc">
-							<input class="form-check-input" type="radio" name="radioEditLoc" id="radioEditLoc9" @click="actSubLocation">
-							<label class="form-check-label" for="radioEditLoc9">
-								Semarang
-							</label>
-						</div>
-					</div>
-					<div class="col-sm-12 col-md-6 col-lg-6">
-						<div class="form-check form-check-loc">
-							<input class="form-check-input" type="radio" name="radioEditLoc" id="radioEditLoc10" @click="actSubLocation">
-							<label class="form-check-label" for="radioEditLoc10">
-								Sidoarjo
-							</label>
-						</div>
-					</div>
-					<div class="col-sm-12 col-md-6 col-lg-6">
-						<div class="form-check form-check-loc">
-							<input class="form-check-input" type="radio" name="radioEditLoc" id="radioEditLoc11" @click="actSubLocation">
-							<label class="form-check-label" for="radioEditLoc11">
-								Malang
-							</label>
-						</div>
-					</div>
-					<div class="col-sm-12 col-md-6 col-lg-6">
-						<div class="form-check form-check-loc">
-							<input class="form-check-input" type="radio" name="radioEditLoc" id="radioEditLoc12" @click="actSubLocation">
-							<label class="form-check-label" for="radioEditLoc12">
-								Denpasar
-							</label>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div v-show="viewSubLocation">
-				<div class="box-field-auth">
-					<div class="icon-field">
-						<i class="fas fa-search oc-38"></i>
-						<input type="text" class="form-control pl-left-40" placeholder="Cari detail area pengiriman">
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-sm-12 col-md-12 col-lg-12">
-						<div class="form-check form-check-loc">
-							<input class="form-check-input" type="radio" name="radioEditSubLoc" id="radioEditSubLoc1">
-							<label class="form-check-label" for="radioEditSubLoc1">
-								<b class="clr-black">Cibinong</b> <br />
-								Kalasan Raya Blok Y No. 10 Cikaret - Bogor, Jawa Barat 12782 <br />
-								(021) - 000 000
-							</label>
-						</div>
-					</div>
-					<div class="col-sm-12 col-md-12 col-lg-12">
-						<div class="form-check form-check-loc">
-							<input class="form-check-input" type="radio" name="radioEditSubLoc" id="radioEditSubLoc2">
-							<label class="form-check-label" for="radioEditSubLoc2">
-								<b class="clr-black">Sentul</b> <br />
-								Kalasan Raya Blok Y No. 10 Cikaret - Bogor, Jawa Barat 12782 <br />
-								(021) - 000 000
-							</label>
-						</div>
-					</div>
-					<div class="col-sm-12 col-md-12 col-lg-12">
-						<div class="form-check form-check-loc">
-							<input class="form-check-input" type="radio" name="radioEditSubLoc" id="radioEditSubLoc3">
-							<label class="form-check-label" for="radioEditSubLoc3">
-								<b class="clr-black">Kandang Roda</b> <br />
-								Kalasan Raya Blok Y No. 10 Cikaret - Bogor, Jawa Barat 12782 <br />
-								(021) - 000 000
-							</label>
-						</div>
-					</div>
-					<div class="col-sm-12 col-md-12 col-lg-12">
-						<div class="form-check form-check-loc">
-							<input class="form-check-input" type="radio" name="radioEditSubLoc" id="radioEditSubLoc4">
-							<label class="form-check-label" for="radioEditSubLoc4">
-								<b class="clr-black">Padjajaran</b> <br />
-								Kalasan Raya Blok Y No. 10 Cikaret - Bogor, Jawa Barat 12782 <br />
-								(021) - 000 000
-							</label>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div> 
-	</vue-final-modal>
-	<!-- End -->
 </template>
 
 <script setup>
-import { ref, reactive, onMounted, computed } from 'vue';
+import { reactive, onMounted, computed } from 'vue';
 import { useRouter } from 'vue-router';
 import $ from 'jquery';
 // ** Components
@@ -1021,10 +692,6 @@ const cartData = computed(() => {
 const userData = reactive({
 	data: userStore.getStoreUser,
 });
-
-const showModalEditLoc = ref(false), 
-	viewMasterLocation = ref(true),
-	viewSubLocation = ref(false);
 
 const getCarts = () => {
 	cartStore.fetchCarts(
@@ -1102,24 +769,6 @@ onMounted(() => {
 
 const actSearch = () => {
 	router.push('/search');
-};
-
-const actShowModalEditLoc = () => {
-	showModalEditLoc.value = true;
-};
-
-const actCloseModalEditLoc = () => {
-	showModalEditLoc.value = false;
-};
-
-const actCloseSublocation = () => {
-	viewMasterLocation.value = true;
-	viewSubLocation.value = false;
-};
-
-const actSubLocation = () => {
-	viewMasterLocation.value = false;
-	viewSubLocation.value = true;
 };
 
 const logout = () => {

@@ -42,7 +42,7 @@ export const CartStore = defineStore('cart', {
       },
 		setStoreCarts(cart) {
 			// set user to state
-			this.carts = cart; 
+			this.carts.data = cart; 
 
 			// return state
 			return this.carts;

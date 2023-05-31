@@ -9,7 +9,7 @@ export class CartApi extends BasicApi {
       return this.axios.post('/carts', params);
    }
 
-   delete(params) {
-      return this.axios.delete('/carts/', params);
+   delete(id, params) {
+      return this.axios.delete('/carts/'+id, params);
    }
 }

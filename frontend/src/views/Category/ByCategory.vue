@@ -36,8 +36,12 @@
                                     </div>
                                 </div>
                                 <div class="col-9 col-sm-9 col-md-8 col-lg-8">
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option value="name_asc" selected>Nama A ke Z</option>
+                                    <select 
+                                        @change="setOrder" 
+                                        v-model="productData.filter.sort"
+                                        class="form-select"
+                                    >
+                                        <option value="name_asc">Nama A ke Z</option>
                                         <option value="name_desc">Nama Z ke A</option>                                        
                                         <option value="price_asc">Harga Termurah</option>
                                         <option value="price_desc">Harga Tertinggi</option>                                       
@@ -336,11 +340,35 @@ const productApi = new ProductApi();
 
 const productData = reactive({
     data: {},
+    filter: {
+        sort: 'name_asc',
+    },
     loading: false,
 });
 
 const showModalFIlter = ref(false);
 const showModalSort = ref(false);
+
+const getProduct = () => {
+    let params = {};
+
+    params.sort = productData.filter.sort;
+
+    productApi
+        .list({ params: params })
+        .then(response => {
+            response = response.data;
+            productData.data = setProductList(response.result);
+            console.log(productData);
+        })
+        .catch(error => {
+            console.log(error);
+        });
+}
+
+const setOrder = () => {
+    getProduct();
+};
 
 const actModalFilter = () => {
     showModalFIlter.value = true;
@@ -357,21 +385,6 @@ const actModalSort = () => {
 const actApplySort = () => {
     showModalSort.value = false;
 };
-
-const getProduct = () => {
-    let params = {};
-
-    productApi
-        .list(params)
-        .then(response => {
-            response = response.data;
-            productData.data = setProductList(response.result);
-            console.log(productData);
-        })
-        .catch(error => {
-            console.log(error);
-        });
-}
 
 getProduct();
 </script>

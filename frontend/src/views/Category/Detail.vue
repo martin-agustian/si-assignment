@@ -422,6 +422,23 @@ const route = useRoute();
 
 const productApi = new ProductApi();
 
+const cartData = reactive({
+	data: {			
+		count: 0,
+		pages: 1,
+		page: 1,
+		limit: 100,
+		data: {				
+			ecom_cart: [],
+			lms_cart: [],
+		},
+	},
+	notif: {
+		show: false,
+		text: '',
+	},
+});
+
 const productData = reactive({
 	data: {},
 	quantity: {
@@ -458,7 +475,6 @@ const getProduct = () => {
 
 
 const getCartAvailableQuantity = () => {
-	let cartData = cartData.data;
 	let cartECOM = cartData.data.ecom_cart;		
 	let cartECOMQuantity = 0;
 
@@ -526,12 +542,12 @@ const isProductEmpty = () => {
 }
 
 const isQtyAddDisabled = () => {
+	let productStock = productData.data.stock;
+	let productQuantity = productData.quantity;
+
 	let isDisabled = false;
 
-	if (isProductEmpty()) {
-		isDisabled = true;
-	}
-	else {
+	if (!productStock) {
 		// let productQuantity: any = productData.quantity;		
 		// let productStock: any = productData.data.stock;
 
@@ -539,12 +555,14 @@ const isQtyAddDisabled = () => {
 		// 	isDisabled = true;
 		// }
 		
-		let productQuantity = productData.quantity;		
-		let productStock = getCartAvailableQuantity();
+		let cartStock = getCartAvailableQuantity();
 
-		if (productQuantity.total == productStock) {
+		if (productQuantity.total == cartStock) {
 			isDisabled = true;
 		}
+	}
+	else {
+		isDisabled = true;
 	}
 	
 	return isDisabled;

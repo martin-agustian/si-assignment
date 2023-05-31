@@ -122,7 +122,7 @@
 import { ref, reactive } from 'vue';
 import useVuelidate from '@vuelidate/core';
 import { required, email, minLength, helpers as vuelidateHelper } from "@vuelidate/validators";
-import { useRouter } from 'vue-router';
+// import { useRouter } from 'vue-router';
 // ** Apis
 import { AuthApi } from "@/apis/auth.api";
 // ** Helper
@@ -132,7 +132,7 @@ import { UserStore } from "@/stores/user.store";
 // ** Models
 import { setUser } from '@/models/user.model';
 
-const router = useRouter();
+// const router = useRouter();
 
 const authApi = new AuthApi();
 
@@ -208,9 +208,7 @@ const login = () => {
 						email: user.email,
 					})
 				) {
-					router.replace({
-						name: 'Home',
-					});
+					window.location.href = '/';
 				}
 				else {
 					alertData.text = 'Gagal memnyimpan data user';

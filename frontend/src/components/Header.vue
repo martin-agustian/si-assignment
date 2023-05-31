@@ -778,15 +778,17 @@ onMounted(() => {
 });
 
 const getCarts = () => {
-	cartStore.fetchCarts(
-		userData.data.id
-	)
-	.then(response => {
-		console.log(response);
-	})
-	.catch(error => {
-		console.log(error);
-	});
+	if (userData.data && userData.data.id) {
+		cartStore.fetchCarts(
+			userData.data.id
+		)
+		.then(response => {
+			console.log(response);
+		})
+		.catch(error => {
+			console.log(error);
+		});
+	}
 };
 
 const setSearch = () => {

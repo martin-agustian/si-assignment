@@ -24,7 +24,6 @@ router.get('/', async (req, res, next) => {
       .populate('product user')
       .exec()
       .then(result => {
-         console.log(result[0].product);
          res.status(200).json({
             code: 200,
             message: 'success get data',
@@ -91,6 +90,27 @@ router.post('/', async (req, res, next) => {
          message: 'quantity must less or equal to product stock',
       });
    }
+});
+
+router.delete('/:id', async (req, res, next) => {
+   Cart
+      .findOneAndRemove({
+         _id: req.params.id,
+      })
+      .exec()
+      .then(result => {
+         res.status(200).json({
+            code: 200,
+            message: 'success delete data',
+            result: result,
+         });
+      })
+      .catch(error => {
+         res.status(500).json({
+            code: error.code,
+            message: error.message,
+         });
+      });
 });
 
 module.exports = router;

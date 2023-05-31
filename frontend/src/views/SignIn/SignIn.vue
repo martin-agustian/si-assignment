@@ -129,6 +129,8 @@ import { AuthApi } from "@/apis/auth.api";
 import * as Helper from "@/utils/helper";
 // ** Stores
 import { UserStore } from "@/stores/user.store";
+// ** Models
+import { setUser } from '@/models/user.model';
 
 const router = useRouter();
 
@@ -197,7 +199,7 @@ const login = () => {
 			.then(response => {
 				response = response.data;
 
-				let user = response.result;
+				let user = setUser(response.result);
 
 				if(
 					userStore.setStoreUser({

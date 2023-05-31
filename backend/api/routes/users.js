@@ -5,16 +5,20 @@ const mongoose = require('mongoose');
 const User = require('../models/user.js');
 
 router.get('/', (req, res, next) => {
-   const params = {
-      name: req.query.name,
-      email: req.query.email,
-   };
+   const query = req.query;
+
+   const params = {};
+
+   if (query.name) {
+      params.name = query.name;
+   }
+
+   if (query.email) {
+      params.email = query.email;
+   }
 
    User
-      .find({
-         "name": !params.name,
-         "email": !params.email,
-      })
+      .find(params)
       .exec()
       .then(result => {
          res.status(200).json({

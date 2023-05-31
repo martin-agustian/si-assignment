@@ -8,7 +8,7 @@ import OfficialStore from "@/views/OfficialStore/OfficialStore";
 import OfficialStoreBrand from "@/views/OfficialStore/OfficialBrand";
 import DetailBrand from "@/views/OfficialStore/DetailBrand";
 import ByCategory from "@/views/Category/ByCategory";
-import DetailProduct from "@/views/Category/Detail";
+import ProductDetail from "@/views/Category/Detail";
 import Search from "@/views/Search/Search";
 import Promo from "@/views/Promo/Promo";
 import HotProduct from "@/views/HotProduct/HotProduct";
@@ -62,13 +62,13 @@ const routes = [
 	},
 	{
 		path: "/category",
-		name: "ByCategory",
+		name: "Product",
 		component: ByCategory,
 	},
 	{
 		path: "/category/:slug",
-		name: "DetailProduct",
-		component: DetailProduct,
+		name: "ProductDetail",
+		component: ProductDetail,
 	},
 	{
 		path: "/search",

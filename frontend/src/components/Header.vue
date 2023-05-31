@@ -376,7 +376,7 @@
 												<router-link 
 													v-for="(cart, i) in cartData.data.data" :key="i"
 													:to="{
-														name: 'DetailProduct',
+														name: 'ProductDetail',
 														params: {
 															slug: cart.product.slug
 														}
@@ -693,9 +693,11 @@ const userStore = UserStore();
 
 const cartData = reactive({
 	data: computed(() => {
-		return cartStore.getStoreCarts;
+		return cartStore.getStoreCarts.data;
 	}),
-	loading: false,
+	loading: computed(() => {
+		return cartStore.getStoreCarts.loading;
+	})
 });
 
 const userData = reactive({
@@ -771,18 +773,14 @@ onMounted(() => {
 });
 
 const getCarts = () => {
-	cartData.loading = true;
-
 	cartStore.fetchCarts(
 		userData.data.id
 	)
 	.then(response => {
 		console.log(response);
-		cartData.loading = false;
 	})
 	.catch(error => {
 		console.log(error);
-		cartData.loading = false;
 	});
 };
 

@@ -9,8 +9,11 @@ const cartApi = new CartApi();
 export const CartStore = defineStore('cart', {
 	state: () => ({
 		carts: {
-         count: 0,
-         data: [],
+         data: {
+            count: 0,
+            data: [],
+            loading: true,
+         },
       },
 	}),
 
@@ -22,6 +25,8 @@ export const CartStore = defineStore('cart', {
 
 	actions: {
       async fetchCarts(userId) {
+         this.carts.loading = true;
+
          let carts = await cartApi.list({ 
             params: {
                user: userId,
@@ -31,13 +36,24 @@ export const CartStore = defineStore('cart', {
             throw error.response.data;
          });
 
-         this.carts = setCarts(carts.data.result);
+         this.carts.loading = false;
+
+         this.carts.data = setCarts(carts.data.result);
       },
-		setStoreCarts(cart) {
-			this.carts = cart; 
+		setStoreDataCarts(cart) {
+			this.carts.data = cart; 
+		},
+		setStoreLoadingCarts(loading) {
+			this.carts.loading = loading; 
 		},
 		deleteStoreCarts() {
-			this.cart = []; 
+			this.cart = {
+            data: {
+               count: 0,
+               data: [],
+               loading: true,
+            },
+         }; 
 		},
 	}
 });

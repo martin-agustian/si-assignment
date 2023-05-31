@@ -1,18 +1,16 @@
 <template>
 	<div class="section pt-50 pb-50">
-		<div class="container">
-			<div v-if="!cartData.loading" class="box-infoall-cart">
+		<div v-if="!cartData.loading" class="container">
+			<div v-if="cartData.data.count > 0" class="box-infoall-cart">
 				<div class="row">
 					<div class="col-sm-12 col-md-12 col-lg-8">
 						<div class="box-title-cart">
-							<h3>
-								Keranjang
-							</h3>
+							<h3>Keranjang</h3>
 						</div>
 							
 						<div class="box-all-cart">
 							<label class="form-check-label" for="inlineCheckbox2">
-								<i class="fas fa-circle clr-blue"></i>&nbsp;<span class="clr-blue"><b>Barang</b></span>
+								<i class="fas fa-circle clr-blue" />&nbsp;<span class="clr-blue"><b>Barang</b></span>
 							</label>
 							
 							<div 
@@ -22,19 +20,28 @@
 								<div class="right-all-cart">
 									<div class="cover-all-cart">
 										<div class="img-all-cart">
-											<router-link to="#">
-												<img src="@/assets/images/img-store-2.jpg">
-											</router-link>
+											<img src="@/assets/images/img-store-2.jpg">											
 										</div>
 									</div>
 									<div class="content-all-cart">
 										<h5>
-											<router-link :to="'/category/'+cart.product.slug">
-												{{ cart.product.title }}
+											<router-link :to="{ 
+												name: 'ProductDetail',  
+												params: {
+													slug: cart.product.slug,
+												},
+											}">
+												{{ 
+													cart.product.title ?
+													cart.product.title : '-'
+												}}
 											</router-link>
 										</h5>
 										<span>
-											{{ cart.product.price }} 										
+											{{ 
+												cart.product.price ?
+												cart.product.price : '-'
+											}} 										
 										</span>
 									</div>
 									<div class="clearer" />
@@ -50,12 +57,10 @@
 															<i class="fas fa-minus" />
 														</button>
 													</span>
-													<!-- v-model="cartData.quantity.total" -->
-													<!-- :disabled="productData.data.stock <= 0" -->
-													<input 
-														@input="checkQtyInput()"
+													<input
 														v-model="cart.quantity"
 														class="text-qty"
+														:disabled="true"
 													>
 													<span>
 														<button 
@@ -84,21 +89,27 @@
 					</div>
 					<div class="col-sm-12 col-md-12 col-lg-4">
 						<div class="box-summary">
-							<h3>
-								Ringkasan Belanja
-							</h3>
+							<h3>Ringkasan Belanja</h3>
 							<div 
 								v-for="(cart, i) in cartData.data.data" :key="i"  
 								class="list-summary"
 							>
 								<div class="left-summary">
-									{{ cart.product.title }} 
-									<span>{{ cart.quantity }} Item</span>
+									{{ 
+										cart.product.title ?
+										cart.product.title : '-'
+									}} 
+									<span>
+										{{ 
+											cart.quantity ? 
+											cart.quantity : 0
+										}} Item
+									</span>
 								</div>
 								<div class="right-summary">
-									<b>{{ cartPrice(cart) }}</b>
+									<b>{{ setCalcPrices(cart) }}</b>
 								</div>
-								<div class="clearer"></div>
+								<div class="clearer"/>
 							</div>
 							<hr />
 							<div class="list-summary">
@@ -106,9 +117,11 @@
 									<b class="clr-black-dark">Total Harga</b>
 								</div>
 								<div class="right-summary-alt">
-									<!-- <b class="clr-red">Rp 900.000</b> -->
 									<b class="clr-red">
-										{{ cartTotalPrice }}
+										{{ 
+											cartData.totalPrice ?
+											cartData.totalPrice : 'Rp 0'
+										}}
 									</b>
 								</div>
 								<div class="clearer" />
@@ -121,29 +134,31 @@
 					</div>
 				</div>
 			</div>
-			
-			<!-- Keranjang Kosong -->
-			<!--
-				<div class="m-box-blankdata">
-					<img src="@/assets/images/bg-blank-data.png" alt="" />
-					<div class="m-desc-blankdata">
-						<h1>Opps! Keranjang belanja kamu kosong</h1>
-						Yuk belanja lagi dan ikuti kursus
-					</div>
-					<br />
-					<router-link to="/">
-						<button class="button button-blue">
-							<b>Mulai Belanja</b>
-						</button>
-					</router-link>
+
+			<div v-else class="m-box-blankdata">
+				<img src="@/assets/images/bg-blank-data.png" alt="" />
+				<div class="m-desc-blankdata">
+					<h1>Opps! Keranjang belanja kamu kosong</h1>
+					Yuk belanja lagi dan ikuti kursus
 				</div>
-			-->			
+				<br />
+				<router-link :to="{ name: 'Product' }">
+					<button class="button button-blue">
+						<b>Mulai Belanja</b>
+					</button>
+				</router-link>
+			</div>
+		</div>
+		<div v-else class="container text-center">
+			Loading..<br><br>
+			<div class="spinner-border text-danger" role="status">
+				<span class="sr-only">Loading...</span>
+			</div>
 		</div>
 	</div>
 </template>
 
 <script setup>
-// computed, 
 import { inject, reactive, computed, onMounted } from 'vue';
 // ** Stores
 import { CartStore } from '@/stores/cart.store';
@@ -152,8 +167,6 @@ import { UserStore } from '@/stores/user.store';
 import { CartApi } from '@/apis/cart.api';
 // ** Helper
 import * as Helper from '@/utils/helper';
-// ** Models
-// import { setCarts } from '@/models/cart.model';
 
 const Swal = inject('$swal');
 
@@ -164,79 +177,54 @@ const userStore = UserStore();
 
 const cartData = reactive({
 	data: computed(() => {
-		return cartStore.getStoreCarts;
+		return cartStore.getStoreCarts.data;
 	}),
-	loading: false,
+	totalPrice: computed(() => {
+		let totalPrice = 0;
+
+		if (cartData.data) {
+			cartData.data.data.forEach(cart => {
+				totalPrice +=  
+					Helper.clearIDR(cart.product.price) * 
+					cart.quantity;
+			});
+		}
+
+		return Helper.setIDR(totalPrice);
+	}),
+	loading: computed(() => {
+		return cartStore.getStoreCarts.loading;
+	})
 });
-
-const cartPrice = computed(() => {
-	return (cart) => Helper.setIDR(
-		Helper.clearIDR(cart.product.price) * cart.quantity
-	);
-});
-
-const cartTotalPrice = computed(() => {
-	let totalPrice = 0;
-
-	if (cartData.data) {
-		cartData.data.data.forEach(cart => {
-			totalPrice +=  
-				Helper.clearIDR(cart.product.price) * 
-				cart.quantity;
-		});
-	}
-
-	return Helper.setIDR(totalPrice);
-});
-
-// const getCarts = () => {
-// 	let params = {};
-
-// 	params.user_id = userData.data.id;
-
-// 	cartData.loading = true;
-
-// 	cartApi
-// 		.list({ params: params })
-// 		.then(response => {
-// 			response = response.data;
-
-// 			cartStore.setStoreCarts(
-// 				// {
-// 				// data: 
-// 				setCarts(response.result) 
-// 			// }
-// 			);
-// 			cartData.data = cartStore.getStoreCarts.data;
-
-// 			// console.log(cartData);
-
-// 			cartData.loading = false;
-// 		})
-// 		.catch(error => {
-// 			console.log(error);
-// 			cartData.loading = false;
-// 		});
-// }
-
 
 const userData = reactive({
 	data: userStore.getStoreUser, 
 });
 
+onMounted(() => {
+	if (!cartData.data) {
+		getCarts();
+	}
+});
+
 const getCarts = () => {
 	cartStore.fetchCarts(
 		userData.data.id
-	).catch(error => {
+	)
+	.then(response => {
+		console.log(response);
+	})
+	.catch(error => {
 		console.log(error);
 	});
 };
-getCarts();
 
-onMounted(() => {
-	getCarts();
-});
-
+const setCalcPrices = (cart) => {
+	return Helper.setIDR(
+		Helper.clearIDR(cart.product.price) * 
+		cart.quantity
+	);
+};
 
 const setDeleteCart = (cart) => {
 	Swal({
@@ -254,22 +242,15 @@ const setDeleteCart = (cart) => {
 				.delete(cart.id)
 				.then(response => {
 					response = response.data;
-
 					console.log(response);
+
+					getCarts();
 
 					Swal({
 						icon: 'success',
 						text : 'sukses hapus produk',
 						confirmButtonText: 'Tutup',
 					});
-
-					// cartStore.setStoreCarts(
-					// 	// {
-					// 	// data: 
-					// 	setCarts(response.result) 
-					// // }
-					// );
-					// cartData.data = cartStore.getStoreCarts.data;
 				})
 				.catch(error => {
 					Swal({
@@ -289,7 +270,7 @@ const setQtyAdd = (cart) => {
 		cart.quantity += 1;         
 	}
 
-	cartStore.setStoreCarts(cartData.data);
+	cartStore.setStoreDataCarts(cartData.data);
 }
 
 const setQtyReduce = (cart) => {
@@ -297,7 +278,7 @@ const setQtyReduce = (cart) => {
 		cart.quantity = cart.quantity - 1;
 	}
 
-	cartStore.setStoreCarts(cartData.data);
+	cartStore.setStoreDataCarts(cartData.data);
 }
 
 </script>

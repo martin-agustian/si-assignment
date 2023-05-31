@@ -31,9 +31,13 @@ app.use((req, res, next) => {
 
 const authRoutes = require('./api/routes/auth');
 const userRoutes = require('./api/routes/users');
+const productRoutes = require('./api/routes/products');
+const cartRoutes = require('./api/routes/carts');
 
 app.use('/auth', authRoutes);
 app.use('/users', userRoutes);
+app.use('/products', productRoutes);
+app.use('/carts', cartRoutes);
 
 app.use((req, res, next) => {
    // res.status(200).json({

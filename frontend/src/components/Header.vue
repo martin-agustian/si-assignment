@@ -615,7 +615,7 @@
 	</header>
 	<!-- End -->
 
-	<div class="clearer-header"></div>
+	<div class="clearer-header" />
 
 	<div class="box-menu-overlay display-mobile">
 		<div class="modal-overlay-menu actCloseMenu"></div>

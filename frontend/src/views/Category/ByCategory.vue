@@ -16,12 +16,10 @@
     <div class="section">
         <div class="container">
             <div class="box-page-courses">
-                <div class="left-page-courses display-desktop">
-                    
+                <!-- <div class="left-page-courses display-desktop">
                     <Filter />
-
-                </div>
-                <div class="right-page-courses">
+                </div> -->
+                <!-- <div class="right-page-courses"> -->
 
                     <div class="row">
                         <div class="col-sm-12 col-md-12 col-lg-7">
@@ -715,8 +713,8 @@
                         </li>
                     </ul>
 
-                </div>
-                <div class="clearer"></div>
+                <!-- </div>
+                <div class="clearer"></div> -->
             </div>
         </div>
     </div>
@@ -932,41 +930,32 @@
     <!-- End -->
 
     <FooterDesc />
-    
 </template>
 
 
-<script>
+<script setup>
+import { ref } from 'vue';
+// ** Components
+// import Filter from './Filter.vue';
+import FooterDesc from '@/components/FooterDesc.vue';
 
-import FooterDesc from '../../components/FooterDesc.vue'
-import Filter from './Filter.vue'
+const showModalFIlter = ref(false);
+const showModalSort = ref(false);
 
-export default {
-    name: 'App',
-    components: {
-        Filter,
-        FooterDesc
-    },
-    data() {
-        return{
-            showModalFIlter: false,
-            showModalSort: false,
-        }
-    },
-    methods: {
-        actModalFilter() {
-            this.showModalFIlter=true;
-        },
-        actApplyFilter(){
-            this.showModalFIlter=false;
-        },
-        actModalSort() {
-            this.showModalSort=true;
-        },
-        actApplySort(){
-            this.showModalSort=false;
-        }
-    } 
+const actModalFilter = () => {
+    showModalFIlter.value = true;
+};
+
+const actApplyFilter = () => {
+    showModalFIlter.value = false;
+};
+
+const actModalSort = () => {
+    showModalSort.value = false;
+};
+
+const actApplySort = () => {
+    showModalSort.value = false;
 };
 </script>
 

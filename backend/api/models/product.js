@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
 
-const userSchema = mongoose.Schema({
+const productSchema = mongoose.Schema({
    _id: mongoose.Schema.Types.ObjectId,
    title: { type: String, required: true },
    image: { type: String, required: true },
@@ -9,4 +9,4 @@ const userSchema = mongoose.Schema({
    price: { type: Number, required: true }
 });
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('Product', productSchema);

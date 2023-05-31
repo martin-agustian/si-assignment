@@ -57,7 +57,10 @@
 				</div>
 				<div class="center-prod">					
 					<div class="box-content-prod">
-						<div class="alert bg-red-opacity">
+						<div 
+							v-if="productData.data.stock < 1" 
+							class="alert bg-red-opacity"
+						>
 							<i class="fas fa-info-circle" />
 							Stok produk telah habis
 						</div>

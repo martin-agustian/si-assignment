@@ -2,19 +2,11 @@ import { createWebHistory, createRouter } from "vue-router";
 import VueRouteMiddleware from "vue-route-middleware";
 
 // ** Routes
-import Home from "@/views/Home/Home";
 import SignIn from "@/views/SignIn/SignIn";
 import SignUp from "@/views/SignUp/SignUp";
 import Cart from "@/views/Cart/Cart";
-import FlashSale from "@/views/FlashSale/FlashSale";
-import OfficialStore from "@/views/OfficialStore/OfficialStore";
-import OfficialStoreBrand from "@/views/OfficialStore/OfficialBrand";
-import DetailBrand from "@/views/OfficialStore/DetailBrand";
-import ByCategory from "@/views/Category/ByCategory";
-import ProductDetail from "@/views/Category/Detail";
-import Promo from "@/views/Promo/Promo";
-import HotProduct from "@/views/HotProduct/HotProduct";
-import NewProduct from "@/views/NewProduct/NewProduct";
+import Product from "@/views/Product/Product";
+import ProductDetail from "@/views/Product/ProductDetail";
 
 // ** Middlewares
 import AuthMiddleware from "@/middleware/auth.middleware";
@@ -24,7 +16,7 @@ const routes = [
 	{
 		path: "/",
 		name: "Home",
-		component: Home,
+		component: Product,
 	},
 	{
 		path: "/cart",
@@ -57,49 +49,14 @@ const routes = [
 		component: SignUp,
 	},
 	{
-		path: "/flash-sale",
-		name: "FlashSale",
-		component: FlashSale,
-	},
-	{
-		path: "/official-store",
-		name: "OfficialStore",
-		component: OfficialStore,
-	},
-	{
-		path: "/official-store/brand",
-		name: "OfficialStoreBrand",
-		component: OfficialStoreBrand,
-	},
-	{
-		path: "/official-store/brand/detail",
-		name: "DetailBrand",
-		component: DetailBrand,
-	},
-	{
 		path: "/category",
 		name: "Product",
-		component: ByCategory,
+		component: Product,
 	},
 	{
 		path: "/category/:slug",
 		name: "ProductDetail",
 		component: ProductDetail,
-	},
-	{
-		path: "/promo",
-		name: "Promo",
-		component: Promo,
-	},
-	{
-		path: "/hot-product",
-		name: "HotProduct",
-		component: HotProduct,
-	},
-	{
-		path: "/new-product",
-		name: "NewProduct",
-		component: NewProduct,
 	},
 ];
 

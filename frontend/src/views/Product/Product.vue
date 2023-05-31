@@ -1,41 +1,25 @@
 <template>
-
-    <div class="container">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-                <router-link to="/">
-                    Beranda
-                </router-link>
-            </li>
-            <li class="breadcrumb-item active" aria-current="page">
-                Produk List
-            </li>
-        </ol>
-    </div>
+    <BannerSlider/>
 
     <div class="section">
         <div class="container">
             <div class="box-page-courses">
-                <div class="row">
+                <div class="row mb-4">
                     <div class="col-sm-12 col-md-12 col-lg-5 display-desktop">
                         <div class="d-flex">
-                            <!-- <div class="col-3 col-sm-3 col-md-4 col-lg-4"> -->
-                                <div class="box-title-col mr-10">
-                                    <b class="clr-black-dark">Urutkan</b>
-                                </div>
-                            <!-- </div> -->
-                            <!-- <div class="col-9 col-sm-9 col-md-8 col-lg-8"> -->
-                                <select 
-                                    @change="setOrder" 
-                                    v-model="productData.filter.sort"
-                                    class="form-select"
-                                >
-                                    <option value="title_asc">Nama A ke Z</option>
-                                    <option value="title_desc">Nama Z ke A</option>                                        
-                                    <option value="price_asc">Harga Termurah</option>
-                                    <option value="price_desc">Harga Tertinggi</option>                                       
-                                </select>
-                            <!-- </div> -->
+                            <div class="box-title-col mr-10">
+                                <b class="clr-black-dark">Urutkan</b>
+                            </div>
+                            <select 
+                                @change="setOrder" 
+                                v-model="productData.filter.sort"
+                                class="form-select"
+                            >
+                                <option value="title_asc">Nama A ke Z</option>
+                                <option value="title_desc">Nama Z ke A</option>                                        
+                                <option value="price_asc">Harga Termurah</option>
+                                <option value="price_desc">Harga Tertinggi</option>                                       
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -162,13 +146,17 @@
     <!-- End -->
 
     <FooterDesc />
+
+    <Icon />
 </template>
 
 
 <script setup>
 import { ref, reactive, onMounted } from 'vue';
 // ** Components
+import BannerSlider from './BannerSlider.vue';
 import FooterDesc from '@/components/FooterDesc.vue';
+import Icon from '@/components/Icon.vue';
 // ** Apis
 import { ProductApi } from '@/apis/product.api';
 // ** Models

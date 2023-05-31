@@ -2,17 +2,20 @@
 	<div class="container">
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item">
-				<router-link to="#">
+				<router-link to="/">
 					Beranda
 				</router-link>
 			</li>
 			<li class="breadcrumb-item">
-				<router-link to="#">
-					Nama Kategori
+				<router-link :to="{ name: 'Product' }">
+					Produk List
 				</router-link>
 			</li>
 			<li class="breadcrumb-item active" aria-current="page">
-				Jeruk Pontianak 1 Kg Spesial 
+				{{ 
+					productData.data.title ? 
+					productData.data.title : '-' 
+				}}
 			</li>
 		</ol>
 	</div>
@@ -21,7 +24,7 @@
 		<div class="container">
 			<div class="box-prod">
 				<div class="left-prod sticky-position">
-					<b-tabs end  align="center">
+					<b-tabs end align="center">
 						<b-tab active class="clearer-padding">
 							<template #title>
 								<div class="box-cover-small">
@@ -52,34 +55,11 @@
 						</b-tab>
 					</b-tabs>
 				</div>
-				<div class="center-prod">
-					<div class="box-flashsale-prod">
-						<div class="box-makeup" />
-						Sisa waktu tersedia 
-						<vue-countdown :time="1 * 4 * 60 * 60 * 1000" v-slot="{ hours, minutes, seconds }">
-							<div class="box-countdown">
-								<div class="list-countdown bg-red-dark">
-									{{ hours }}
-								</div>
-								<div class="list-countdown-alt clr-red-dark">
-									:
-								</div>
-								<div class="list-countdown bg-red-dark">
-									{{ minutes }}
-								</div>
-								<div class="list-countdown-alt clr-red-dark">
-									:
-								</div>
-								<div class="list-countdown bg-red-dark">
-									{{ seconds }}
-								</div>
-							</div>
-						</vue-countdown>
-					</div>
+				<div class="center-prod">					
 					<div class="box-content-prod">
 						<div class="alert bg-red-opacity">
 							<i class="fas fa-info-circle" />
-							Stok produk telah habis untuk area <b>Jabodetabek, CIbinong</b>
+							Stok produk telah habis
 						</div>
 						<h1>
 							{{ 
@@ -94,17 +74,6 @@
 									productData.data.price : 'Rp 0'
 								}}
 							</span>
-							<!-- Diskon -->
-							<!--
-							<div class="disc-price-prod">
-								<div class="disc-info-price-prod">
-									50%
-								</div>
-								<del>
-									Rp 600.000
-								</del>
-							</div>
-							-->
 						</div>
 						<div class="state-prod">
 							<div class="list-state-prod">
@@ -155,9 +124,17 @@
 									Deskripsi
 								</div>
 								<div class="desc-prod">
-									{{ formattedBody }}
-									<div class="clr-red cursor-pointer fs-12 mt-1" @click="showingFullText = !showingFullText">
-										<b>{{ showingFullText ? "Lihat lebih sedikit" : "Lihat selengkapnya" }}</b>
+									{{ productData.desc.text }}
+									<div 
+										@click="productData.desc.isFulltext = !productData.desc.isFulltext"
+										class="clr-red cursor-pointer fs-12 mt-1" 
+									>
+										<b>
+											{{ 
+												productData.desc.isFulltext ? 
+												'Lihat lebih sedikit' : 'Lihat selengkapnya'
+											}}
+										</b>
 									</div>
 								</div>
 						</div>
@@ -262,8 +239,6 @@
 							<div class="right-summary-alt">
 								<div class="box-qty">
 									<span>
-										<!-- :class="isQtyReduceDisabled() && 'os-54'" 
-											:disabled="isQtyReduceDisabled()"  -->
 										<button 
 											@click="setQtyReduce()"
 											class="button-qty"
@@ -271,16 +246,12 @@
 											<i class="fas fa-minus" />
 										</button>
 									</span>
-									<input 
-										@input="checkQtyInput()"
+									<input
 										v-model="productData.quantity.total"
 										class="text-qty"
-										:disabled="productData.data.stock <= 0"
+										:disabled="true"
 									>
 									<span>
-
-										<!-- :class="isQtyAddDisabled() && 'os-54'"
-											:disabled="isQtyAddDisabled()" -->
 										<button 
 											@click="setQtyAdd()"
 											class="button-qty" 
@@ -298,20 +269,24 @@
 							</div>
 							<div class="right-summary-alt">
 								<b class="clr-red">
-									{{ productBuyPrice }}
+									{{ productData.price }}
 								</b>
 							</div>
 							<div class="clearer" />
 						</div>
 						<div class="box-menu-cart">
-							<button class="button button-green">
-								<b>Beli Sekarang</b>
-							</button>
+							<router-link :to="{ name: 'Cart' }">
+								<button class="button button-green">
+									<b>Beli Sekarang</b>
+								</button>
+							</router-link>
 							<button 
 								@click="setToCart"
 								class="button button-outline-green" 
 							>
-								<i class="fas fa-plus"></i> &nbsp; <b>Keranjang</b>
+								<i class="fas fa-plus" /> &nbsp; <b>
+									{{ cartData.loadingAdd ? 'Loading..' : 'Keranjang' }}
+								</b>
 							</button>
 						</div>
 					</div>
@@ -320,23 +295,13 @@
 			</div>
 		</div>
 
-		<!-- Notif - Delete Wishlist -->
-		<div v-show="viewDeleteToWishlist" class="box-warning-confirm">
-			<div class="row">
-				<div class="col-12">
-					Barang sudah dihapus dari wishlist
-				</div>
-			</div>
-		</div>
-
-		<!-- Notif - Add Wishlist -->
-		<div v-show="viewAddToCart" class="box-success-confirm">
+		<div v-show="cartData.notif.show" class="box-success-confirm">
 			<div class="row">
 				<div class="col-9">
-					Barang sudah ditambahkan ke dalam keranjang
+					{{ cartData.notif.text }}
 				</div>
 				<div class="col-3 text-right">
-					<router-link to="#">
+					<router-link :to="{ name: 'Cart' }">
 						<b>Lihat</b>
 					</router-link>
 				</div>
@@ -346,8 +311,8 @@
 </template>
 
 <script setup>
-import { ref, reactive, computed } from 'vue';
-import { useRoute } from 'vue-router';
+import { reactive, computed, onMounted } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 // ** Apis
 import { ProductApi } from '@/apis/product.api';
 import { CartApi } from '@/apis/cart.api';
@@ -360,6 +325,7 @@ import { UserStore } from '@/stores/user.store';
 import { CartStore } from '@/stores/cart.store';
 
 const route = useRoute();
+const router = useRouter();
 
 const productApi = new ProductApi();
 const cartApi = new CartApi();
@@ -368,27 +334,45 @@ const cartStore = CartStore();
 const userStore = UserStore();
 
 const cartData = reactive({
-	data: {			
-		// count: 0,
-		// pages: 1,
-		// page: 1,
-		// limit: 100,
-		// data: {				
-		// 	ecom_cart: [],
-		// 	lms_cart: [],
-		// },
-	},
+	data: computed(() => {
+		return cartStore.getStoreCarts;
+	}),
+	loadingAdd: false,
 	notif: {
 		show: false,
-		text: '',
+		text: 'Barang sudah ditambahkan ke dalam keranjang',
 	},
 });
 
 const productData = reactive({
 	data: {},
+	desc: {
+		isFulltext: false,
+		text: computed(() => {
+			if (productData.data && productData.data.description) {
+				if (productData.desc.isFulltext) {
+					return productData.data.description;
+				}
+				return `${productData.data.description.slice(0, 120).trim()}...`;
+			}
+			return '';
+		}),
+	},
 	quantity: {
 		total: 1,
 	},
+	price: computed(() => {
+		let qty = productData.quantity.total;
+		let price = Helper.clearIDR(productData.data.price);
+		
+		price = price * qty;
+		
+		if (typeof price == 'number' && !Number.isInteger(price)) {
+			price = price.toFixed(2);
+		}
+
+		return Helper.setIDR(price);
+	}),
 	loading: false,
 });
 
@@ -396,10 +380,9 @@ const userData = reactive({
 	data: userStore.getStoreUser,
 });
 
-const showingFullText = ref(false);
-// const bodyDesc = ref('Lorem ipsum dolor sit amet');
-const viewAddToCart = ref(false);
-const viewDeleteToWishlist = ref(false);
+onMounted(() => {
+	getProduct();
+});
 
 const getProduct = () => {
 	let params = {};
@@ -417,8 +400,19 @@ const getProduct = () => {
 			console.log(error);
 			productData.loading = false;
 		});
-}; getProduct();
+};
 
+const getCarts = () => {
+	cartStore.fetchCarts(
+		userData.data.id
+	)
+	.then(response => {
+		console.log(response);
+	})
+	.catch(error => {
+		console.log(error);
+	});
+};
 
 // const getCartAvailableQuantity = () => {
 // 	let cartECOM = cartData.data.ecom_cart;		
@@ -449,19 +443,6 @@ const getProduct = () => {
 
 // 	return productStock - cartECOMQuantity;
 // }
-
-const productBuyPrice = computed(() => {
-	let qty = productData.quantity.total;
-	let price = Helper.clearIDR(productData.data.price);
-	
-	price = price * qty;
-	
-	if (typeof price == 'number' && !Number.isInteger(price)) {
-		price = price.toFixed(2);
-	}
-
-	return Helper.setIDR(price);
-});
 
 // const isQtyAddDisabled = () => {
 // 	let productStock = productData.data.stock;
@@ -525,69 +506,61 @@ const setQtyReduce = () => {
 }
 
 const setToCart = () => {
-	let params = {};
+	if (userData.data && userData.data.id) {
+		let params = {};
 
-	params.user = userData.data.id;
-	params.product = productData.data.id;
-	params.quantity = productData.quantity.total;
+		params.user = userData.data.id;
+		params.product = productData.data.id;
+		params.quantity = productData.quantity.total;
 
-	cartData.loading = true;
+		cartData.loadingAdd = true;
 
-	cartApi
-		.store(params)
-		.then(response => {
-			response = response.data;
-			console.log(response.result);
-			// cartData.data = setCart(response.result);
+		cartApi
+			.store(params)
+			.then(response => {
+				response = response.data;
+				console.log(response.result);
 
-			cartStore.fetchCarts(userData.data.id);
+				getCarts();
 
-			cartData.loading = false;
-		})
-		.catch(error => {
-			console.log(error);
-			cartData.loading = false;
+				cartData.notif.show = true;
+				setTimeout(() => cartData.notif.show = false, 3000);
+
+				cartData.loadingAdd = false;
+			})
+			.catch(error => {
+				console.log(error);
+				cartData.loadingAdd = false;
+			});
+	}
+	else {
+		router.replace({
+			name: 'SignIn'
 		});
-
-	viewAddToCart.value = true;
-   setTimeout(() => viewAddToCart.value = false, 3000);
+	}
 };
 
 </script>
 
-<!-- <script>
-
-export default {
-    computed: {
-        formattedBody() {
-            if (this.showingFullText) {
-                return this.bodyDesc;
-            }
-            return `${this.bodyDesc.slice(0, 120).trim()}...`;
-        }
-    },
-};
-</script> -->
-
 <style scoped>
 
 ::v-deep(.modal-container){
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 ::v-deep(.modal-content){
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    max-height: 90%;
-    margin: 0px 10px;
-    padding: 20px 20px;
-    border: 1px solid #e2e8f0;
-    border-radius: 15px;
-    background-color: #fff;
-    width: 380px;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	max-height: 90%;
+	margin: 0px 10px;
+	padding: 20px 20px;
+	border: 1px solid #e2e8f0;
+	border-radius: 15px;
+	background-color: #fff;
+	width: 380px;
 }
 
 </style>

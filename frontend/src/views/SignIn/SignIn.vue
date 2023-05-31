@@ -144,8 +144,8 @@ const alertData = reactive({
 
 const loginData = reactive({
 	data: {
-		email: 'martin@mailinator.com',
-		password: '12345678',
+		email: '',
+		password: '',
 	},
 	loadingSubmit: false,
 	loadingDisabled: false,

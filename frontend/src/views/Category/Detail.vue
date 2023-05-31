@@ -108,13 +108,13 @@
 						</div>
 						<div class="state-prod">
 							<div class="list-state-prod">
+								<i class="fas fa-star"></i> 4.8 
+							</div>
+							<div class="list-state-prod">
 								Terjual <b>49 Kali</b>
 							</div>
 							<div class="list-state-prod">
 								Dilihat <b>200 Kali</b>
-							</div>
-							<div class="list-state-prod">
-								<i class="fas fa-star"></i>  4.8 <span class="oc-38">|</span> 800 Ulasan 
 							</div>
 						</div>
 						<div class="row">
@@ -167,9 +167,6 @@
 						<div class="box-review">
 							<div class="left-review">
 								<h1>5.0</h1>
-								<small>
-									2 Ulasan
-								</small>
 							</div>
 							<div class="right-review">
 								<div class="box-review-bar">
@@ -252,253 +249,6 @@
 							</div>
 							<div class="clearer" />
 						</div>
-						<div class="mt-2">
-							<b class="clr-black-dark">
-								Ulasan dari pembeli produk ini
-							</b>
-						</div>
-
-						<div class="box-info-review">
-								<div class="list-info-review">
-									<div class="left-info-review">
-										<img src="@/assets/images/img-john-doe.jpg" alt="">
-									</div>
-									<div class="right-info-review">
-										<div class="row">
-												<div class="col-8">
-													<h5>
-														John Doe
-													</h5>
-												</div>
-												<div class="col-4">
-													<div class="text-right">
-														<div class="btn-group">
-																<div class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-																	<div class="icon-dropdown" v-b-tooltip.hover title="Menu lainnya">
-																		<i class="fas fa-ellipsis-v"></i>
-																	</div>
-																</div>
-																<ul class="dropdown-menu dropdown-menu-end">
-																	<li @click="actModalReportReview">
-																		<i class="far fa-flag"></i> Laporkan
-																	</li>
-																</ul>
-														</div>
-													</div>
-												</div>
-										</div>
-										
-										<div class="value-info-review">
-												<span>
-													<i class="fas fa-star"></i> 5
-												</span>
-												<span>
-													20 Des 2022
-												</span>
-												<span class="clr-red">
-													<b><i class="bi bi-exclamation-circle-fill clr-red"></i> Dilaporkan</b>
-												</span>
-										</div>
-										<div class="desc-info-review">
-												Lorem ipsum dolor sit amet consectetur adipisicing elit. Est ipsa earum voluptate dolore ab. Adipisci veritatis labore delectus tempora qui nostrum iste nisi ipsam, nemo quisquam sequi ipsa rem alias.
-										</div>  
-									</div>
-									<div class="clearer"></div>
-								</div>
-								<div class="list-info-review">
-									<div class="left-info-review">
-										<div class="avatar-info-review bg-blue-dark-alt">
-												JD
-										</div>
-									</div>
-									<div class="right-info-review">
-										<div class="row">
-												<div class="col-8">
-													<h5>
-														Jane Doe
-													</h5>
-												</div>
-												<div class="col-4">
-													<div class="text-right">
-														<div class="btn-group">
-																<div class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-																	<div class="icon-dropdown" v-b-tooltip.hover title="Menu lainnya">
-																		<i class="fas fa-ellipsis-v"></i>
-																	</div>
-																</div>
-																<ul class="dropdown-menu dropdown-menu-end">
-																	<li @click="actModalReportReview">
-																		<i class="far fa-flag"></i> Laporkan
-																	</li>
-																</ul>
-														</div>
-													</div>
-												</div>
-										</div>
-										<div class="value-info-review">
-												<span>
-													<i class="fas fa-star"></i> 5
-												</span>
-												<span>
-													20 Des 2022
-												</span>
-										</div>
-										<div class="desc-info-review">
-												Lorem ipsum dolor sit amet consectetur adipisicing elit. Est ipsa earum voluptate dolore ab. Adipisci veritatis labore delectus tempora qui nostrum iste nisi ipsam, nemo quisquam sequi ipsa rem alias.
-										</div>  
-									</div>
-									<div class="clearer"></div>
-								</div>
-								<div class="list-info-review">
-									<div class="left-info-review">
-										<img src="@/assets/images/img-john-doe.jpg" alt="">
-									</div>
-									<div class="right-info-review">
-										<div class="row">
-												<div class="col-8">
-													<h5>
-														John Doe
-													</h5>
-												</div>
-												<div class="col-4">
-													<div class="text-right">
-														<div class="btn-group">
-																<div class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-																	<div class="icon-dropdown" v-b-tooltip.hover title="Menu lainnya">
-																		<i class="fas fa-ellipsis-v"></i>
-																	</div>
-																</div>
-																<ul class="dropdown-menu dropdown-menu-end">
-																	<li @click="actModalReportReview">
-																		<i class="far fa-flag"></i> Laporkan
-																	</li>
-																</ul>
-														</div>
-													</div>
-												</div>
-										</div>
-										<div class="value-info-review">
-												<span>
-													<i class="fas fa-star"></i> 5
-												</span>
-												<span>
-													20 Des 2022
-												</span>
-										</div>
-										<div class="desc-info-review">
-												Lorem ipsum dolor sit amet consectetur adipisicing elit. Est ipsa earum voluptate dolore ab. Adipisci veritatis labore delectus tempora qui nostrum iste nisi ipsam, nemo quisquam sequi ipsa rem alias.
-										</div>  
-									</div>
-									<div class="clearer"></div>
-								</div>
-								<div class="list-info-review">
-									<div class="left-info-review">
-										<div class="avatar-info-review bg-blue-dark-alt">
-												JD
-										</div>
-									</div>
-									<div class="right-info-review">
-										<div class="row">
-												<div class="col-8">
-													<h5>
-														Jane Doe
-													</h5>
-												</div>
-												<div class="col-4">
-													<div class="text-right">
-														<div class="btn-group">
-																<div class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-																	<div class="icon-dropdown" v-b-tooltip.hover title="Menu lainnya">
-																		<i class="fas fa-ellipsis-v"></i>
-																	</div>
-																</div>
-																<ul class="dropdown-menu dropdown-menu-end">
-																	<li @click="actModalReportReview">
-																		<i class="far fa-flag"></i> Laporkan
-																	</li>
-																</ul>
-														</div>
-													</div>
-												</div>
-										</div>
-										<div class="value-info-review">
-												<span>
-													<i class="fas fa-star"></i> 5
-												</span>
-												<span>
-													20 Des 2022
-												</span>
-										</div>
-										<div class="desc-info-review">
-												Lorem ipsum dolor sit amet consectetur adipisicing elit. Est ipsa earum voluptate dolore ab. Adipisci veritatis labore delectus tempora qui nostrum iste nisi ipsam, nemo quisquam sequi ipsa rem alias.
-										</div>  
-									</div>
-									<div class="clearer"></div>
-								</div>
-								<div class="list-info-review">
-									<div class="left-info-review">
-										<img src="@/assets/images/img-john-doe.jpg" alt="">
-									</div>
-									<div class="right-info-review">
-										<div class="row">
-												<div class="col-8">
-													<h5>
-														John Doe
-													</h5>
-												</div>
-												<div class="col-4">
-													<div class="text-right">
-														<div class="btn-group">
-																<div class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-																	<div class="icon-dropdown" v-b-tooltip.hover title="Menu lainnya">
-																		<i class="fas fa-ellipsis-v"></i>
-																	</div>
-																</div>
-																<ul class="dropdown-menu dropdown-menu-end">
-																	<li @click="actModalReportReview">
-																		<i class="far fa-flag"></i> Laporkan
-																	</li>
-																</ul>
-														</div>
-													</div>
-												</div>
-										</div>
-										<div class="value-info-review">
-												<span>
-													<i class="fas fa-star"></i> 5
-												</span>
-												<span>
-													20 Des 2022
-												</span>
-										</div>
-										<div class="desc-info-review">
-												Lorem ipsum dolor sit amet consectetur adipisicing elit. Est ipsa earum voluptate dolore ab. Adipisci veritatis labore delectus tempora qui nostrum iste nisi ipsam, nemo quisquam sequi ipsa rem alias.
-										</div>  
-									</div>
-									<div class="clearer"></div>
-								</div>
-
-								<ul class="pagination justify-content-center mt-2">
-									<li class="page-item disabled">
-										<span class="page-link"><i class="fas fa-chevron-left"></i></span>
-									</li>
-									<li class="page-item active" aria-current="page">
-										<span class="page-link">1</span>
-									</li>
-									<li class="page-item"><a class="page-link" href="#">2</a></li>
-									<li class="page-item"><a class="page-link" href="#">3</a></li>
-									<li class="page-item">
-										<a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a>
-									</li>
-								</ul>
-
-								<!--
-								<div class="box-other">
-									Lihat lainnya <i class="fas fa-chevron-down"></i>
-								</div>
-								-->
-
-						</div>
 					</div>
 				</div>
 				<div class="right-prod sticky-position">
@@ -506,40 +256,40 @@
 						<h3>Ringkasan Belanja</h3>
 						
 						<div class="list-summary">
-								<div class="left-summary-alt">
-									Jumlah
-								</div>
-								<div class="right-summary-alt">
-									<div class="box-qty">
-										<span>
-											<button 
-												@click="setQtyReduce()"
-												class="button-qty"
-												:class="isQtyReduceDisabled() && 'os-54'" 
-												:disabled="isQtyReduceDisabled()" 
-											>
-												<i class="fas fa-minus" />
-											</button>
-										</span>
-										<input 
-											@input="checkQtyInput()"
-											v-model="productData.quantity.total"
-											class="text-qty"
-											:disabled="isProductEmpty()"
+							<div class="left-summary-alt">
+								Jumlah
+							</div>
+							<div class="right-summary-alt">
+								<div class="box-qty">
+									<span>
+										<button 
+											@click="setQtyReduce()"
+											class="button-qty"
+											:class="isQtyReduceDisabled() && 'os-54'" 
+											:disabled="isQtyReduceDisabled()" 
 										>
-										<span>
-											<button 
-												@click="setQtyAdd()"
-												class="button-qty"
-												:class="isQtyAddDisabled() && 'os-54'"
-												:disabled="isQtyAddDisabled()" 
-											>
-												<i class="fas fa-plus" />
-											</button>
-										</span>
-									</div>
+											<i class="fas fa-minus" />
+										</button>
+									</span>
+									<input 
+										@input="checkQtyInput()"
+										v-model="productData.quantity.total"
+										class="text-qty"
+										:disabled="isProductEmpty()"
+									>
+									<span>
+										<button 
+											@click="setQtyAdd()"
+											class="button-qty"
+											:class="isQtyAddDisabled() && 'os-54'"
+											:disabled="isQtyAddDisabled()" 
+										>
+											<i class="fas fa-plus" />
+										</button>
+									</span>
 								</div>
-								<div class="clearer" />
+							</div>
+							<div class="clearer" />
 						</div>
 						<div class="list-summary mt-3">
 							<div class="left-summary-alt">
@@ -593,23 +343,23 @@
 		<!-- Notif - Delete Wishlist -->
 		<div v-show="viewDeleteToWishlist" class="box-warning-confirm">
 			<div class="row">
-					<div class="col-12">
-						Barang sudah dihapus dari wishlist
-					</div>
+				<div class="col-12">
+					Barang sudah dihapus dari wishlist
+				</div>
 			</div>
 		</div>
 
 		<!-- Notif - Add Wishlist -->
 		<div v-show="viewAddToCart" class="box-success-confirm">
 			<div class="row">
-					<div class="col-9">
-						Barang sudah ditambahkan ke dalam keranjang
-					</div>
-					<div class="col-3 text-right">
-						<router-link to="#">
-							<b>Lihat</b>
-						</router-link>
-					</div>
+				<div class="col-9">
+					Barang sudah ditambahkan ke dalam keranjang
+				</div>
+				<div class="col-3 text-right">
+					<router-link to="#">
+						<b>Lihat</b>
+					</router-link>
+				</div>
 			</div>
 		</div>
 
@@ -619,32 +369,32 @@
 					<i class="bi bi-x-lg"></i>
 			</button>
 			<span class="modal__title">
-					<div class="box-modal-title text-left">
-						<i class="bi bi-share-fill"></i>
-						<h5>Bagikan</h5>
-					</div>
+				<div class="box-modal-title text-left">
+					<i class="bi bi-share-fill"></i>
+					<h5>Bagikan</h5>
+				</div>
 			</span>
 			<div class="modal__content">
-					<div class="box-copy">
-						<div class="mb-3">https://lms.bakingworld.id/home/course/membuat-aneka-bakso</div>
-						<div class="link-copy">
-							<i class="far fa-copy"></i> <b>Copy</b>
-						</div>
+				<div class="box-copy">
+					<div class="mb-3">https://lms.bakingworld.id/home/course/membuat-aneka-bakso</div>
+					<div class="link-copy">
+						<i class="far fa-copy"></i> <b>Copy</b>
 					</div>
-					<div class="box-button-share">
-						<button class="button">
-							<i class="fab fa-facebook-f"></i>
-						</button>
-						<button class="button">
-							<i class="fab fa-instagram"></i>
-						</button>
-						<button class="button">
-							<i class="fab fa-twitter"></i>
-						</button>
-						<button class="button">
-							<i class="fab fa-whatsapp"></i>
-						</button>
-					</div>
+				</div>
+				<div class="box-button-share">
+					<button class="button">
+						<i class="fab fa-facebook-f"></i>
+					</button>
+					<button class="button">
+						<i class="fab fa-instagram"></i>
+					</button>
+					<button class="button">
+						<i class="fab fa-twitter"></i>
+					</button>
+					<button class="button">
+						<i class="fab fa-whatsapp"></i>
+					</button>
+				</div>
 			</div>
 		</vue-final-modal>
 		<!-- End -->
@@ -652,61 +402,6 @@
 		<RelatedCourse />
 
 		<RelatedProduct />
-
-	</div>
-
-	<!-- Modal Report Review -->
-	<vue-final-modal v-model="viewModalReportReview" classes="modal-container" content-class="modal-content">
-		<button class="modal__close" @click="viewModalReportReview = false">
-			<i class="bi bi-x-lg"></i>
-		</button>
-		<span class="modal__title">
-			<div class="box-modal-title text-center">
-					<h3>Laporkan Review</h3>
-			</div>
-		</span>
-		<div class="modal__content">
-			<div class="box-option-alt">
-					<div class="form-check list-option-alt">
-						<input class="form-check-input" type="radio" id="reportreview1" name="report" value="1" @click="actHideOtherReportReview">
-						<label class="form-check-label fs-14 font-default-medium" for="reportreview1">
-							Spam
-						</label>
-					</div>
-					<div class="form-check list-option-alt">
-						<input class="form-check-input" type="radio" id="reportreview2" name="report" value="2" @click="actHideOtherReportReview">
-						<label class="form-check-label fs-14 font-default-medium" for="reportreview2">
-							Konten mengandung SARA, diskriminasi, vulgar, ancaman, serta pelanggaran nilai/norma sosial
-						</label>
-					</div>
-					<div class="form-check list-option-alt">
-						<input class="form-check-input" type="radio" id="reportreview3" name="report" value="3" @click="actOtherReportReview">
-						<label class="form-check-label fs-14 font-default-medium" for="reportreview3">
-							Lainnya
-						</label>
-						<div v-show="viewOtherReportReview">
-							<input type="text" class="form-control" placeholder="Isi alasan disini ...">
-						</div>
-					</div>
-			</div>
-			<div class="box-button text-center mt-3">
-					<button class="button button-gray" @click="viewModalReportReview = false"><b>Batal</b></button>
-					<button class="button button-blue" @click="actReportReview"><b>Laporkan</b></button>
-			</div>
-		</div>
-	</vue-final-modal>
-	<!-- End -->
-
-	<!-- Notif - Report -->
-	<div v-show="viewNotifReportReview" class="box-success-confirm">
-		<div class="row">
-			<div class="col-9">
-					Anda berhasil mengirim laporan
-			</div>
-			<div class="col-3 text-right">
-					<i class="bi bi-x-lg cursor-pointer" @click="actHideNotifReportReview"></i>
-			</div>
-		</div>
 	</div>
 </template>
 
@@ -742,10 +437,6 @@ const viewAddToWishlist = ref(false);
 const viewDeleteToWishlist = ref(false);
 const isActiveWishlist = ref(false);
 const viewShare = ref(false);
-
-const viewModalReportReview = ref(false);
-const viewOtherReportReview = ref(false);
-const viewNotifReportReview = ref(false);
 
 const getProduct = () => {
 	let params = {};
@@ -913,28 +604,6 @@ const actToWishlist = () => {
 		viewDeleteToWishlist.value = true;
 		setTimeout(() => viewDeleteToWishlist.value = false, 2000);
 	}
-};
-
-const actModalReportReview = () => {
-	viewModalReportReview.value = true;
-};
-
-const actOtherReportReview = () => {
-	viewOtherReportReview.value = true;
-};
-
-const actHideOtherReportReview = () => {
-	viewOtherReportReview.value = false;
-};
-
-const actReportReview = () => {
-	viewModalReportReview.value = false;
-	viewNotifReportReview.value = true;
-	setTimeout(() => viewNotifReportReview.value = false, 3000)
-};
-
-const actHideNotifReportReview = () => {
-	viewNotifReportReview.value = false;
 };
 
 </script>

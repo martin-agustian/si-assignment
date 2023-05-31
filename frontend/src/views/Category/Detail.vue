@@ -357,12 +357,14 @@ import * as Helper from '@/utils/helper';
 import { setProduct } from '@/models/product.model';
 // ** Store
 import { UserStore } from '@/stores/user.store';
+import { CartStore } from '@/stores/cart.store';
 
 const route = useRoute();
 
 const productApi = new ProductApi();
 const cartApi = new CartApi();
 
+const cartStore = CartStore();
 const userStore = UserStore();
 
 const cartData = reactive({
@@ -537,6 +539,9 @@ const setToCart = () => {
 			response = response.data;
 			console.log(response.result);
 			// cartData.data = setCart(response.result);
+
+			cartStore.fetchCarts(userData.data.id);
+
 			cartData.loading = false;
 		})
 		.catch(error => {

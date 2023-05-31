@@ -2,6 +2,7 @@ import { createWebHistory, createRouter } from "vue-router";
 import Home from "@/views/Home/Home";
 import SignIn from "@/views/SignIn/SignIn";
 import SignUp from "@/views/SignUp/SignUp";
+import Cart from "@/views/Cart/Cart";
 import FlashSale from "@/views/FlashSale/FlashSale";
 import OfficialStore from "@/views/OfficialStore/OfficialStore";
 import OfficialStoreBrand from "@/views/OfficialStore/OfficialBrand";
@@ -23,6 +24,11 @@ const routes = [
 		path: "/",
 		name: "Home",
 		component: Home,
+	},
+	{
+		path: "/cart",
+		name: "Cart",
+		component: Cart,
 	},
 	{
 		path: "/login",

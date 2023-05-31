@@ -1027,11 +1027,15 @@ const showModalEditLoc = ref(false),
 	viewSubLocation = ref(false);
 
 const getCarts = () => {
-	cartStore.fetchCarts({ user_id: userData.data.id });
-}; getCarts();
-
+	cartStore.fetchCarts(
+		userData.data.id
+	);
+};
 
 onMounted(() => {
+	// get carts data
+	getCarts();
+
 	// Left Menu Mobile
 	$('.actBoxMenu').off().on('click', function () {
 		$(".box-menu").css({"left" : "0px"});

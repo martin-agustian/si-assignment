@@ -24,14 +24,15 @@ export const CartStore = defineStore('cart', {
 	},
 
 	actions: {
-      async fetchCarts(params) {
+      async fetchCarts(userId) {
          try {
             this.carts.loading = true;
             const carts = await cartApi.list({ 
-               params: params 
+               params: {
+                  user_id: userId,
+               },
             });
             this.carts.loading = false;
-
             this.carts.data = setCarts(carts.data.result);
          }
          catch(error) {

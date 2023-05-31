@@ -23,11 +23,16 @@ router.get('/', async (req, res, next) => {
       .select('product user quantity _id')
       .populate('product user')
       .exec()
-      .then(result => {
+      .then(async (result) => {
+         const count = await Cart.find(params).countDocuments().exec();
+
          res.status(200).json({
             code: 200,
             message: 'success get data',
-            result: result,
+            result: {
+               count: count,
+               data: result,
+            },
          });
       })
       .catch(error => {

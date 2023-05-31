@@ -3,7 +3,7 @@ import * as Helper from "@/utils/helper";
 
 function modelProduct(data = {}) {
    data = {
-      id: data.id ? data.id : 0,
+      id: data._id ? data._id : 0,
       slug: data.slug ? data.slug : null,
       title: data.title ? Helper.setCapitalize(data.title) : null,
       image: data.image ? data.image : 0,

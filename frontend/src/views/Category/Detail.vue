@@ -262,11 +262,11 @@
 							<div class="right-summary-alt">
 								<div class="box-qty">
 									<span>
+										<!-- :class="isQtyReduceDisabled() && 'os-54'" 
+											:disabled="isQtyReduceDisabled()"  -->
 										<button 
 											@click="setQtyReduce()"
 											class="button-qty"
-											:class="isQtyReduceDisabled() && 'os-54'" 
-											:disabled="isQtyReduceDisabled()" 
 										>
 											<i class="fas fa-minus" />
 										</button>
@@ -275,14 +275,15 @@
 										@input="checkQtyInput()"
 										v-model="productData.quantity.total"
 										class="text-qty"
-										:disabled="isProductEmpty()"
+										:disabled="productData.data.stock <= 0"
 									>
 									<span>
+
+										<!-- :class="isQtyAddDisabled() && 'os-54'"
+											:disabled="isQtyAddDisabled()" -->
 										<button 
 											@click="setQtyAdd()"
-											class="button-qty"
-											:class="isQtyAddDisabled() && 'os-54'"
-											:disabled="isQtyAddDisabled()" 
+											class="button-qty" 
 										>
 											<i class="fas fa-plus" />
 										</button>
@@ -297,7 +298,7 @@
 							</div>
 							<div class="right-summary-alt">
 								<b class="clr-red">
-									{{ getProductBuyPrice() }}
+									{{ productBuyPrice }}
 								</b>
 							</div>
 							<div class="clearer" />
@@ -313,30 +314,9 @@
 								<i class="fas fa-plus"></i> &nbsp; <b>Keranjang</b>
 							</button>
 						</div>
-						<div class="box-action-courses mt-2">
-							<div class="list-action-courses" :class="[isActiveWishlist ? 'clr-pink' : 'clr-black']" @click="actToWishlist">
-								<i class="bi bi-heart-fill"></i> Wishlist
-							</div>
-							<div class="list-action-courses" @click="viewShare = true">
-								<i class="bi bi-share-fill"></i> Share
-							</div>
-						</div>
 					</div>
 				</div>
 				<div class="clearer" />
-			</div>
-		</div>
-
-		<div v-show="viewAddToWishlist" class="box-success-confirm">
-			<div class="row">
-				<div class="col-9">
-					Barang sudah ditambahkan ke dalam wishlist
-				</div>
-				<div class="col-3 text-right">
-					<router-link to="#">
-						<b>Lihat</b>
-					</router-link>
-				</div>
 			</div>
 		</div>
 
@@ -362,76 +342,39 @@
 				</div>
 			</div>
 		</div>
-
-		<!-- Modal Share -->
-		<vue-final-modal v-model="viewShare" classes="modal-container" content-class="modal-content">
-			<button class="modal__close" @click="viewShare = false">
-					<i class="bi bi-x-lg"></i>
-			</button>
-			<span class="modal__title">
-				<div class="box-modal-title text-left">
-					<i class="bi bi-share-fill"></i>
-					<h5>Bagikan</h5>
-				</div>
-			</span>
-			<div class="modal__content">
-				<div class="box-copy">
-					<div class="mb-3">https://lms.bakingworld.id/home/course/membuat-aneka-bakso</div>
-					<div class="link-copy">
-						<i class="far fa-copy"></i> <b>Copy</b>
-					</div>
-				</div>
-				<div class="box-button-share">
-					<button class="button">
-						<i class="fab fa-facebook-f"></i>
-					</button>
-					<button class="button">
-						<i class="fab fa-instagram"></i>
-					</button>
-					<button class="button">
-						<i class="fab fa-twitter"></i>
-					</button>
-					<button class="button">
-						<i class="fab fa-whatsapp"></i>
-					</button>
-				</div>
-			</div>
-		</vue-final-modal>
-		<!-- End -->
-
-		<RelatedCourse />
-
-		<RelatedProduct />
 	</div>
 </template>
 
 <script setup>
-import { ref, reactive } from 'vue';
+import { ref, reactive, computed } from 'vue';
 import { useRoute } from 'vue-router';
-// ** components
-import RelatedCourse from './RelatedCourse.vue';
-import RelatedProduct from './RelatedProduct.vue';
 // ** Apis
 import { ProductApi } from '@/apis/product.api';
-// ** Models
-import { setProduct } from '@/models/product.model';
+import { CartApi } from '@/apis/cart.api';
 // ** Helper
 import * as Helper from '@/utils/helper';
+// ** Models
+import { setProduct } from '@/models/product.model';
+// ** Store
+import { UserStore } from '@/stores/user.store';
 
 const route = useRoute();
 
 const productApi = new ProductApi();
+const cartApi = new CartApi();
+
+const userStore = UserStore();
 
 const cartData = reactive({
 	data: {			
-		count: 0,
-		pages: 1,
-		page: 1,
-		limit: 100,
-		data: {				
-			ecom_cart: [],
-			lms_cart: [],
-		},
+		// count: 0,
+		// pages: 1,
+		// page: 1,
+		// limit: 100,
+		// data: {				
+		// 	ecom_cart: [],
+		// 	lms_cart: [],
+		// },
 	},
 	notif: {
 		show: false,
@@ -447,13 +390,14 @@ const productData = reactive({
 	loading: false,
 });
 
+const userData = reactive({
+	data: userStore.getStoreUser,
+});
+
 const showingFullText = ref(false);
 // const bodyDesc = ref('Lorem ipsum dolor sit amet');
 const viewAddToCart = ref(false);
-const viewAddToWishlist = ref(false);
 const viewDeleteToWishlist = ref(false);
-const isActiveWishlist = ref(false);
-const viewShare = ref(false);
 
 const getProduct = () => {
 	let params = {};
@@ -474,154 +418,134 @@ const getProduct = () => {
 }; getProduct();
 
 
-const getCartAvailableQuantity = () => {
-	let cartECOM = cartData.data.ecom_cart;		
-	let cartECOMQuantity = 0;
+// const getCartAvailableQuantity = () => {
+// 	let cartECOM = cartData.data.ecom_cart;		
+// 	let cartECOMQuantity = 0;
 
-	let productData = productData.data;
-	let productStock = 0;
+// 	let productData = productData.data;
+// 	let productStock = 0;
 
-	if (
-		Array.isArray(productData.stock) && 
-		productData.stock.length > 0
-	) {
-		if (productData.stock[0].stock) {
-			productStock = productData.stock[0].stock;
-		}
-	}
+// 	if (
+// 		Array.isArray(productData.stock) && 
+// 		productData.stock.length > 0
+// 	) {
+// 		if (productData.stock[0].stock) {
+// 			productStock = productData.stock[0].stock;
+// 		}
+// 	}
 
-	if (
-		Array.isArray(cartECOM) && 
-		cartECOM.length > 0
-	) {
-		cartECOM.forEach((cart) => {
-			if (cart.item_id == productData.id) {
-				cartECOMQuantity = cart.quantity;
-			}
-		});
-	}
+// 	if (
+// 		Array.isArray(cartECOM) && 
+// 		cartECOM.length > 0
+// 	) {
+// 		cartECOM.forEach((cart) => {
+// 			if (cart.item_id == productData.id) {
+// 				cartECOMQuantity = cart.quantity;
+// 			}
+// 		});
+// 	}
 
-	return productStock - cartECOMQuantity;
-}
+// 	return productStock - cartECOMQuantity;
+// }
 
-const getProductBuyPrice = () => {
-	let quantity = productData.quantity;
-	let pricelist = productData.data.pricelist;
-	let price = 0;
-
-	if (Array.isArray(pricelist) && pricelist.length > 0) {
-		pricelist = pricelist[0];
-
-		price = Helper.clearIDR(pricelist.price);		
-		price = price * quantity.total;
-		
-		if (typeof price == 'number' && !Number.isInteger(price)) {
-			price = price.toFixed(2);
-		}
+const productBuyPrice = computed(() => {
+	let qty = productData.quantity.total;
+	let price = Helper.clearIDR(productData.data.price);
+	
+	price = price * qty;
+	
+	if (typeof price == 'number' && !Number.isInteger(price)) {
+		price = price.toFixed(2);
 	}
 
 	return Helper.setIDR(price);
-}
+});
 
+// const isQtyAddDisabled = () => {
+// 	let productStock = productData.data.stock;
+// 	let productQuantity = productData.quantity;
 
-const isProductEmpty = () => {
-	let productStock = productData.data.stock;
+// 	let isDisabled = false;
 
-	if (
-		productStock &&
-		Array.isArray(productStock) &&
-		productStock.length > 0 &&
-		productStock[0].stock && 
-		productStock[0].stock > 0
-	) {
-		return false;
-	}
-	else {
-		return true;
-	}
-}
+// 	if (!productStock) {
+// 		// let productQuantity: any = productData.quantity;		
+// 		// let productStock: any = productData.data.stock;
 
-const isQtyAddDisabled = () => {
-	let productStock = productData.data.stock;
-	let productQuantity = productData.quantity;
-
-	let isDisabled = false;
-
-	if (!productStock) {
-		// let productQuantity: any = productData.quantity;		
-		// let productStock: any = productData.data.stock;
-
-		// if (productQuantity.total == productStock[0].stock) {
-		// 	isDisabled = true;
-		// }
+// 		// if (productQuantity.total == productStock[0].stock) {
+// 		// 	isDisabled = true;
+// 		// }
 		
-		let cartStock = getCartAvailableQuantity();
+// 		let cartStock = getCartAvailableQuantity();
 
-		if (productQuantity.total == cartStock) {
-			isDisabled = true;
-		}
-	}
-	else {
-		isDisabled = true;
-	}
+// 		if (productQuantity.total == cartStock) {
+// 			isDisabled = true;
+// 		}
+// 	}
+// 	else {
+// 		isDisabled = true;
+// 	}
 	
-	return isDisabled;
-}
+// 	return isDisabled;
+// }
 
-const isQtyReduceDisabled = () => {
-	let isDisabled = false;
+// const isQtyReduceDisabled = () => {
+// 	let isDisabled = false;
 
-	if (isProductEmpty()) {
-		isDisabled = true;
-	}
-	else {
-		let productQuantity = productData.quantity;
+// 	if (isProductEmpty()) {
+// 		isDisabled = true;
+// 	}
+// 	else {
+// 		let productQuantity = productData.quantity;
 
-		if (productQuantity.total <= 1) {
-			isDisabled = true;
-		}
-	}
+// 		if (productQuantity.total <= 1) {
+// 			isDisabled = true;
+// 		}
+// 	}
 	
-	return isDisabled;
-}
+// 	return isDisabled;
+// }
 
 const setQtyAdd = () => {
-	let productQuantity = productData.quantity;		
+	let productQty = productData.quantity;	
 	let productStock = productData.data.stock;
 
-	if (!isProductEmpty()) {
-		if (
-			productQuantity.total < 
-			productStock[0].stock
-		) {
-			productQuantity.total += 1;         
-		}			
-	}      
+	if (productQty.total < productStock) {
+		productQty.total += 1;         
+	}
 }
 
 const setQtyReduce = () => {
-	let productQuantity = productData.quantity;
+	let productQty = productData.quantity;
 
-	if (productQuantity.total > 1) {
-		productQuantity.total = productQuantity.total - 1;
+	if (productQty.total > 1) {
+		productQty.total = productQty.total - 1;
 	}
 }
 
 const setToCart = () => {
+	let params = {};
+
+	params.user = userData.data.id;
+	params.product = productData.data.id;
+	params.quantity = productData.quantity.total;
+
+	cartData.loading = true;
+
+	cartApi
+		.store(params)
+		.then(response => {
+			response = response.data;
+			console.log(response.result);
+			// cartData.data = setCart(response.result);
+			cartData.loading = false;
+		})
+		.catch(error => {
+			console.log(error);
+			cartData.loading = false;
+		});
+
 	viewAddToCart.value = true;
    setTimeout(() => viewAddToCart.value = false, 3000);
-};
-
-const actToWishlist = () => {
-	if (!isActiveWishlist.value) {
-		isActiveWishlist.value = true;
-		viewAddToWishlist.value = true;
-		setTimeout(() => viewAddToWishlist.value = false, 2000);
-	} else {
-		isActiveWishlist.value = false;
-		viewDeleteToWishlist.value = true;
-		setTimeout(() => viewDeleteToWishlist.value = false, 2000);
-	}
 };
 
 </script>

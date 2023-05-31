@@ -1,3 +1,14 @@
+export function clearIDR(value) {
+	if (value) {
+		value = value.replaceAll('Rp ', '');
+		value = value.replaceAll('.', '');		
+		value = value.replaceAll(',', '.');
+		// value = Math.round(value);
+	}
+
+	return value;
+}
+
 export function getArrayFirstIndex(value) {
 	if (Array.isArray(value)) {
 		value = value[0];
@@ -51,6 +62,14 @@ export function setCapitalize(value) {
 
 export function setCapitalizeFirstLetter(value) {
 	return value[0].toUpperCase() + value.slice(1);
+}
+
+export function setIDR(number) {
+	if (number || number == 0) {
+		number = number.toString().replaceAll('.', ',');
+		return 'Rp ' + number.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+	}
+	else return number;
 }
 
 export function setGender(value) {

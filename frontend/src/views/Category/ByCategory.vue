@@ -20,7 +20,6 @@
                     <Filter />
                 </div> -->
                 <!-- <div class="right-page-courses"> -->
-
                     <div class="row">
                         <div class="col-sm-12 col-md-12 col-lg-7">
                             <div class="box-section-page">
@@ -38,10 +37,10 @@
                                 </div>
                                 <div class="col-9 col-sm-9 col-md-8 col-lg-8">
                                     <select class="form-select" aria-label="Default select example">
-                                        <option value="1" selected>Terbaru</option>
-                                        <option value="2">Harga Termurah</option>
-                                        <option value="3">Harga Tertinggi</option>
-                                        <option value="4">Terpopuler</option>
+                                        <option value="name_asc" selected>Nama A ke Z</option>
+                                        <option value="name_desc">Nama Z ke A</option>                                        
+                                        <option value="price_asc">Harga Termurah</option>
+                                        <option value="price_desc">Harga Tertinggi</option>                                       
                                     </select>
                                 </div>
                             </div>
@@ -49,7 +48,10 @@
                     </div>
 
                     <div class="box-product">
-                        <div class="list-product">
+                        <div 
+                            v-for="(product, i) in productData.data" :key="i"
+                            class="list-product"
+                        >
                             <router-link to="/category/detail">
                                 <div class="img-product">
                                     <div class="img-position-product">
@@ -57,11 +59,14 @@
                                     </div>
                                 </div>
                                 <div class="content-product">
+                                    <span>
+                                        Stok Habis
+                                    </span>
                                     <h5>
-                                        Jeruk Pontianak 1 Kg
+                                        {{ product.title }}
                                     </h5>
                                     <div class="price-product">
-                                        <span>Rp 300.000</span>
+                                        <span>{{ product.price }}</span>
                                         <!-- Discount -->
                                         <!--
                                         <div class="disc-info-product">
@@ -75,628 +80,13 @@
                                         -->
                                     </div>
                                     <div class="rate-product">
-                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star" />
                                         4.8 | 800 Ulasan 
                                     </div>
                                 </div>
                             </router-link>
                         </div>
-                        <div class="list-product">
-                            <router-link to="/category/detail">
-                                <div class="img-product">
-                                    <div class="img-position-product">
-                                        <img src="@/assets/images/img-store-2.jpg">
-                                    </div>
-                                </div>
-                                <div class="content-product">
-                                    <span>
-                                        Stok Habis
-                                    </span>
-                                    <h5>
-                                        Salmon Import Australia 100 Gr 
-                                    </h5>
-                                    <div class="price-product">
-                                        <span>Rp 300.000</span>
-                                    </div>
-                                    <div class="rate-product">
-                                        <i class="fas fa-star"></i>
-                                        4.8 | 800 Ulasan 
-                                    </div>
-                                </div>
-                            </router-link>
-                        </div>
-                        <div class="list-product">
-                            <router-link to="/category/detail">
-                                <div class="img-product">
-                                    <div class="img-position-product">
-                                        <img src="@/assets/images/img-store-1.jpg">
-                                    </div>
-                                </div>
-                                <div class="content-product">
-                                    <h5>
-                                        Jeruk Pontianak 1 Kg
-                                    </h5>
-                                    <div class="price-product">
-                                        <span>Rp 300.000</span>
-                                    </div>
-                                    <div class="rate-product">
-                                        <i class="fas fa-star"></i>
-                                        4.8 | 800 Ulasan 
-                                    </div>
-                                </div>
-                            </router-link>
-                        </div>
-                        <div class="list-product">
-                            <router-link to="/category/detail">
-                                <div class="img-product">
-                                    <div class="img-position-product">
-                                        <img src="@/assets/images/img-store-2.jpg">
-                                    </div>
-                                </div>
-                                <div class="content-product">
-                                    <span>
-                                        Stok Habis
-                                    </span>
-                                    <h5>
-                                        Salmon Import Australia 100 Gr 
-                                    </h5>
-                                    <div class="price-product">
-                                        <span>Rp 300.000</span>
-                                    </div>
-                                    <div class="rate-product">
-                                        <i class="fas fa-star"></i>
-                                        4.8 | 800 Ulasan 
-                                    </div>
-                                </div>
-                            </router-link>
-                        </div>
-                        <div class="list-product">
-                            <router-link to="/category/detail">
-                                <div class="img-product">
-                                    <div class="img-position-product">
-                                        <img src="@/assets/images/img-store-1.jpg">
-                                    </div>
-                                </div>
-                                <div class="content-product">
-                                    <h5>
-                                        Jeruk Pontianak 1 Kg
-                                    </h5>
-                                    <div class="price-product">
-                                        <span>Rp 300.000</span>
-                                    </div>
-                                    <div class="rate-product">
-                                        <i class="fas fa-star"></i>
-                                        4.8 | 800 Ulasan 
-                                    </div>
-                                </div>
-                            </router-link>
-                        </div>
-                        <div class="list-product">
-                            <router-link to="/category/detail">
-                                <div class="img-product">
-                                    <div class="img-position-product">
-                                        <img src="@/assets/images/img-store-2.jpg">
-                                    </div>
-                                </div>
-                                <div class="content-product">
-                                    <h5>
-                                        Salmon Import Australia 100 Gr 
-                                    </h5>
-                                    <div class="price-product">
-                                        <span>Rp 300.000</span>
-                                    </div>
-                                    <div class="rate-product">
-                                        <i class="fas fa-star"></i>
-                                        4.8 | 800 Ulasan 
-                                    </div>
-                                </div>
-                            </router-link>
-                        </div>
-                        <div class="list-product">
-                            <router-link to="/category/detail">
-                                <div class="img-product">
-                                    <div class="img-position-product">
-                                        <img src="@/assets/images/img-store-1.jpg">
-                                    </div>
-                                </div>
-                                <div class="content-product">
-                                    <h5>
-                                        Jeruk Pontianak 1 Kg
-                                    </h5>
-                                    <div class="price-product">
-                                        <span>Rp 300.000</span>
-                                    </div>
-                                    <div class="rate-product">
-                                        <i class="fas fa-star"></i>
-                                        4.8 | 800 Ulasan 
-                                    </div>
-                                </div>
-                            </router-link>
-                        </div>
-                        <div class="list-product">
-                            <router-link to="/category/detail">
-                                <div class="img-product">
-                                    <div class="img-position-product">
-                                        <img src="@/assets/images/img-store-2.jpg">
-                                    </div>
-                                </div>
-                                <div class="content-product">
-                                    <h5>
-                                        Salmon Import Australia 100 Gr 
-                                    </h5>
-                                    <div class="price-product">
-                                        <span>Rp 300.000</span>
-                                    </div>
-                                    <div class="rate-product">
-                                        <i class="fas fa-star"></i>
-                                        4.8 | 800 Ulasan 
-                                    </div>
-                                </div>
-                            </router-link>
-                        </div>
-                        <div class="list-product">
-                            <router-link to="/category/detail">
-                                <div class="img-product">
-                                    <div class="img-position-product">
-                                        <img src="@/assets/images/img-store-1.jpg">
-                                    </div>
-                                </div>
-                                <div class="content-product">
-                                    <h5>
-                                        Jeruk Pontianak 1 Kg
-                                    </h5>
-                                    <div class="price-product">
-                                        <span>Rp 300.000</span>
-                                    </div>
-                                    <div class="rate-product">
-                                        <i class="fas fa-star"></i>
-                                        4.8 | 800 Ulasan 
-                                    </div>
-                                </div>
-                            </router-link>
-                        </div>
-                        <div class="list-product">
-                            <router-link to="/category/detail">
-                                <div class="img-product">
-                                    <div class="img-position-product">
-                                        <img src="@/assets/images/img-store-2.jpg">
-                                    </div>
-                                </div>
-                                <div class="content-product">
-                                    <h5>
-                                        Salmon Import Australia 100 Gr 
-                                    </h5>
-                                    <div class="price-product">
-                                        <span>Rp 300.000</span>
-                                    </div>
-                                    <div class="rate-product">
-                                        <i class="fas fa-star"></i>
-                                        4.8 | 800 Ulasan 
-                                    </div>
-                                </div>
-                            </router-link>
-                        </div>
-                        <div class="list-product">
-                            <router-link to="/category/detail">
-                                <div class="img-product">
-                                    <div class="img-position-product">
-                                        <img src="@/assets/images/img-store-1.jpg">
-                                    </div>
-                                </div>
-                                <div class="content-product">
-                                    <h5>
-                                        Jeruk Pontianak 1 Kg
-                                    </h5>
-                                    <div class="price-product">
-                                        <span>Rp 300.000</span>
-                                    </div>
-                                    <div class="rate-product">
-                                        <i class="fas fa-star"></i>
-                                        4.8 | 800 Ulasan 
-                                    </div>
-                                </div>
-                            </router-link>
-                        </div>
-                        <div class="list-product">
-                            <router-link to="/category/detail">
-                                <div class="img-product">
-                                    <div class="img-position-product">
-                                        <img src="@/assets/images/img-store-2.jpg">
-                                    </div>
-                                </div>
-                                <div class="content-product">
-                                    <h5>
-                                        Salmon Import Australia 100 Gr 
-                                    </h5>
-                                    <div class="price-product">
-                                        <span>Rp 300.000</span>
-                                    </div>
-                                    <div class="rate-product">
-                                        <i class="fas fa-star"></i>
-                                        4.8 | 800 Ulasan 
-                                    </div>
-                                </div>
-                            </router-link>
-                        </div>
-                        <div class="list-product">
-                            <router-link to="/category/detail">
-                                <div class="img-product">
-                                    <div class="img-position-product">
-                                        <img src="@/assets/images/img-store-1.jpg">
-                                    </div>
-                                </div>
-                                <div class="content-product">
-                                    <h5>
-                                        Jeruk Pontianak 1 Kg
-                                    </h5>
-                                    <div class="price-product">
-                                        <span>Rp 300.000</span>
-                                    </div>
-                                    <div class="rate-product">
-                                        <i class="fas fa-star"></i>
-                                        4.8 | 800 Ulasan 
-                                    </div>
-                                </div>
-                            </router-link>
-                        </div>
-                        <div class="list-product">
-                            <router-link to="/category/detail">
-                                <div class="img-product">
-                                    <div class="img-position-product">
-                                        <img src="@/assets/images/img-store-2.jpg">
-                                    </div>
-                                </div>
-                                <div class="content-product">
-                                    <h5>
-                                        Salmon Import Australia 100 Gr 
-                                    </h5>
-                                    <div class="price-product">
-                                        <span>Rp 300.000</span>
-                                    </div>
-                                    <div class="rate-product">
-                                        <i class="fas fa-star"></i>
-                                        4.8 | 800 Ulasan 
-                                    </div>
-                                </div>
-                            </router-link>
-                        </div>
-                        <div class="list-product">
-                            <router-link to="/category/detail">
-                                <div class="img-product">
-                                    <div class="img-position-product">
-                                        <img src="@/assets/images/img-store-1.jpg">
-                                    </div>
-                                </div>
-                                <div class="content-product">
-                                    <h5>
-                                        Jeruk Pontianak 1 Kg
-                                    </h5>
-                                    <div class="price-product">
-                                        <span>Rp 300.000</span>
-                                    </div>
-                                    <div class="rate-product">
-                                        <i class="fas fa-star"></i>
-                                        4.8 | 800 Ulasan 
-                                    </div>
-                                </div>
-                            </router-link>
-                        </div>
-                        <div class="list-product">
-                            <router-link to="/category/detail">
-                                <div class="img-product">
-                                    <div class="img-position-product">
-                                        <img src="@/assets/images/img-store-2.jpg">
-                                    </div>
-                                </div>
-                                <div class="content-product">
-                                    <h5>
-                                        Salmon Import Australia 100 Gr 
-                                    </h5>
-                                    <div class="price-product">
-                                        <span>Rp 300.000</span>
-                                    </div>
-                                    <div class="rate-product">
-                                        <i class="fas fa-star"></i>
-                                        4.8 | 800 Ulasan 
-                                    </div>
-                                </div>
-                            </router-link>
-                        </div>
-                        <div class="list-product">
-                            <router-link to="/category/detail">
-                                <div class="img-product">
-                                    <div class="img-position-product">
-                                        <img src="@/assets/images/img-store-1.jpg">
-                                    </div>
-                                </div>
-                                <div class="content-product">
-                                    <h5>
-                                        Jeruk Pontianak 1 Kg
-                                    </h5>
-                                    <div class="price-product">
-                                        <span>Rp 300.000</span>
-                                    </div>
-                                    <div class="rate-product">
-                                        <i class="fas fa-star"></i>
-                                        4.8 | 800 Ulasan 
-                                    </div>
-                                </div>
-                            </router-link>
-                        </div>
-                        <div class="list-product">
-                            <router-link to="/category/detail">
-                                <div class="img-product">
-                                    <div class="img-position-product">
-                                        <img src="@/assets/images/img-store-2.jpg">
-                                    </div>
-                                </div>
-                                <div class="content-product">
-                                    <h5>
-                                        Salmon Import Australia 100 Gr 
-                                    </h5>
-                                    <div class="price-product">
-                                        <span>Rp 300.000</span>
-                                    </div>
-                                    <div class="rate-product">
-                                        <i class="fas fa-star"></i>
-                                        4.8 | 800 Ulasan 
-                                    </div>
-                                </div>
-                            </router-link>
-                        </div>
-                        <div class="list-product">
-                            <router-link to="/category/detail">
-                                <div class="img-product">
-                                    <div class="img-position-product">
-                                        <img src="@/assets/images/img-store-1.jpg">
-                                    </div>
-                                </div>
-                                <div class="content-product">
-                                    <h5>
-                                        Jeruk Pontianak 1 Kg
-                                    </h5>
-                                    <div class="price-product">
-                                        <span>Rp 300.000</span>
-                                    </div>
-                                    <div class="rate-product">
-                                        <i class="fas fa-star"></i>
-                                        4.8 | 800 Ulasan 
-                                    </div>
-                                </div>
-                            </router-link>
-                        </div>
-                        <div class="list-product">
-                            <router-link to="/category/detail">
-                                <div class="img-product">
-                                    <div class="img-position-product">
-                                        <img src="@/assets/images/img-store-2.jpg">
-                                    </div>
-                                </div>
-                                <div class="content-product">
-                                    <h5>
-                                        Salmon Import Australia 100 Gr 
-                                    </h5>
-                                    <div class="price-product">
-                                        <span>Rp 300.000</span>
-                                    </div>
-                                    <div class="rate-product">
-                                        <i class="fas fa-star"></i>
-                                        4.8 | 800 Ulasan 
-                                    </div>
-                                </div>
-                            </router-link>
-                        </div>
-                        <div class="list-product">
-                            <router-link to="/category/detail">
-                                <div class="img-product">
-                                    <div class="img-position-product">
-                                        <img src="@/assets/images/img-store-1.jpg">
-                                    </div>
-                                </div>
-                                <div class="content-product">
-                                    <h5>
-                                        Jeruk Pontianak 1 Kg
-                                    </h5>
-                                    <div class="price-product">
-                                        <span>Rp 300.000</span>
-                                    </div>
-                                    <div class="rate-product">
-                                        <i class="fas fa-star"></i>
-                                        4.8 | 800 Ulasan 
-                                    </div>
-                                </div>
-                            </router-link>
-                        </div>
-                        <div class="list-product">
-                            <router-link to="/category/detail">
-                                <div class="img-product">
-                                    <div class="img-position-product">
-                                        <img src="@/assets/images/img-store-2.jpg">
-                                    </div>
-                                </div>
-                                <div class="content-product">
-                                    <h5>
-                                        Salmon Import Australia 100 Gr 
-                                    </h5>
-                                    <div class="price-product">
-                                        <span>Rp 300.000</span>
-                                    </div>
-                                    <div class="rate-product">
-                                        <i class="fas fa-star"></i>
-                                        4.8 | 800 Ulasan 
-                                    </div>
-                                </div>
-                            </router-link>
-                        </div>
-                        <div class="list-product">
-                            <router-link to="/category/detail">
-                                <div class="img-product">
-                                    <div class="img-position-product">
-                                        <img src="@/assets/images/img-store-1.jpg">
-                                    </div>
-                                </div>
-                                <div class="content-product">
-                                    <h5>
-                                        Jeruk Pontianak 1 Kg
-                                    </h5>
-                                    <div class="price-product">
-                                        <span>Rp 300.000</span>
-                                    </div>
-                                    <div class="rate-product">
-                                        <i class="fas fa-star"></i>
-                                        4.8 | 800 Ulasan 
-                                    </div>
-                                </div>
-                            </router-link>
-                        </div>
-                        <div class="list-product">
-                            <router-link to="/category/detail">
-                                <div class="img-product">
-                                    <div class="img-position-product">
-                                        <img src="@/assets/images/img-store-2.jpg">
-                                    </div>
-                                </div>
-                                <div class="content-product">
-                                    <h5>
-                                        Salmon Import Australia 100 Gr 
-                                    </h5>
-                                    <div class="price-product">
-                                        <span>Rp 300.000</span>
-                                    </div>
-                                    <div class="rate-product">
-                                        <i class="fas fa-star"></i>
-                                        4.8 | 800 Ulasan 
-                                    </div>
-                                </div>
-                            </router-link>
-                        </div>
-                        <div class="list-product">
-                            <router-link to="/category/detail">
-                                <div class="img-product">
-                                    <div class="img-position-product">
-                                        <img src="@/assets/images/img-store-1.jpg">
-                                    </div>
-                                </div>
-                                <div class="content-product">
-                                    <h5>
-                                        Jeruk Pontianak 1 Kg
-                                    </h5>
-                                    <div class="price-product">
-                                        <span>Rp 300.000</span>
-                                    </div>
-                                    <div class="rate-product">
-                                        <i class="fas fa-star"></i>
-                                        4.8 | 800 Ulasan 
-                                    </div>
-                                </div>
-                            </router-link>
-                        </div>
-                        <div class="list-product">
-                            <router-link to="/category/detail">
-                                <div class="img-product">
-                                    <div class="img-position-product">
-                                        <img src="@/assets/images/img-store-2.jpg">
-                                    </div>
-                                </div>
-                                <div class="content-product">
-                                    <h5>
-                                        Salmon Import Australia 100 Gr 
-                                    </h5>
-                                    <div class="price-product">
-                                        <span>Rp 300.000</span>
-                                    </div>
-                                    <div class="rate-product">
-                                        <i class="fas fa-star"></i>
-                                        4.8 | 800 Ulasan 
-                                    </div>
-                                </div>
-                            </router-link>
-                        </div>
-                        <div class="list-product">
-                            <router-link to="/category/detail">
-                                <div class="img-product">
-                                    <div class="img-position-product">
-                                        <img src="@/assets/images/img-store-1.jpg">
-                                    </div>
-                                </div>
-                                <div class="content-product">
-                                    <h5>
-                                        Jeruk Pontianak 1 Kg
-                                    </h5>
-                                    <div class="price-product">
-                                        <span>Rp 300.000</span>
-                                    </div>
-                                    <div class="rate-product">
-                                        <i class="fas fa-star"></i>
-                                        4.8 | 800 Ulasan 
-                                    </div>
-                                </div>
-                            </router-link>
-                        </div>
-                        <div class="list-product">
-                            <router-link to="/category/detail">
-                                <div class="img-product">
-                                    <div class="img-position-product">
-                                        <img src="@/assets/images/img-store-2.jpg">
-                                    </div>
-                                </div>
-                                <div class="content-product">
-                                    <h5>
-                                        Salmon Import Australia 100 Gr 
-                                    </h5>
-                                    <div class="price-product">
-                                        <span>Rp 300.000</span>
-                                    </div>
-                                    <div class="rate-product">
-                                        <i class="fas fa-star"></i>
-                                        4.8 | 800 Ulasan 
-                                    </div>
-                                </div>
-                            </router-link>
-                        </div>
-                        <div class="list-product">
-                            <router-link to="/category/detail">
-                                <div class="img-product">
-                                    <div class="img-position-product">
-                                        <img src="@/assets/images/img-store-1.jpg">
-                                    </div>
-                                </div>
-                                <div class="content-product">
-                                    <h5>
-                                        Jeruk Pontianak 1 Kg
-                                    </h5>
-                                    <div class="price-product">
-                                        <span>Rp 300.000</span>
-                                    </div>
-                                    <div class="rate-product">
-                                        <i class="fas fa-star"></i>
-                                        4.8 | 800 Ulasan 
-                                    </div>
-                                </div>
-                            </router-link>
-                        </div>
-                        <div class="list-product">
-                            <router-link to="/category/detail">
-                                <div class="img-product">
-                                    <div class="img-position-product">
-                                        <img src="@/assets/images/img-store-2.jpg">
-                                    </div>
-                                </div>
-                                <div class="content-product">
-                                    <h5>
-                                        Salmon Import Australia 100 Gr 
-                                    </h5>
-                                    <div class="price-product">
-                                        <span>Rp 300.000</span>
-                                    </div>
-                                    <div class="rate-product">
-                                        <i class="fas fa-star"></i>
-                                        4.8 | 800 Ulasan 
-                                    </div>
-                                </div>
-                            </router-link>
-                        </div>
-                        <div class="clearer"></div>
+                        <div class="clearer" />
                     </div>
 
                     <ul class="pagination justify-content-center">
@@ -714,7 +104,7 @@
                     </ul>
 
                 <!-- </div>
-                <div class="clearer"></div> -->
+                <div class="clearer" /> -->
             </div>
         </div>
     </div>
@@ -745,7 +135,6 @@
         <div class="modal__content">
             <div class="box-modal-content">
                 <form @submit.prevent="actApplyFilter">
-
                     <div class="box-filter">
                         <h5>
                             Kategori
@@ -887,13 +276,7 @@
                         <h5>
                             Urutkan
                         </h5>
-                        <div class="box-option-alt">
-                            <div class="form-check list-option-alt">
-                                <input class="form-check-input" name="sort" type="radio" id="sort1" value="option1">
-                                <label class="form-check-label" for="sort1">
-                                    Terbaru
-                                </label>
-                            </div>
+                        <div class="box-option-alt">                            
                             <div class="form-check list-option-alt">
                                 <input class="form-check-input" name="sort"  type="radio" id="sort2" value="option2">
                                 <label class="form-check-label" for="sort2">
@@ -909,7 +292,13 @@
                             <div class="form-check list-option-alt">
                                 <input class="form-check-input" name="sort" type="radio" id="sort4" value="option4">
                                 <label class="form-check-label" for="sort4">
-                                    Terpopuler
+                                    Nama A ke Z
+                                </label>
+                            </div>
+                            <div class="form-check list-option-alt">
+                                <input class="form-check-input" name="sort" type="radio" id="sort1" value="option1">
+                                <label class="form-check-label" for="sort1">
+                                    Nama Z ke A
                                 </label>
                             </div>
                         </div>
@@ -934,10 +323,21 @@
 
 
 <script setup>
-import { ref } from 'vue';
+import { ref, reactive } from 'vue';
 // ** Components
 // import Filter from './Filter.vue';
 import FooterDesc from '@/components/FooterDesc.vue';
+// ** Apis
+import { ProductApi } from '@/apis/product.api';
+// ** Models
+import { setProductList } from '@/models/product.model';
+
+const productApi = new ProductApi();
+
+const productData = reactive({
+    data: {},
+    loading: false,
+});
 
 const showModalFIlter = ref(false);
 const showModalSort = ref(false);
@@ -957,6 +357,23 @@ const actModalSort = () => {
 const actApplySort = () => {
     showModalSort.value = false;
 };
+
+const getProduct = () => {
+    let params = {};
+
+    productApi
+        .list(params)
+        .then(response => {
+            response = response.data;
+            productData.data = setProductList(response.result);
+            console.log(productData);
+        })
+        .catch(error => {
+            console.log(error);
+        });
+}
+
+getProduct();
 </script>
 
 <style scoped>

@@ -167,7 +167,7 @@ import { required, email, minLength, helpers as vuelidateHelper } from "@vuelida
 // ** Api
 import { AuthApi } from "@/apis/auth.api";
 // ** Helper
-import * as Helper from "@/shared/utils/helper";
+import * as Helper from "@/utils/helper";
 
 export default {
 	data() {

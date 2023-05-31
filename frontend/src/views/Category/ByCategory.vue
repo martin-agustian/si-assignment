@@ -337,7 +337,7 @@ import FooterDesc from '@/components/FooterDesc.vue';
 // ** Apis
 import { ProductApi } from '@/apis/product.api';
 // ** Models
-import { setProductList } from '@/models/product.model';
+import { setProducts } from '@/models/product.model';
 
 const productApi = new ProductApi();
 
@@ -363,9 +363,7 @@ const getProducts = () => {
         .list({ params: params })
         .then(response => {
             response = response.data;
-            productData.data = setProductList(response.result);
-            console.log(productData);
-
+            productData.data = setProducts(response.result);
             productData.loading = false;
         })
         .catch(error => {

@@ -87,10 +87,18 @@
                             Stok produk telah habis untuk area <b>Jabodetabek, CIbinong</b>
                         </div>
                         <h1>
-                            Jeruk Pontianak 1 Kg Spesial 
-                        </h1>
+									{{ 
+										productData.data.title ? 
+										productData.data.title : '-' 
+									}}
+								</h1>
                         <div class="price-prod">
-                            <span>Rp 300.000</span>
+                            <span>
+										{{ 
+											productData.data.price ?  
+											productData.data.price : 'Rp 0'
+										}}
+									</span>
                             <!-- Diskon -->
                             <!--
                             <div class="disc-price-prod">
@@ -121,7 +129,7 @@
                                         Informasi
                                     </div>
                                     <div class="desc-prod">
-                                        No. SKU:  BW-02040204
+													No. SKU:  BW-02040204
                                     </div>
                                 </div>
                             </div>
@@ -137,7 +145,12 @@
                                 <div class="fs-13">
                                     Stok
                                     <div class="mt-1">
-                                        <b class="clr-black-dark">20</b>
+													<b class="clr-black-dark">
+														{{ 
+															productData.data.stock ?
+															productData.data.stock : 0
+														}}
+													</b>
                                     </div>
                                 </div>
                             </div>
@@ -689,10 +702,24 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, reactive } from 'vue';
+import { useRoute } from 'vue-router';
 // ** components
 import RelatedCourse from './RelatedCourse.vue';
 import RelatedProduct from './RelatedProduct.vue';
+// ** Apis
+import { ProductApi } from '@/apis/product.api';
+// ** Models
+import { setProduct } from '@/models/product.model';
+
+const route = useRoute();
+
+const productApi = new ProductApi();
+
+const productData = reactive({
+	data: {},
+	loading: false,
+});
 
 const showingFullText = ref(false);
 // const bodyDesc = ref('Lorem ipsum dolor sit amet');
@@ -706,6 +733,25 @@ const quantity = ref(1);
 const viewModalReportReview = ref(false);
 const viewOtherReportReview = ref(false);
 const viewNotifReportReview = ref(false);
+
+const getProduct = () => {
+	let params = {};
+
+	productData.loading = true;
+
+	productApi
+		.detailBySlug(route.params.slug, { params: params })
+		.then(response => {
+			response = response.data;
+			productData.data = setProduct(response.result);
+			productData.loading = false;
+		})
+		.catch(error => {
+			console.log(error);
+			productData.loading = false;
+		});
+}; getProduct();
+
 
 const actToCart = () => {
 	viewAddToCart.value = true;

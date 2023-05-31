@@ -15,7 +15,7 @@ function modelProduct(data = {}) {
    return data;
 }
 
-export function setProductList(data) {
+export function setProducts(data) {
    data.forEach((value, i) => {
       data[i] = modelProduct(value);
    });
@@ -31,6 +31,6 @@ export function setProductList(data) {
    return data;
 }
 
-export function setProductDetail(data) {
+export function setProduct(data) {
    return modelProduct(data);
 }

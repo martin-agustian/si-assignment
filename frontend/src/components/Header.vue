@@ -276,12 +276,11 @@
 									</div>
 								</div>
 								<div class="box-search">
-									
-									<form @submit.prevent="actSearch">
-									<input type="text" class="text-search" placeholder="Kamu mau cari apa hari ini?">
-									<button type="submit" class="button-search">
-										<i class="fas fa-search"></i>
-									</button>
+									<form @submit.prevent="setSearch">
+										<input type="text" class="text-search" placeholder="Kamu mau cari apa hari ini?">
+										<button type="submit" class="button-search">
+											<i class="fas fa-search"></i>
+										</button>
 									</form>
 								</div>
 							</div>
@@ -313,7 +312,7 @@
 												</div>
 												<div class="clearer"></div>
 											</div>
-											
+
 											<div class="box-blank-info">
 												<img src="@/assets/images/img-keranjang-kosong.png" alt="">
 												<h5>
@@ -329,27 +328,59 @@
 
 									<li>
 										<router-link to="#">
-											<i class="bi bi-cart"></i>
-											<span class="bg-red">0</span>
+											<i class="bi bi-cart" />
+											<span class="bg-red">
+												{{ 
+													cartData.data.count ? 
+													cartData.data.count : 0 
+												}}
+											</span>
 										</router-link>
-										<div class="nav-right-dropdown display-desktop">
-
+										<div 
+											v-if="cartData.loading" 
+											class="nav-right-dropdown display-desktop"
+										>
 											<div class="title-info-cart">
 												<div class="left-info-cart">
-													Keranjang (3)
+													Keranjang
 												</div>
 												<div class="right-info-cart">
 													<router-link :to="{ name: 'Cart' }">
 														Lihat Sekarang
 													</router-link>
 												</div>
-												<div class="clearer"></div>
+												<div class="clearer" />
 											</div>
 
-											<div class="box-info-cart">
+											<div class="box-info-cart text-left mt-2">
+												Loading..
+											</div>
+										</div>
+										<div 
+											v-else
+											class="nav-right-dropdown display-desktop"
+										>
+											<div class="title-info-cart">
+												<div class="left-info-cart">
+													Keranjang
+												</div>
+												<div class="right-info-cart">
+													<router-link :to="{ name: 'Cart' }">
+														Lihat Sekarang
+													</router-link>
+												</div>
+												<div class="clearer" />
+											</div>
+
+											<div v-if="cartData.data.count > 0" class="box-info-cart">
 												<router-link 
 													v-for="(cart, i) in cartData.data.data" :key="i"
-													:to="'/category/'+cart.product.slug"
+													:to="{
+														name: 'DetailProduct',
+														params: {
+															slug: cart.product.slug
+														}
+													}"
 												>
 													<div class="list-info-cart">
 														<div class="cover-info-cart">
@@ -360,12 +391,20 @@
 														<div class="content-info-cart">
 															<div class="left-content-info-cart">
 																<h5>
-																	{{ cart.product.title }}
+																	{{ 
+																		cart.product.title ? 																		
+																		cart.product.title : '-'
+																	}}
 																</h5>
-																<small>{{ cart.quantity }} Barang</small>
+																<small>
+																	{{ cart.quantity ? cart.quantity : 0 }} Barang
+																</small>
 															</div>
 															<div class="right-content-info-cart">
-																{{ cart.product.price }}
+																{{ 
+																	cart.product.price ?  
+																	cart.product.price : 'Rp 0'
+																}}
 															</div>
 														</div>
 														<div class="clearer" />
@@ -373,9 +412,7 @@
 												</router-link>
 											</div>
 
-											<!-- Jika Keranjang kosong -->
-											<!--
-											<div class="box-blank-info">
+											<div v-else class="box-blank-info">
 												<img src="@/assets/images/img-keranjang-kosong.png" alt="">
 												<h5>
 													Keranjang belanja Kamu kosong !
@@ -384,8 +421,6 @@
 													Temukan berbagai produk unggulan dan nikmati penawaran terbaik dari Kami.
 												</small>
 											</div>
-											-->
-
 										</div>
 									</li>
 								</ul>
@@ -454,16 +489,16 @@
 						</div>
 					</div>
 				</div>
-				<div class="clearer"></div>
+				<div class="clearer" />
 				
 			</div>
 			<div class="display-mobile">
 			<div class="box-search">
-				<form @submit.prevent="actSearch">
-				<input type="text" class="text-search" placeholder="Kamu mau cari apa hari ini?">
-				<button type="submit" class="button-search">
-					<i class="fas fa-search"></i>
-				</button>
+				<form @submit.prevent="setSearch">
+					<input type="text" class="text-search" placeholder="Kamu mau cari apa hari ini?">
+					<button type="submit" class="button-search">
+						<i class="fas fa-search"></i>
+					</button>
 				</form>
 			</div>
 			</div>
@@ -606,30 +641,12 @@
 						Biodata diri, Daftar Alamat & Kata Sandi
 					</span>
 				</router-link>
-				<!-- <router-link to="#" class="actCloseMenuMember">
-					<i class="bi bi-bounding-box-circles"></i> Komunitas Saya
-					<span>
-						Review & Forum Diskusi
-					</span>
-				</router-link>
-				<router-link to="/my-courses" class="actCloseMenuMember">
-					<i class="bi bi-play-circle"></i> Kursus Saya
-					<span>
-						Cek progress kursus & Sertifikat
-					</span>
-				</router-link> -->
 				<router-link to="#" class="actCloseMenuMember">
 					<i class="bi bi-clock-history"></i> History Pembelian
 					<span>
 						Cek pembelian terakhir Kamu
 					</span>
 				</router-link>
-				<!-- <router-link to="/my-events" class="actCloseMenuMember">
-					<i class="bi bi-ticket"></i> Event Saya
-					<span>
-						Cek tiket event Kamu
-					</span>
-				</router-link> -->
 				<router-link to="#" class="actCloseMenuMember">
 					<i class="bi bi-gift"></i> Kode Promo
 					<span>
@@ -648,12 +665,6 @@
 						Buat ulasan pembelian
 					</span>
 				</router-link>
-				<!-- <router-link to="/register-b2b" class="actCloseMenuMember">
-					<i class="bi bi-door-open"></i> Mendaftar Ke B2B
-					<span>
-						Dapatkan harga lebih murah
-					</span>
-				</router-link> -->
 
 				<router-link 
 					to="#"
@@ -665,17 +676,12 @@
 			</div>
 		</div>
 	</div>
-
-	<!-- Download App -->
-	<NotificationDownload />
 </template>
 
 <script setup>
 import { reactive, onMounted, computed } from 'vue';
 import { useRouter } from 'vue-router';
 import $ from 'jquery';
-// ** Components
-import NotificationDownload from '../components/NotificationDownload.vue';
 // ** Stores
 import { CartStore } from '@/stores/cart.store';
 import { UserStore } from '@/stores/user.store';
@@ -685,19 +691,16 @@ const router = useRouter();
 const cartStore = CartStore();
 const userStore = UserStore();
 
-const cartData = computed(() => {
-	return cartStore.getStoreCarts;
+const cartData = reactive({
+	data: computed(() => {
+		return cartStore.getStoreCarts;
+	}),
+	loading: false,
 });
 
 const userData = reactive({
 	data: userStore.getStoreUser,
 });
-
-const getCarts = () => {
-	cartStore.fetchCarts(
-		userData.data.id
-	);
-};
 
 onMounted(() => {
 	// get carts data
@@ -767,7 +770,23 @@ onMounted(() => {
 	});
 });
 
-const actSearch = () => {
+const getCarts = () => {
+	cartData.loading = true;
+
+	cartStore.fetchCarts(
+		userData.data.id
+	)
+	.then(response => {
+		console.log(response);
+		cartData.loading = false;
+	})
+	.catch(error => {
+		console.log(error);
+		cartData.loading = false;
+	});
+};
+
+const setSearch = () => {
 	router.push('/search');
 };
 

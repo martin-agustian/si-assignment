@@ -203,7 +203,7 @@ export default {
 
 						if(
 							userStore.setStoreUser({
-								id: user.id,
+								id: user._id,
 								name: user.name,
 								email: user.email,
 							})

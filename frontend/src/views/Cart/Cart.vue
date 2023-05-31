@@ -153,7 +153,7 @@ import { CartApi } from '@/apis/cart.api';
 // ** Helper
 import * as Helper from '@/utils/helper';
 // ** Models
-import { setCarts } from '@/models/cart.model';
+// import { setCarts } from '@/models/cart.model';
 
 const Swal = inject('$swal');
 
@@ -162,13 +162,10 @@ const cartApi = new CartApi();
 const cartStore = CartStore();
 const userStore = UserStore();
 
-// const cartData = computed(() => {
-// 	return cartStore.getStoreCarts;
-// });
-
-
 const cartData = reactive({
-	data: cartStore.getStoreCarts.data,
+	data: computed(() => {
+		return cartStore.getStoreCarts;
+	}),
 	loading: false,
 });
 
@@ -192,52 +189,54 @@ const cartTotalPrice = computed(() => {
 	return Helper.setIDR(totalPrice);
 });
 
+// const getCarts = () => {
+// 	let params = {};
+
+// 	params.user_id = userData.data.id;
+
+// 	cartData.loading = true;
+
+// 	cartApi
+// 		.list({ params: params })
+// 		.then(response => {
+// 			response = response.data;
+
+// 			cartStore.setStoreCarts(
+// 				// {
+// 				// data: 
+// 				setCarts(response.result) 
+// 			// }
+// 			);
+// 			cartData.data = cartStore.getStoreCarts.data;
+
+// 			// console.log(cartData);
+
+// 			cartData.loading = false;
+// 		})
+// 		.catch(error => {
+// 			console.log(error);
+// 			cartData.loading = false;
+// 		});
+// }
+
+
+const userData = reactive({
+	data: userStore.getStoreUser, 
+});
+
 const getCarts = () => {
-	let params = {};
-
-	params.user_id = userData.data.id;
-
-	cartData.loading = true;
-
-	cartApi
-		.list({ params: params })
-		.then(response => {
-			response = response.data;
-
-			cartStore.setStoreCarts(
-				// {
-				// data: 
-				setCarts(response.result) 
-			// }
-			);
-			cartData.data = cartStore.getStoreCarts.data;
-
-			// console.log(cartData);
-
-			cartData.loading = false;
-		})
-		.catch(error => {
-			console.log(error);
-			cartData.loading = false;
-		});
-}
-
+	cartStore.fetchCarts(
+		userData.data.id
+	).catch(error => {
+		console.log(error);
+	});
+};
+getCarts();
 
 onMounted(() => {
 	getCarts();
 });
 
-const userData = reactive({
-	data: userStore.getStoreUser,
-});
-
-// const getCarts = () => {
-// 	cartStore.fetchCarts(
-// 		userData.data.id
-// 	);
-// };
-
-// getCarts();
 
 const setDeleteCart = (cart) => {
 	Swal({

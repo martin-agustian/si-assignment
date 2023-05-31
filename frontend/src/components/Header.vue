@@ -461,7 +461,10 @@
 											</div>
 
 											<div class="box-info-cart">
-												<router-link to="#">
+												<router-link 
+													v-for="(cart, i) in cartData.data.data" :key="i"
+													:to="'/category/'+cart.product.slug"
+												>
 													<div class="list-info-cart">
 														<div class="cover-info-cart">
 															<div class="img-info-cart">
@@ -471,36 +474,15 @@
 														<div class="content-info-cart">
 															<div class="left-content-info-cart">
 																<h5>
-																	Pewarna Kue Merah Koepoe Spesial
+																	{{ cart.product.title }}
 																</h5>
-																<small>1 Barang</small>
+																<small>{{ cart.quantity }} Barang</small>
 															</div>
 															<div class="right-content-info-cart">
-																Rp 300.000
+																{{ cart.product.price }}
 															</div>
 														</div>
-														<div class="clearer"></div>
-													</div>
-												</router-link>
-												<router-link to="#">
-													<div class="list-info-cart">
-														<div class="cover-info-cart">
-															<div class="img-info-cart">
-																<img src="@/assets/images/img-store-2.jpg" alt="">
-															</div>
-														</div>
-														<div class="content-info-cart">
-															<div class="left-content-info-cart">
-																<h5>
-																	Bahan Kue Koepoe 30 Gram Pengemulsi 
-																</h5>
-																<small>1 Barang</small>
-															</div>
-															<div class="right-content-info-cart">
-																Rp 300.000
-															</div>
-														</div>
-														<div class="clearer"></div>
+														<div class="clearer" />
 													</div>
 												</router-link>
 											</div>
@@ -1021,21 +1003,60 @@
 import { ref, reactive, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import $ from 'jquery';
+// ** Api
+import { CartApi } from '@/apis/cart.api';
 // ** Components
 import NotificationDownload from '../components/NotificationDownload.vue';
-// ** Store
+// ** Models
+import { setCarts } from '@/models/cart.model';
+// ** Stores
 import { UserStore } from '@/stores/user.store';
+import { CartStore } from '@/stores/cart.store';
 
 const router = useRouter();
+
+const cartApi = new CartApi();
+
 const userStore = UserStore();
+const cartStore = CartStore();
+
+const userData = reactive({
+	data: userStore.getStoreUser,
+});
+
+const cartData = reactive({
+	data: cartStore.getStoreCart,
+	loading: false,
+});
 
 const showModalEditLoc = ref(false), 
 	viewMasterLocation = ref(true),
 	viewSubLocation = ref(false);
 
-const userData = reactive({
-	data: userStore.getStoreUser,
-});
+const getCarts = () => {
+	let params = {};
+
+	params.user = userData.data.id;
+
+	cartApi
+		.list({ params: params })
+		.then(response => {
+			response = response.data;
+
+			cartStore.setStoreCart(
+				setCarts(response.result)
+			);
+			cartData.data = cartStore.getStoreCart;
+
+			cartData.loading = false;
+		})
+		.catch(error => {
+			console.log(error);
+
+			cartData.loading = false;
+		});	
+}; getCarts();
+
 
 onMounted(() => {
 	// Left Menu Mobile

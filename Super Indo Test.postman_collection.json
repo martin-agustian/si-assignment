@@ -1,0 +1,400 @@
+{
+	"info": {
+		"_postman_id": "c47d9951-4b9e-4508-b032-c639630c7c75",
+		"name": "Super Indo Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26925453"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "test",
+									"description": "required | string",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "test@mailinator.com",
+									"description": "required | string | email | unique",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"description": "required | string | 8 chars",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "test@mailinator.com",
+									"description": "required | string | email",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "12345",
+									"description": "required | string | 8 chars",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get Users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:3000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "",
+									"description": "string",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "test",
+									"description": "string",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": "test@mailinator.com",
+									"description": "string | email",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users/6477e7f8c3e076163e066007",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"6477e7f8c3e076163e066007"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Store Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "slug",
+									"value": "produk-1",
+									"description": "required | string | unique",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "produk 1",
+									"description": "required | string",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"value": "https://martin-aws-bucket.s3.ap-southeast-1.amazonaws.com/img-store-3.jpg",
+									"description": "required | string | url",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "produk deskripsi 1",
+									"description": "required | string",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "500000",
+									"description": "required | number",
+									"type": "text"
+								},
+								{
+									"key": "stock",
+									"value": "10",
+									"description": "required | number",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "price_desc",
+									"description": "string | value : price_asc, price_desc, title_asc, title_desc",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product Detail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/products/produk-1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products",
+								"produk-1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/products/6476b519cbbd586534390bc1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products",
+								"6476b519cbbd586534390bc1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "Store Cart",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user",
+									"value": "6475ec48fffe6bf9d9394b88",
+									"description": "required | string | id",
+									"type": "text"
+								},
+								{
+									"key": "product",
+									"value": "6476b4d7cbbd586534390bb8",
+									"description": "required | string | id",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "1",
+									"description": "required | number",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/carts/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"carts",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Carts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/carts?user=6475ec48fffe6bf9d9394b88",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"carts"
+							],
+							"query": [
+								{
+									"key": "user",
+									"value": "6475ec48fffe6bf9d9394b88",
+									"description": "string | id"
+								},
+								{
+									"key": "product",
+									"value": "6475ec48fffe6bf9d9394b88",
+									"description": "string | id",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Cart",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/carts/6476edc962d735b5614094b8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"carts",
+								"6476edc962d735b5614094b8"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

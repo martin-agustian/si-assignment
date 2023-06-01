@@ -30,14 +30,14 @@ router.get('/', async (req, res, next) => {
             code: 200,
             message: 'success get data',
             result: {
-               count: count,
+               to: count,
                data: result,
             },
          });
       })
       .catch(error => {
          res.status(500).json({
-            code: error.code,
+            code: error.code ? error.code : 500,
             message: error.message,
          });
       });
@@ -84,7 +84,7 @@ router.post('/', async (req, res, next) => {
          })
          .catch(error => {
             res.status(500).json({
-               code: error.code,
+               code: error.code ? error.code : 500,
                message: error.message,
             });
          });
@@ -112,7 +112,7 @@ router.delete('/:id', async (req, res, next) => {
       })
       .catch(error => {
          res.status(500).json({
-            code: error.code,
+            code: error.code ? error.code : 500,
             message: error.message,
          });
       });

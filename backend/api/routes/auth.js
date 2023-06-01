@@ -54,7 +54,7 @@ router.post('/login', async (req, res, next) => {
          })
          .catch(error => {
             res.status(500).json({
-               code: error.code,
+               code: error.code ? error.code : 500,
                message: error.message
             });
          });
@@ -97,7 +97,7 @@ router.post('/register', (req, res, next) => {
          }
 
          res.status(500).json({
-            code: error.code,
+            code: error.code ? error.code : 500,
             message: error.message
          });
       });

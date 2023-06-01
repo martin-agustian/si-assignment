@@ -27,7 +27,8 @@ router.get('/', (req, res, next) => {
       })
       .catch(error => {
          res.status(500).json({
-            message: error
+            code: error.code ? error.code : 500,
+            message: error,
          });
       });
 });
@@ -47,7 +48,7 @@ router.delete('/:id', async (req, res, next) => {
       })
       .catch(error => {
          res.status(500).json({
-            code: error.code,
+            code: error.code ? error.code : 500,
             message: error.message,
          });
       });

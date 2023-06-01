@@ -25,30 +25,30 @@
 								<template #title>
 									<div class="box-cover-small">
 										<div class="position-cover-small">
-											<img src="@/assets/images/img-store-1.jpg" class="img-cover-small">
+											<img :src="productData.data.image" class="img-cover-small">
 										</div>
 									</div>
 								</template>
 								<div class="box-cover">
 									<div class="position-cover">
-										<img src="@/assets/images/img-store-1.jpg" class="img-cover">
+										<img :src="productData.data.image" class="img-cover">
 									</div>
 								</div>
 							</b-tab>
-							<b-tab class="clearer-padding">
+							<!-- <b-tab class="clearer-padding">
 								<template #title>
 									<div class="box-cover-small">
 										<div class="position-cover-small">
-											<img src="@/assets/images/img-store-3.jpg" class="img-cover-small">
+											<img :src="productData.data.image" class="img-cover-small">
 										</div>
 									</div>
 								</template>
 								<div class="box-cover">
 									<div class="position-cover">
-										<img src="@/assets/images/img-store-3.jpg" class="img-cover">
+										<img :src="productData.data.image" class="img-cover">
 									</div>
 								</div>
-							</b-tab>
+							</b-tab> -->
 						</b-tabs>
 					</div>
 					<div class="center-prod">					

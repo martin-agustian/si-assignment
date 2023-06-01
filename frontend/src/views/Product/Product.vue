@@ -32,8 +32,8 @@
                         </div>
                     </div>
                 </div>
-                <div v-else class="box-product">
-                    <div v-if="productData.data.length > 0">
+                <div v-else>
+                    <div v-if="productData.data.length > 0" class="box-product">
                         <div 
                             v-for="(product, i) in productData.data" :key="i"
                             class="list-product"
@@ -46,7 +46,7 @@
                             }">
                                 <div class="img-product">
                                     <div class="img-position-product">
-                                        <img src="@/assets/images/img-store-1.jpg">
+                                        <img :src="product.image">
                                     </div>
                                 </div>
                                 <div class="content-product">
@@ -76,7 +76,7 @@
                         </div>
                         <div class="clearer" />
                     </div>
-                    <BlankData />
+                    <BlankData v-else />
                 </div>
             </div>
         </div>

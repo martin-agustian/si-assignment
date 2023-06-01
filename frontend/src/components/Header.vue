@@ -388,7 +388,7 @@
 													<div class="list-info-cart">
 														<div class="cover-info-cart">
 															<div class="img-info-cart">
-																<img src="@/assets/images/img-store-1.jpg" alt="">
+																<img :src="cart.product.image" alt="">
 															</div>
 														</div>
 														<div class="content-info-cart">

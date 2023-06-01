@@ -20,7 +20,7 @@
 								<div class="right-all-cart">
 									<div class="cover-all-cart">
 										<div class="img-all-cart">
-											<img src="@/assets/images/img-store-2.jpg">											
+											<img :src="cart.product.image">											
 										</div>
 									</div>
 									<div class="content-all-cart">

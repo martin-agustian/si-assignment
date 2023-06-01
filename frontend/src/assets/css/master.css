@@ -3199,7 +3199,7 @@ hr{
 }
 
 .m-box-blankdata{
-    width: auto;
+    width: 100%;
     height: auto;
     position: relative;
     text-align: center;

@@ -33,47 +33,50 @@
                     </div>
                 </div>
                 <div v-else class="box-product">
-                    <div 
-                        v-for="(product, i) in productData.data" :key="i"
-                        class="list-product"
-                    >
-                        <router-link :to="{
-                            name: 'ProductDetail',
-                            params: {
-                                slug: product.slug,
-                            },
-                        }">
-                            <div class="img-product">
-                                <div class="img-position-product">
-                                    <img src="@/assets/images/img-store-1.jpg">
+                    <div v-if="productData.data.length > 0">
+                        <div 
+                            v-for="(product, i) in productData.data" :key="i"
+                            class="list-product"
+                        >
+                            <router-link :to="{
+                                name: 'ProductDetail',
+                                params: {
+                                    slug: product.slug,
+                                },
+                            }">
+                                <div class="img-product">
+                                    <div class="img-position-product">
+                                        <img src="@/assets/images/img-store-1.jpg">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="content-product">
-                                <span v-if="product.stock < 1">
-                                    Stok Habis
-                                </span>
-                                <h5>
-                                    {{ 
-                                        product.title ?
-                                        product.title : '-'
-                                    }}
-                                </h5>
-                                <div class="price-product">
-                                    <span>
+                                <div class="content-product">
+                                    <span v-if="product.stock < 1">
+                                        Stok Habis
+                                    </span>
+                                    <h5>
                                         {{ 
-                                            product.price ?
-                                            product.price : 'Rp 0'
+                                            product.title ?
+                                            product.title : '-'
                                         }}
-                                    </span>                                        
+                                    </h5>
+                                    <div class="price-product">
+                                        <span>
+                                            {{ 
+                                                product.price ?
+                                                product.price : 'Rp 0'
+                                            }}
+                                        </span>                                        
+                                    </div>
+                                    <div class="rate-product">
+                                        <i class="fas fa-star" />
+                                        4.8 | 800 Ulasan 
+                                    </div>
                                 </div>
-                                <div class="rate-product">
-                                    <i class="fas fa-star" />
-                                    4.8 | 800 Ulasan 
-                                </div>
-                            </div>
-                        </router-link>
+                            </router-link>
+                        </div>
+                        <div class="clearer" />
                     </div>
-                    <div class="clearer" />
+                    <BlankData />
                 </div>
             </div>
         </div>
@@ -160,8 +163,9 @@
 import { ref, reactive, onMounted } from 'vue';
 // ** Components
 import BannerSlider from './BannerSlider.vue';
-import FooterDesc from '@/components/FooterDesc.vue';
+import BlankData from '@/components/BlankData.vue';
 import Icon from '@/components/Icon.vue';
+import FooterDesc from '@/components/FooterDesc.vue';
 // ** Apis
 import { ProductApi } from '@/apis/product.api';
 // ** Models

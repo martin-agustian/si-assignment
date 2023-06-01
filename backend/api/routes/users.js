@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-const mongoose = require('mongoose');
 const User = require('../models/user.js');
 
 router.get('/', (req, res, next) => {
@@ -29,6 +28,27 @@ router.get('/', (req, res, next) => {
       .catch(error => {
          res.status(500).json({
             message: error
+         });
+      });
+});
+
+router.delete('/:id', async (req, res, next) => {
+   User
+      .findOneAndRemove({
+         _id: req.params.id,
+      })
+      .exec()
+      .then(result => {
+         res.status(200).json({
+            code: 200,
+            message: 'success delete data',
+            result: result,
+         });
+      })
+      .catch(error => {
+         res.status(500).json({
+            code: error.code,
+            message: error.message,
          });
       });
 });

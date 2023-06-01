@@ -96,4 +96,25 @@ router.post('/', (req, res, next) => {
       });
 });
 
+router.delete('/:id', async (req, res, next) => {
+   Product
+      .findOneAndRemove({
+         _id: req.params.id,
+      })
+      .exec()
+      .then(result => {
+         res.status(200).json({
+            code: 200,
+            message: 'success delete data',
+            result: result,
+         });
+      })
+      .catch(error => {
+         res.status(500).json({
+            code: error.code,
+            message: error.message,
+         });
+      });
+});
+
 module.exports = router;

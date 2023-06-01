@@ -7,7 +7,7 @@ be: Node JS + mongodb
 run fe :
 1. cd frontend
 2. npm install
-3. npm run serv
+3. npm run serve
 
 run be :
 1. cd backend

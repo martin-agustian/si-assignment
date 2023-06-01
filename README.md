@@ -1,18 +1,18 @@
 # si-assignment
 super indo assignment test
 
-fe: Vue 3 + bootstrap vue
+fe: Vue 3 + bootstrap vue, 
 be: Node JS + mongodb
 
-1. run fe :
-a. cd frontend
-b. npm i
-c. npm run serv
+run fe :
+1. cd frontend
+2. npm install
+3. npm run serv
 
-2. run be :
-a. cd backend
-b. npm i
-c. npm run start
+run be :
+1. cd backend
+2. npm install
+3. npm run start
 
 postman collection ada di root folder Super Indo Test.postman_collection
 
